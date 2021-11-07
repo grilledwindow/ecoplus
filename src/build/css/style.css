@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-model-viewer {
-    width: 400px;
-    height: 600px;
-    margin: 0 auto;
-}
-
 @layer components {
     body {
         @apply font-montserrat;
