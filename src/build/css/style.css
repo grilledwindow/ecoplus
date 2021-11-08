@@ -20,7 +20,7 @@
     }
 
     .event-card {
-        @apply rounded-lg text-lg max-w-md mr-8 border-4 border-gray-400 bg-gray-400;
+        @apply rounded-lg text-lg max-w-md mr-8 border-4 border-gray-200 bg-gray-200;
     }
 
     .community-card {
