@@ -36,4 +36,14 @@ $(document).ready(function() {
         'mouseup': handleUp,
         'mousemove': handleMove
     });
+
+    $("#delete-community").on("click", function() {
+        $(".modal").removeClass("hidden")
+    });
+
+    $(".close-modal").each(function() {
+        $(this).on("click", function() {
+            $(".modal").addClass("hidden")
+        });
+    });
 })
