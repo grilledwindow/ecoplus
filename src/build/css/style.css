@@ -2,15 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-model-viewer {
-    width: 400px;
-    height: 600px;
-    margin: 0 auto;
-}
-
 @layer components {
     body {
         @apply font-montserrat;
+    }
+
+    h1 {
+        @apply font-bold text-4xl pb-8;
     }
 
     .btn-primary {
@@ -19,5 +17,22 @@ model-viewer {
 
     .btn-secondary {
         @apply whitespace-nowrap text-center bg-gray-200 hover:bg-gray-400 text-black text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-400 focus:outline-none transition-colors duration-200;
+    }
+
+    .event-card {
+        @apply rounded-lg text-lg max-w-md mr-8 border-4 border-gray-200 bg-gray-200;
+    }
+
+    .community-card {
+        @apply max-w-md rounded-lg text-lg mr-8 border-4 border-gray-200 bg-gray-200 p-4;
+    }
+
+    .slide {
+        @apply cursor-pointer;
+    }
+
+    .slide.active {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
     }
 }
