@@ -4,11 +4,29 @@
 
 @layer components {
     body {
+        overflow: overlay;
         @apply font-montserrat;
     }
 
     h1 {
         @apply font-bold text-4xl pb-8;
+    }
+
+    /* scrollbar css */
+    ::-webkit-scrollbar {
+        @apply w-4;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-200 rounded-full border-4 border-solid border-transparent bg-clip-content;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-400;
     }
 
     .btn-primary {
