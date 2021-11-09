@@ -30,11 +30,11 @@ $(document).ready(function() {
         $(".mobile-menu").toggle("hidden")
     })
     
-    $('.slide').on({
+    $(".slide").on({
         "mousedown": handleDown,
-        'mouseleave': handleLeave,
-        'mouseup': handleUp,
-        'mousemove': handleMove
+        "mouseleave": handleLeave,
+        "mouseup": handleUp,
+        "mousemove": handleMove
     });
 
     $("#delete-community").on("click", function() {
