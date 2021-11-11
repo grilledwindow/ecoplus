@@ -28,10 +28,10 @@ const handler: Handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ authUser }),
+      body: JSON.stringify({ user: publicUser[0] }),
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return {
       statusCode: 400,
       body: JSON.stringify(error),
