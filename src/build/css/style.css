@@ -37,6 +37,10 @@
         @apply whitespace-nowrap text-center bg-gray-200 hover:bg-gray-400 text-black text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-400 focus:outline-none transition-colors duration-200;
     }
 
+    .btn-delete {
+        @apply whitespace-nowrap text-center bg-red-400 hover:bg-red-500 text-black text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-red-400 focus:outline-none transition-colors duration-200;
+    }
+
     .event-card {
         @apply rounded-lg text-lg max-w-md mr-8 border-4 border-gray-200 bg-gray-200;
     }
@@ -52,5 +56,17 @@
     .slide.active {
         cursor: grabbing;
         cursor: -webkit-grabbing;
+    }
+    .switchFlex1{
+        display:flex; 
+        justify-content:center; 
+        gap: 100px; 
+        align-items: center; 
+    }
+    @media (max-width: 800px){
+    .switchFlex1{
+        display: flex;
+        flex-direction: column;
+    }
     }
 }
