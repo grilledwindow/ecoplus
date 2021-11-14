@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - ecoplus</title>
-    <link rel="icon" href="../assets/icons/ecoplus.png">
+    <link rel="icon" href="./assets/icons/ecoplus.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,9 +44,9 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
-            <a href="index.html" class="block py-3 px-3 hover:text-black text-blacks">Home</a>
-            <a href="./src/html/data-table.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
-            <a href="./src/html/dashboard.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <a href="./index.html" class="block py-3 px-3 hover:text-black text-blacks">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
             <div class="block py-3 px-3 flex-wrap">
                 <a class="btn-secondary">Sign Up</a>
                 <a class="btn-primary ml-4">Sign In</a>
@@ -58,7 +58,7 @@
         <div class="bg-primary mx-8 rounded-2xl flex flex-col md:flex-row">
             <div class="w-full p-8 flex-col md:w-1/2 md:p-12">
                 <h1>Protect the Earth now.</h1>
-                <p class="pb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="pb-8">You are welcome to connect with organisations and communities that align with your environmental interest or browse through our educational hub to learn about how you can contribute positively to the environment.</p>
                 <a class="btn-primary" href="./volunteer.html">Start Volunteering</a><br>
                 <p class="flex pt-8 md:pt-24">
                     Find Out More
@@ -68,50 +68,24 @@
                 </p>
             </div>
             <div class="z-10 w-full h-72 md:w-1/2 md:h-auto">
-                <model-viewer class="h-full w-full rounded-r-2xl" camera-controls alt="Earth" loading="eager" auto-rotate src="../assets/models/Earth.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                <model-viewer class="h-full w-full rounded-r-2xl" camera-controls alt="Earth" loading="eager" auto-rotate src="./assets/models/Earth.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
             </div>
         </div>
         <div class="mx-8 mt-8 flex flex-col">
             <h1>Upcoming Volunteering Events</h1>
-            <div class="flex overflow-x-auto slide">
-                <div class="event-card">
-                    <div class="h-48"></div>
-                    <div class="bg-white p-4 w-96 min-w-full rounded-b-md">
-                        <span class="font-bold">Clean and Green Singapore</span>
-                        <h2 class="text-xl font-bold">Help Wanted</h2>
-                        <p>Singapore, Singapore</p>
-                        <p>1400 - 1800</p>
-                        <a class="btn-primary flex items-center justify-center mt-8">
-                            More Info
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="flex overflow-x-auto slide" id="event-mini-browse"></div>
         </div>
         <div class="mx-8 mt-8 flex flex-col">
             <h1>Join a Community</h1>
-            <div class="flex overflow-x-auto slide">
-                <div class="community-card">
-                    <div class="w-88 min-w-full">
-                        <h2 class="text-xl font-bold">Zero Waste Organization</h2>
-                        <a class="btn-primary flex items-center justify-center mt-8">
-                            More Info
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="flex overflow-x-auto slide" id="community-mini-browse"></div>
         </div>
         <div class="mx-8 mt-8 flex flex-col md:flex-row">
-            <div class="w-auto h-96 md:h-auto md:w-1/2 rounded-lg bg-gray-200"></div>
+            <div class="w-auto md:w-1/2 flex items-center">
+                <img class="object-scale-down w-full h-80 rounded-lg" src="./assets/images/community-illustration.jpg"></img>
+            </div>
             <div class="w-auto p-0 pt-12 md:w-1/2 md:p-12">
-                <h1>Talk to other like-minded people!</h1>
-                <p class="pb-4 md:pb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h1>Find your community</h1>
+                <p class="pb-4 md:pb-8">Find other like-minded people and follow their journey in contributing positively to the environment.</p>
                 <a class="btn-primary flex items-center justify-center mt-8 w-48 mb-8 md:mb-0">
                     Get Started
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -123,7 +97,7 @@
         <div class="mx-8 mt-8 flex flex-col-reverse md:flex-row">
             <div class="w-auto p-0 pt-12 md:w-1/2 md:p-12">
                 <h1>Learn about playing your part</h1>
-                <p class="pb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="pb-8">Visit our educational hub to learn more about the environment through Augmented Reality!</p>
                 <a class="btn-primary flex items-center justify-center mt-8 w-48">
                     Get Started
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,7 +105,9 @@
                     </svg>
                 </a>
             </div>
-            <div class="w-auto h-96 md:h-auto md:w-1/2 rounded-lg bg-gray-200"></div>
+            <div class="w-auto md:w-1/2 flex items-center">
+                <img class="object-scale-down w-full h-80 rounded-lg" src="./assets/images/education-illustration.jpg"></img>
+            </div>
         </div>
     </main>
 
