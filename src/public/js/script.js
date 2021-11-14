@@ -2,19 +2,19 @@ let isDown = false, startX, scrollLeft;
 
 function handleDown(e) {
     isDown = true;
-    $(this).addClass('active');
+    $(this).addClass("active");
     startX = e.pageX - $(this).offset().left;
     scrollLeft = $(this).scrollLeft();
 }
 
 function handleLeave() {
     isDown = false;
-    $(this).removeClass('active');
+    $(this).removeClass("active");
 }
 
 function handleUp() {
     isDown = false;
-    $(this).removeClass('active');
+    $(this).removeClass("active");
 }
 
 function handleMove(e) {
@@ -30,10 +30,10 @@ $(document).ready(function() {
         $(".mobile-menu").toggle("hidden")
     })
     
-    $('.slide').on({
+    $(".slide").on({
         "mousedown": handleDown,
-        'mouseleave': handleLeave,
-        'mouseup': handleUp,
-        'mousemove': handleMove
+        "mouseleave": handleLeave,
+        "mouseup": handleUp,
+        "mousemove": handleMove
     });
 })
