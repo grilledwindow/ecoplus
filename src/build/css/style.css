@@ -57,4 +57,16 @@
         cursor: grabbing;
         cursor: -webkit-grabbing;
     }
+    .switchFlex1{
+        display:flex; 
+        justify-content:center; 
+        gap: 100px; 
+        align-items: center; 
+    }
+    @media (max-width: 800px){
+    .switchFlex1{
+        display: flex;
+        flex-direction: column;
+    }
+    }
 }

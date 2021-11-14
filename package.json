@@ -3,6 +3,8 @@
     "build": "tailwindcss -i ./src/build/css/style.css -o ./src/public/css/style.css"
   },
   "dependencies": {
+    "@netlify/functions": "^0.8.0",
+    "@supabase/supabase-js": "^1.27.0",
     "tailwindcss": "^2.2.17"
   }
 }
