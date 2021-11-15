@@ -57,6 +57,11 @@
         cursor: grabbing;
         cursor: -webkit-grabbing;
     }
+
+    .disabled {
+        @apply disabled:opacity-50 hover:bg-black;
+    }
+
     .switchFlex1{
         display:flex; 
         justify-content:center; 

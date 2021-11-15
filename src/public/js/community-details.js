@@ -26,6 +26,9 @@ function handleMove(e) {
 }
 
 $(document).ready(function() {
+    let parameters = new URLSearchParams(window.location.search)
+    const id = parameters.get("id")
+
     $("button.mobile-menu-button").on("click", function() {
         $(".mobile-menu").toggle("hidden")
     })
@@ -35,20 +38,19 @@ $(document).ready(function() {
         "mouseleave": handleLeave,
         "mouseup": handleUp,
         "mousemove": handleMove
-    });
+    })
 
     $("#delete-community").on("click", function() {
         $(".modal").removeClass("hidden")
-    });
+    })
 
     $(".close-modal").each(function() {
         $(this).on("click", function() {
             $(".modal").addClass("hidden")
-        });
-    });
+        })
+    })
 
     // TODO: Case: if there are no communities
-    const id = "2"
     fetch("/api/community-details", {
         method: "POST",
         body: JSON.stringify({
@@ -100,11 +102,34 @@ $(document).ready(function() {
     .then((res) => res.json())
     .then(({data}) => {
         data.map(({users}) => {
+            let userID = sessionStorage.getItem("userID")
+
+            if (userID == users.id) {
+                $("#join-community").attr("disabled", true)
+                $("#join-community").addClass("disabled")
+                $("#joined-message").html("You have joined this community")
+            }
+            
             $("#community-users").append(`
                 <tr>
                     <td class="px-6 py-3 whitespace-nowrap text-gray-500">${users.name}</td>
                 </tr>
             `)
+
+            $("#join-community").on("click", function() {
+                let id = userID
+                let community_id = parameters.get("id")
+
+                fetch("/api/community-join", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id,
+                        community_id
+                    })
+                })
+                .then((res) => res.json())
+                .then((data) => window.location.reload())
+            })
         })
     })
 })
