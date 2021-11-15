@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - ecoplus</title>
+    <link rel="icon" href="../assets/icons/ecoplus.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="px-8">
+            <div class="flex justify-between">
+                <div class="flex space-x-4 py-5 items-center">
+                    <div>
+                        <a href="index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                    </div>
+
+                    <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
+                        <a href="./index.html" class="px-3 hover:text-black">Home</a>
+                        <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
+                        <a href="./education.html" class="px-3 hover:text-black">Education</a>
+                        <a href="./community.html" class="px-3 hover:text-black text-black">Community</a>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <a class="btn-secondary">Sign Up</a>
+                    <a class="btn-primary ml-4">Sign In</a>
+                </div>
+
+                <!-- mobile button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-gray-400 hover:text-black" fill="#FFF" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
+            <a href="./index.html" class="block py-3 px-3 hover:text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <a href="./community.html" class="block py-3 px-3 hover:text-black text-black">Community</a>
+            <div class="block py-3 px-3 flex-wrap">
+                <a class="btn-secondary">Sign Up</a>
+                <a class="btn-primary ml-4">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="mx-8">
+            <div class="mt-8">
+                <p class="my-2 font-semibold">Community Name</p>
+                <input type="text" class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+            </div>
+            <div class="mt-8">
+                <p class="my-2 font-semibold">Description</p>
+                <input type="text" class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+            </div>
+        </div>
+        <div class="mx-8">
+            <h1 class="mt-8">Member(s)</h1>
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="overflow-hidden rounded-lg border-4 border-gray-200">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left font-semibold text-gray-500">Member Name</th>
+                                    <th scope="col" class="px-6 py-3 text-left font-semibold text-gray-500">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200" id="members-list">
+                                <tr>
+                                    <td class="px-6 py-3 whitespace-nowrap text-black">John</td>
+                                    <td class="px-6 py-3 whitespace-nowrap text-red-500">Remove</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-8">
+            <h1 class="mt-8">Delete this Community?</h1>
+            <button class="btn-warning" id="delete-community">Delete Community</button>
+        </div>
+        <div class="mx-8 flex mt-24">
+            <button class="btn-secondary flex items-center">Back</button>
+            <button class="btn-primary flex items-center ml-4">Submit</button>
+        </div>
+    </main>
+
+    <!-- modal -->
+    <div class="hidden modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black/50">
+        <div class="bg-white rounded-lg w-10/12 md:w-1/3">
+            <!-- modal header -->
+            <div class="px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center text-red-500">
+                    <div class="bg-red-100 p-2 rounded-full mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-2xl">Delete Community</h3>
+                </div>
+                <button class="text-black close-modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <!-- modal body -->
+            <div class="px-4 pb-4">
+                Are you sure you want to delete this community? All of this community's data will be permanently removed. This action cannot be undone.
+            </div>
+            <div class="flex justify-end items-center w-100 border-t p-3">
+                <button class="btn-secondary close-modal">Back</button>
+                <button class="btn-warning ml-4">Delete Community</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+        <div class="flex flex-col md:flex-row pb-12">
+            <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
+            <ul class="w-auto md:w-3/4 grid grid-cols-3 gap-4">
+                <li class="space-y-4">
+                    <h2 class="text-primary">sources</h2>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">api used</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://modelviewer.dev/">model-viewer</a></li>
+                    </ul>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">developer</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://github.com/grilledwindow/ecoplus">github</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="./js/community.js"></script>
+</body>
+</html>
