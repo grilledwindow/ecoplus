@@ -58,32 +58,16 @@
 
     <main>
         <div class="mx-8">
-            <h1 class="mt-8">Community Name</h1>
-            <p class="text-lg">Description</p>
+            <h1 class="mt-8" id="community-name">Community Name</h1>
+            <p class="text-lg" id="community-description">Description</p>
             <div class="flex mt-12">
-                <button class="btn-secondary flex items-center">Back</button>
+                <a class="btn-secondary flex items-center" href="javascript:history.back()">Back</a>
                 <button class="btn-primary flex items-center ml-4">Join Community</button>
             </div>
         </div>
         <div class="mx-8">
             <h1 class="mt-8">Event(s)</h1>
-            <div class="flex overflow-x-auto slide">
-                <div class="event-card">
-                    <div class="h-48"></div>
-                    <div class="bg-white p-4 w-96 min-w-full rounded-b-md">
-                        <span class="font-bold">Clean and Green Singapore</span>
-                        <h2 class="text-xl font-bold">Help Wanted</h2>
-                        <p>Singapore, Singapore</p>
-                        <p>1400 - 1800</p>
-                        <a class="btn-primary flex items-center justify-center mt-8">
-                            More Info
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="flex overflow-x-auto slide" id="community-events"></div>
         </div>
         <div class="mx-8">
             <h1 class="mt-8">Member(s)</h1>
@@ -137,6 +121,6 @@
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="./js/community.js"></script>
+    <script src="./js/community-details.js"></script>
 </body>
 </html>
