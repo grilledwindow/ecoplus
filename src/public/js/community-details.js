@@ -71,7 +71,6 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        console.log(data)
         data.map((event) => {
             $("#community-events").append(`
                 <div class="event-card">
@@ -88,6 +87,23 @@ $(document).ready(function() {
                         </a>
                     </div>
                 </div>
+            `)
+        })
+    })
+
+    fetch("/api/community-users", {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        data.map(({users}) => {
+            $("#community-users").append(`
+                <tr>
+                    <td class="px-6 py-3 whitespace-nowrap text-gray-500">${users.name}</td>
+                </tr>
             `)
         })
     })
