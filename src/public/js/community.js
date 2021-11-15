@@ -23,7 +23,7 @@ $(document).ready(function() {
             $("#community-browse").append(`
                 <div class="text-lg bg-gray-200 border-4 border-gray-200 rounded-lg">
                     <div class="h-48"></div>
-                    <div class="bg-white p-4 w-96 min-w-full rounded-b-md">
+                    <div class="bg-white p-4 w-auto min-w-full rounded-b-md">
                         <h2 class="font-bold">${community.name}</h2>
                         <a class="btn-primary flex items-center justify-center mt-8" href="./community-details.html?id=${community.id}">
                             More Info
