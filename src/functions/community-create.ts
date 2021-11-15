@@ -18,6 +18,13 @@ const handler: Handler = async (event, context) => {
       .insert([
           {name: name, description: description, owner_id: owner_id}
       ])
+    
+    // Add owner to communities users table
+    let { data: userCommunity, error: userCommunityError } = await supabase
+      .from("communities_users")
+      .insert([
+          {id: owner_id, community_id: community[0].id}
+      ])
     if (communityError) throw { error: communityError };
 
     return {
