@@ -26,6 +26,9 @@ function handleMove(e) {
 }
 
 $(document).ready(function() {
+    let parameters = new URLSearchParams(window.location.search)
+    const id = parameters.get("id")
+
     $("button.mobile-menu-button").on("click", function() {
         $(".mobile-menu").toggle("hidden")
     })
@@ -48,7 +51,6 @@ $(document).ready(function() {
     });
 
     // TODO: Case: if there are no communities
-    const id = "2"
     fetch("/api/community-details", {
         method: "POST",
         body: JSON.stringify({
