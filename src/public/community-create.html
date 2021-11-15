@@ -58,20 +58,21 @@
 
     <main>
         <h1 class="m-8">Create your Community</h1>
-        <div class="mx-8 text-lg">
+        <form class="mx-8 text-lg" id="create-community">
             <div class="mt-8">
-                <p class="my-2 font-semibold">Community Name</p>
-                <input type="text" class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                <label class="my-2 font-semibold">Community Name</label>
+                <input type="text" id="create-community-name" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
             </div>
             <div class="mt-8">
-                <p class="my-2 font-semibold">Description</p>
-                <input type="text" class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />    
+                <label class="my-2 font-semibold">Description</label>
+                <input type="text" id="create-community-description" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />    
             </div>
             <div class="flex mt-12">
                 <a class="btn-secondary flex items-center" href="./community.html">Back</a>
-                <button class="btn-primary flex items-center ml-4">Submit</button>
+                <input type="submit" class="btn-primary flex items-center ml-4" value="Submit"/>
             </div>
-        </div>
+        </form>
+        <span class="mx-8" id="outcome-message"></span>
     </main>
 
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
@@ -102,6 +103,6 @@
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="./js/community.js"></script>
+    <script src="./js/community-create.js"></script>
 </body>
 </html>
