@@ -19,5 +19,38 @@ $(document).ready(function() {
 
         if (data.community != undefined) $("#event-community").html(data.community[0].name)
     })
+
+    fetch("/api/event-users",  {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        let user_id = sessionStorage.getItem("userID")
+
+        data.map(({users}) => {
+            if (users.id == user_id) {
+                $("#join-event").attr("disabled", true)
+                $("#join-event").addClass("disabled")
+                $("#joined-message").html("You have joined this event")
+            }
+
+            $("#join-event").on("click", function() {
+                let id = parameters.get("id")
+
+                fetch("/api/event-join", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id,
+                        user_id
+                    })
+                })
+                .then((res) => res.json())
+                .then((data) => window.location.reload())
+            })
+        })
+    })
 })
 
