@@ -61,13 +61,14 @@
             <section class="min-h-screen flex flex-col">
                 <div class="flex flex-1 items-center justify-center">
                     <div class="rounded-lg bg-white p-16 w-full sm:max-w-md lg:max-w-xl text-center">
-                        <form class="space-y-4">
-                            <h1>Sign up for <span class="text-primary">ecoplus</span></h1>
+                        <h1 class="pb-4">Sign up for <span class="text-primary">ecoplus</span></h1>
+                        <span id="outcome-message"></span>
+                        <form class="space-y-4 pt-4" id="sign-up">
                             <input id="name" type="text" placeholder="Full name" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
                             <input id="username" type="text" placeholder="Username" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
                             <input id="email" type="email" placeholder="Email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
                             <input id="password" type="password" placeholder="Password" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
-                            <button type="submit" class="btn-primary w-full">Sign Up</button>
+                            <input type="submit" class="btn-primary w-full" value="Submit" />
                         </form>
                         <p><a href="./signin.html" class="mt-4 text-indigo-600 underline hover:text-indigo-800">Sign in</a> instead</p>
                     </div>
@@ -103,5 +104,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/sign-up.js"></script>
 </body>
 </html>
