@@ -23,6 +23,7 @@
                         <a href="./index.html" class="px-3 hover:text-black">Home</a>
                         <a href="./volunteer.html" class="px-3 hover:text-black text-black">Volunteer</a>
                         <a href="./education.html" class="px-3 hover:text-black">Education</a>
+                        <a href="./community.html" class="px-3 hover:text-black">Community</a>
                     </div>
                 </div>
 
@@ -44,9 +45,10 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
-            <a href="index.html" class="block py-3 px-3 hover:text-black">Home</a>
-            <a href="./src/html/data-table.html" class="block py-3 px-3 hover:text-black text-blacks">Volunteer</a>
-            <a href="./src/html/dashboard.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <a href="./index.html" class="block py-3 px-3 hover:text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black text-blacks">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <a href="./community.html" class="block py-3 px-3 hover:text-black">Community</a>
             <div class="block py-3 px-3 flex-wrap">
                 <a class="btn-secondary">Sign Up</a>
                 <a class="btn-primary ml-4">Sign In</a>
@@ -58,17 +60,12 @@
         <div style='display:flex; align-content: center; justify-content: space-around;'>
             <div style='background: #E0E0E0; width: 500px; height: 369px;'></div>
             <div>
-                <div style='font-weight: bold; font-size: 32px;'>Beach Cleanup</div>
+                <div style='font-weight: bold; font-size: 32px;' id='event-name'></div>
                 <br>
-                <div>Posted by John</div>
-                <div>Organised by Team Seas</div>
+                <div id='event-host'></div>
+                <div id='event-community'></div>
                 <br>
-                <div style='width: 500px;'>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    It has survived not only five centuries, but also the leap into electronic
-                </div>
+                <div style='width: 500px;' id='event-description'></div>
                 <br>
                 <a class="btn-primary" id='apply' name='apply'>Apply</a>
             </div>
@@ -76,21 +73,15 @@
         <br>
         <div class='mx-16 mt-8 flex flex-col'>
             <div style='font-weight: bold; font-size: 32px;'>Location</div>
-            <div>Somewhere, Singapore</div>
+            <div id='event-location'></div>
             <br>
             <div style='font-weight: bold; font-size: 32px;'>Date</div>
-            <div>1400 - 1800</div>
+            <div id='event-date'></div>
             <br>
             <div style='font-weight: bold; font-size: 32px;'>Details</div>
-            <div style='width: 500px;'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                It has survived not only five centuries, but also the leap into electronic
-            </div>
+            <div style='width: 500px;' id='event-details'></div>
         </div>
     </div>
-    
     
 
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
@@ -120,6 +111,6 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/event-details.js"></script>
 </body>
 </html>
