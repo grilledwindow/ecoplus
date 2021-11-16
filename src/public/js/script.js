@@ -28,7 +28,8 @@ function handleMove(e) {
 function checkUserLogin() {
     if (sessionStorage.getItem("userID") != null) {
         $(".account").html(`
-            <div>
+            <div class="flex items-center">
+                <a href="./account.html" class="rounded-full object-cover h-8 w-8 bg-gray-400 mr-4"></a>
                 <p>Hi 
                     <a href="./account.html" class="text-primary">${sessionStorage.getItem("username")}</a>
                 !</p>
