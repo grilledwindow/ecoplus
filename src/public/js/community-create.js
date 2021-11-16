@@ -5,10 +5,6 @@ $(document).ready(function() {
         window.location.href = "../index.html";
     }
 
-    $("button.mobile-menu-button").on("click", function() {
-        $(".mobile-menu").toggle("hidden")
-    })
-
     $("#create-community").on("submit", function(e) {
         e.preventDefault()
         let name = $("#create-community-name").val()

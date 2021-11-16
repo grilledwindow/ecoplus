@@ -2,10 +2,6 @@ $(document).ready(function() {
     let parameters = new URLSearchParams(window.location.search)
     const id = parameters.get("id")
 
-    $("button.mobile-menu-button").on("click", function() {
-        $(".mobile-menu").toggle("hidden")
-    })
-
     fetch("/api/event-details",  {
         method: "POST",
         body: JSON.stringify({
