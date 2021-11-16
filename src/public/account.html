@@ -7,9 +7,119 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <nav>
+        <div class="mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-4 py-5 items-center">
+                    <div>
+                        <a href="index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                    </div>
+
+                    <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
+                        <a href="./index.html" class="px-3 hover:text-black text-black">Home</a>
+                        <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
+                        <a href="./education.html" class="px-3 hover:text-black">Education</a>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <a class="btn-secondary">Sign Up</a>
+                    <a class="btn-primary ml-4">Sign In</a>
+                </div>
+
+                <!-- mobile button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-gray-400 hover:text-black" fill="#FFF" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div class="mobile-menu hidden md:hidden ml-4 font-semibold text-lg text-gray-400">
+            <a href="index.html" class="block py-3 px-3 hover:text-black text-blacks">Home</a>
+            <a href="./src/html/data-table.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./src/html/dashboard.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <div class="block py-3 px-3 flex-wrap">
+                <a class="btn-secondary">Sign Up</a>
+                <a class="btn-primary ml-4">Sign In</a>
+            </div>
+        </div>
+    </nav>
     <main>
-        <button class="m-8 btn">Hello World</button>
+        <div class="p-8 flex">
+            <img class="rounded-full object-cover h-48 w-48" src="https://pyxis.nymag.com/v1/imgs/ab9/5c2/be64bb952bd296a35794ba0f62c3ca90ba-lightyear.rsquare.w700.jpg" alt="BuzzLightyear">
+            <div class="pl-10 font-medium">
+                <h1 class="text-4xl pb-5 pt-3">Buzz Lightyear</h1>
+                <h3 class="text-2xl">About</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit eros, 
+                eleifend ac mollis sed, ornare ut ex. Pellentesque scelerisque feugiat mi, in feugiat lectus tincidunt nec. </p>
+            </div>
+        </div>
+        <div>
+            <h1 class="text-4xl pt-5 pl-8">Recent Communities</h1>
+            <div class="px-8">
+                <div class="flex overflow-x-auto slide">
+                    <div class="community-card">
+                        <div class="w-88 min-w-full">
+                            <h2 class="text-xl font-bold">Recent Community 1</h2>
+                            <a class="btn-primary flex items-center justify-center mt-8">
+                                More Info
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-8">
+            <h1 class="text-4xl pt-8 pl-8">Badges</h1>
+            <div class="px-8">
+                <div class="w-96 h-50 rounded-lg border-2 border-gray-300 flex">
+                    <div>
+                        <h2 class="pt-5 pl-5 text-2xl">Over</h2>
+                        <p class="pl-5 py-3 text-6xl">200</p>
+                        <h2 class="pb-5 pl-5 text-2xl">Hours spend saving the earth</h2>
+                    </div>
+                    
+                    <img class="pt-5 pr-5 object-cover h-40 w-40" src="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/flexed-biceps.png">
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </main>
+    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+        <div class="flex flex-col md:flex-row pb-12">
+            <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
+            <ul class="w-auto md:w-3/4 grid grid-cols-3 gap-4">
+                <li class="space-y-4">
+                    <h2 class="text-primary">sources</h2>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">api used</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://modelviewer.dev/">model-viewer</a></li>
+                    </ul>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">developer</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://github.com/grilledwindow/ecoplus">github</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./src/js/script.js"></script>
 </body>
