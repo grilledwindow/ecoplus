@@ -48,6 +48,6 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        console.log(data)
+        $("#account-events-count").text(data.length)
     })
 })
