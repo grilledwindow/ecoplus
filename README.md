@@ -98,6 +98,9 @@ ecoplus is a volunteering and education website that aims to assist visitors in 
 **Content**
 * [<model-viewer>](https://modelviewer.dev/) → Load models and for Augmented Reality
 * [Bing News API](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1) → News API
+* [Earth model](https://poly.pizza/m/88CP80Kgb-u)
+* [Recycling model](https://poly.pizza/m/E3TEFhtsBv)
+* [Solar Panel model](https://poly.pizza/m/13JTUb3ngR0)
 * [Volunteering Header Image](https://www.freepik.com/premium-photo/group-diversity-people-volunteen-arm-around_3082724.htm#page=1&query=volunteer&position=16&from_view=search)
 * [Home Community Illustration](https://www.freepik.com/free-vector/save-planet-recycling-concept_7712300.htm)
 * [Home Education Illustration](https://storyset.com/illustration/ice-melting/bro)
