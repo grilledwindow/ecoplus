@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     fetch("/api/view-events")
     .then((res) => res.json())
     .then(({data}) => {
