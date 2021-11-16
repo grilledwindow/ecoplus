@@ -96,7 +96,7 @@ ecoplus is a volunteering and education website that aims to assist visitors in 
 
 ## Credits ##
 **Content**
-* [<model-viewer>](https://modelviewer.dev/) → Load models and for Augmented Reality
+* [model-viewer](https://modelviewer.dev/) → Load models and for Augmented Reality
 * [Bing News API](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1) → News API
 * [Earth model](https://poly.pizza/m/88CP80Kgb-u)
 * [Recycling model](https://poly.pizza/m/E3TEFhtsBv)
