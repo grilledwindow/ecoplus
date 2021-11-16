@@ -60,11 +60,15 @@
     <div class="flex mx-8 mt-8 flex-col md:flex-row">
         <div class="bg-gray-400 rounded-lg w-auto md:w-1/2"></div>
         <div class="w-auto ml-0 mt-8 md:w-1/2 md:ml-8 md:mt-0">
-            <h1 id="event-name"></h1>
-            <p>Posted by <span id="event-host"></span></p>
-            <p id="event-community"></p>
-            <p class="mt-4" id="event-description"></p>
-            <button class="btn-primary mt-8" id='apply' name='apply'>Apply</button>
+            <h1 id="event-name">Event Name</h1>
+            <p>Posted by <span id="event-host">Event Host</span></p>
+            <p id="event-community">Event Community</p>
+            <p class="mt-4 mb-6" id="event-description">Event Description</p>
+            <span id="joined-message"></span>
+            <div class="flex mt-6">
+                <a class="btn-secondary" href="javascript:history.back()">Back</a>
+                <button class="btn-primary ml-4" id="join-event">Join Event</button>
+            </div>
         </div>
     </div>
 
