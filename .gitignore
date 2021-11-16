@@ -1,2 +1,5 @@
 src/public/css
 node_modules
+
+.netlify
+.env
