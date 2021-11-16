@@ -61,11 +61,12 @@
             <section class="min-h-screen flex flex-col">
                 <div class="flex flex-1 items-center justify-center">
                     <div class="text-center rounded-lg bg-white p-16 w-full sm:max-w-md lg:max-w-xl">
-                        <h1>Sign in to <span class="text-primary">ecoplus</span></h1>
-                        <form class="space-y-4">
+                        <h1 class="pb-4">Sign in to <span class="text-primary">ecoplus</span></h1>
+                        <span id="outcome-message"></span>
+                        <form class="space-y-4 pt-4" id="sign-in">
                             <input id="email" type="email" placeholder="Email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
                             <input id="password" type="password" placeholder="Password" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
-                            <button type="submit" class="btn-primary w-full">Sign In</button>
+                            <input type="submit" class="btn-primary w-full" value="Submit" />
                         </form>
                         <a href="#" class="hover:underline">Forgot password?</a>
                         <p class="mt-4">Don't have an account? <a href="./signup.html" class="text-indigo-600 underline hover:text-indigo-800">Create One</a></p>
@@ -102,5 +103,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/sign-in.js"></script>
 </body>
 </html>
