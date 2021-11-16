@@ -50,49 +50,41 @@
         </div>
     </nav>
     <main>
-        <div class="p-8 flex">
-            <img class="rounded-full object-cover h-48 w-48" src="https://pyxis.nymag.com/v1/imgs/ab9/5c2/be64bb952bd296a35794ba0f62c3ca90ba-lightyear.rsquare.w700.jpg" alt="BuzzLightyear">
-            <div class="pl-10 font-medium">
-                <h1 class="text-4xl pb-5 pt-3">Buzz Lightyear</h1>
-                <h3 class="text-2xl">About</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit eros, 
-                eleifend ac mollis sed, ornare ut ex. Pellentesque scelerisque feugiat mi, in feugiat lectus tincidunt nec. </p>
-            </div>
-        </div>
-        <div>
-            <h1 class="text-4xl pt-5 pl-8">Recent Communities</h1>
-            <div class="px-8">
-                <div class="flex overflow-x-auto slide">
-                    <div class="community-card">
-                        <div class="w-88 min-w-full">
-                            <h2 class="text-xl font-bold">Recent Community 1</h2>
-                            <a class="btn-primary flex items-center justify-center mt-8">
-                                More Info
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
+        <div class="w-full h-full bg-cover" style="background-image: url(https://i.makeagif.com/media/1-27-2016/0zsEDQ.gif);">
+            <section class="min-h-screen flex flex-col">
+                <div class="flex flex-1 items-center justify-center">
+                    <div class="rounded-lg sm:border-2 bg-white px-4 lg:px-24 py-14 lg:max-w-xl sm:max-w-md w-full text-center">
+                        <form class="text-center">
+                            <h1 class="font-bold tracking-wider text-3xl mb-8 w-full text-gray-600">
+                                Sign in to Ecoplus
+                            </h1>
+                            <div class="py-2 text-left">
+                                <input type="email" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Email" />
+                            </div>
+                            <div class="py-2 text-left">
+                                <input type="password" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Password" />
+                            </div>
+                            <div class="py-2">
+                                <button type="submit" class="border-2 border-gray-100 focus:outline-none bg-primary text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-gray-700 hover:bg-black">
+                                    Sign In
+                                </button>
+                            </div>
+                        </form>
+                        <div class="text-center">
+                            <a href="#" class="hover:underline">Forgot password?</a>
+                        </div>
+                        <div class="text-center mt-12">
+                            <span>
+                                Don't have an account?
+                            </span>
+                            <a href="#" class="font-light text-md text-indigo-600 underline font-semibold hover:text-indigo-800">Create One</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="pt-8">
-            <h1 class="text-4xl pt-8 pl-8">Badges</h1>
-            <div class="px-8">
-                <div class="w-96 h-50 rounded-lg border-2 border-gray-300 flex">
-                    <div>
-                        <h2 class="pt-5 pl-5 text-2xl">Over</h2>
-                        <p class="pl-5 py-3 text-6xl">200</p>
-                        <h2 class="pb-5 pl-5 text-2xl">Hours spend saving the earth</h2>
-                    </div>
-                    
-                    <img class="pt-5 pr-5 object-cover h-40 w-40" src="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/flexed-biceps.png">
-                </div>
-            </div>
+            </section>
         </div>
     </main>
-    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+    <footer class="p-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
             <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
             <ul class="w-auto md:w-3/4 grid grid-cols-3 gap-4">
