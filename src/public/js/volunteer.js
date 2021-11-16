@@ -1,12 +1,8 @@
 $(document).ready(function() {
-    $("button.mobile-menu-button").on("click", function() {
-        $(".mobile-menu").toggle("hidden")
-    })
-    
+
     fetch("/api/view-events")
     .then((res) => res.json())
     .then(({data}) => {
-        console.log(data)
         data.map((event) => {
             $("#event-browse").append(`
             <div class="text-lg bg-gray-200 border-4 border-gray-200 rounded-lg">
