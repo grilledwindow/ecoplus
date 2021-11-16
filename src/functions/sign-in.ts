@@ -12,9 +12,14 @@ const handler: Handler = async (event, context) => {
     });
     if (error) throw { error: error };
 
+    let { data } = await supabase
+      .from("users")
+      .select("*")
+      .eq("id", user.id)
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ user: user }),
+      body: JSON.stringify({ user: user, data: data }),
     };
   } catch (error) {
     console.error(error);
