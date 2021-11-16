@@ -1,6 +1,15 @@
 $(document).ready(function() {
     let id = sessionStorage.getItem("userID")
 
+    if (id == null) {
+        window.location.href = "../index.html";
+    }
+    
+    $("#sign-out").on("click", function() {
+        sessionStorage.clear()
+        window.location.reload();
+    })
+
     fetch("/api/view-user", {
         method: "POST",
         body: JSON.stringify({
@@ -48,6 +57,6 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        console.log(data)
+        $("#account-events-count").text(data.length)
     })
 })
