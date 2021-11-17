@@ -1,6 +1,7 @@
 $(document).ready(function() {
     let parameters = new URLSearchParams(window.location.search)
     const id = parameters.get("id")
+    let user_id = sessionStorage.getItem("userID")
 
     fetch("/api/event-details",  {
         method: "POST",
@@ -28,7 +29,6 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        let user_id = sessionStorage.getItem("userID")
 
         data.map(({users}) => {
             if (user_id == null) {
@@ -56,6 +56,54 @@ $(document).ready(function() {
                 .then((res) => res.json())
                 .then((data) => window.location.reload())
             })
+        })
+    })
+
+    if (user_id != undefined) {
+        $("#event-comment-box").html(`
+            <form class="flex" id="event-comment">
+                <textarea id="event-user-comment" type="text" required class="border-4 border-gray-200 rounded-lg h-32 w-full p-4" placeholder="Post your comment"></textarea>
+                <input type="submit" value="Post" class="w-24 h-20 grid place-items-center bg-primary hover:bg-black cursor-pointer rounded-lg ml-4 font-semibold text-white"/>
+            </form>
+        `)
+    }
+
+    $("#event-comment").on("submit", function(e) {
+        e.preventDefault()
+        
+        let event_id = parameters.get("id")
+        let post = $("#event-user-comment").val()
+
+        fetch("/api/user-event-post", {
+            method: "POST",
+            body: JSON.stringify({
+                event_id,
+                user_id,
+                post
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => window.location.reload())
+    })
+
+    fetch("/api/event-posts", {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        data.map((data) => {
+            $("#event-comments").append(`
+            <div class="rounded-lg border-4 p-4 flex">
+                <div class="rounded-full bg-gray-200 h-12 w-12"></div>
+                <div class="ml-4 flow-col">
+                    <p class="font-bold">${data.users.username}</p>
+                    <p>${data.post}</p>
+                </div>
+            </div>
+            `)
         })
     })
 })
