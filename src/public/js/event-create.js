@@ -1,14 +1,8 @@
 $(document).ready(function() {
-    sessionStorage.setItem("userID", "5c83ff7a-12c1-4a8e-b953-b6c57528796b")
-
     if (sessionStorage.getItem("userID") == null) {
-        window.location.href = "../index.html";
+        window.location.href = "../sign-in.html";
     }
-
-    $("button.mobile-menu-button").on("click", function() {
-        $(".mobile-menu").toggle("hidden")
-    })
-
+    
     $("#create-event").on("submit", function(e) {
         e.preventDefault()
         let name = $("#create-event-name").val()

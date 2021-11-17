@@ -18,15 +18,22 @@ const handler: Handler = async (event, context) => {
       .eq("id", event[0].user_id)
       if (userError) throw { error: userError };
 
-    let { data: community, error: communityError } = await supabase
+    if (event[0].community_id != null) {
+      let { data: community, error: communityError } = await supabase
       .from("communities")
       .select("*")
       .eq("id", event[0].community_id)
       if (communityError) throw { error: communityError };
 
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ data: {user:user, event:event, community:community} }),
+      };
+    }
+    
     return {
       statusCode: 200,
-      body: JSON.stringify({ data: {user:user, event:event, community:community} }),
+      body: JSON.stringify({ data: {user:user, event:event} }),
     };
   } 
   
