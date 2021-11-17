@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - ecoplus</title>
+    <link rel="icon" href="../assets/icons/ecoplus.png">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="px-8">
+            <div class="flex justify-between">
+                <div class="flex space-x-4 py-5 items-center">
+                    <div>
+                        <a href="index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                    </div>
+
+                    <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
+                        <a href="./index.html" class="px-3 hover:text-black">Home</a>
+                        <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
+                        <a href="./education.html" class="px-3 hover:text-black">Education</a>
+                        <a href="./community.html" class="px-3 hover:text-black text-black">Community</a>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <a class="btn-secondary">Sign Up</a>
+                    <a class="btn-primary ml-4">Sign In</a>
+                </div>
+
+                <!-- mobile button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-gray-400 hover:text-black" fill="#FFF" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
+            <a href="./index.html" class="block py-3 px-3 hover:text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <a href="./community.html" class="block py-3 px-3 hover:text-black text-black">Community</a>
+            <div class="block py-3 px-3 flex-wrap">
+                <a class="btn-secondary">Sign Up</a>
+                <a class="btn-primary ml-4">Sign In</a>
+            </div>
+        </div>
+    </nav>
+    <div class="mx-10">
+        <div class="rounded-2xl mt-12 flex flex-col md:flex-row">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-2xl font-bold pb-4">Extreme Natural Disasters</h2>
+                <p class="text-lg">With increasing global temperatures at a steady rate of 1.5 degrees celcius, the earth has experienced higher intensity earthquakes, larger tsunamis and increased drought. In just February 2020 alone, 26 countries all experienced natural disasters which lead to many lives lost.</p>    
+            </div>
+            <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-4">
+                <model-viewer class="h-full w-full rounded-2xl bg-yellow-500" camera-controls alt="Volcano" loading="eager" auto-rotate src="./assets/models/Volcano.glb" camera-target="0m 0m 1m" camera-orbit="180deg" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+            </div>
+        </div>
+        <div class="mt-12 flex flex-col md:flex-row">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-2xl font-bold pb-4">Sea Levels Rising</h2>
+                <p class="text-lg">Global mean sea level has risen about 8–9 inches (21–24 centimeters) since 1880, with about a third of that coming in just the last two and a half decades. The rising water level is mostly due to a combination of melt water from glaciers and ice sheets and thermal expansion of seawater as it warms. In 2020, global mean sea level was 91.3 millimeters (3.6 inches) above the 1993 average, making it the highest annual average in the satellite record (1993-present).</p>    
+            </div>
+            <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-4">
+                <model-viewer class="h-full w-full rounded-2xl bg-blue-500" camera-controls alt="Iceberg" loading="eager" auto-rotate src="./assets/models/Iceberg.glb" camera-target="0m 0m 1m" camera-orbit="180deg" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+            </div>
+        </div>
+        <div class="mt-12 flex flex-col md:flex-row">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-2xl font-bold pb-4">Mass Deforestation</h2>
+                <p class="text-lg">When more trees are cut down, there will be less trees to absorb the carbon dioxide from the atmospheric air. Thus, more greenhouse gases in the air trapping heat and leading to global warming.</p>    
+            </div>
+            <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-4">
+                <model-viewer class="h-full w-full rounded-2xl bg-green-500" camera-controls alt="Tree" loading="eager" auto-rotate src="./assets/models/Forest.glb" camera-target="0m 0m 1m" camera-orbit="180deg" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+            </div>
+        </div>
+        <div class="mx-8 mt-8 flex flex-col">
+            <h1 style="text-align: center;">Fun Facts</h1>
+        </div>
+            <div class="flex flex-row">
+                <div class="w-4/12">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                        <img class="h-screen" src="../public/assets/images/education-drought.jpg">
+                        <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2">The Hottest Year</div>
+                          <p class="text-gray-700 text-base">
+                            Earth’s global average surface temperature in 2020 tied with 2016 as the warmest year on record, according to an analysis by NASA.
+                          </p>
+                        </div>
+                      </div>
+                </div>
+                <div class="w-4/12">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                        <img class="h-screen"src="../public/assets/images/education-deforestation.jpg">
+                        <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2">Mass Deforestation</div>
+                          <p class="text-gray-700 text-base">
+                            Mass deforestation contributes the most to the greenhouse effect as trees provide almost 67% of
+                            our oxygen and releases the most Carbon dioxide gas in return.
+                          </p>
+                        </div>
+                      </div>
+                </div>
+                <div class="w-4/12">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg flex flex-col">
+                        <img class="h-screen"src="../public/assets/images/education-iceberg.jpg">
+                        <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2">Icebergs</div>
+                          <p class="text-gray-700 text-base">
+                            Every year the earth loses 1.2 trillion tons of ice. The rate of ice melting has nearly doubled in speed over the past 20 years causing sea-levels to rise significantly.
+                          </p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        <div class="mt-8 flex flex-col">
+            <h1 style="text-align: center;">Watch a summary video!</h1>
+            <div class="self-center">
+                <iframe width="711" height="400" src="https://www.youtube.com/embed/RVcsV_-erys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>  
+        </div>
+    </div>
+    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+        <div class="flex flex-col md:flex-row pb-12">
+            <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
+            <ul class="w-auto md:w-3/4 grid grid-cols-3 gap-4">
+                <li class="space-y-4">
+                    <h2 class="text-primary">sources</h2>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">api used</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://modelviewer.dev/">model-viewer</a></li>
+                    </ul>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">developer</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://github.com/grilledwindow/ecoplus">github</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="../public/js/education.js"></script>
+</body>
+</html>
