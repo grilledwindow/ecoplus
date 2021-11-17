@@ -57,22 +57,24 @@
     </nav>
 
     <main>
-        <h1 class="m-8">Create your Community</h1>
-        <form class="mx-8 text-lg" id="create-community">
-            <div class="mt-8">
-                <label class="my-2 font-semibold">Community Name</label>
-                <input type="text" id="create-community-name" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
-            </div>
-            <div class="mt-8">
-                <label class="my-2 font-semibold">Description</label>
-                <input type="text" id="create-community-description" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
-            </div>
-            <div class="flex mt-12">
-                <a class="btn-secondary flex items-center" href="./community.html">Back</a>
-                <input type="submit" class="btn-primary flex items-center ml-4" value="Submit"/>
-            </div>
-        </form>
-        <span class="mx-8" id="outcome-message"></span>
+        <div class="mx-8">
+            <h1 class="my-12">Create your Community</h1>
+            <form class="text-lg space-y-8" id="create-community">
+                <div class="flex items-center">
+                    <label class="w-1/3 lg:w-1/6">Community Name</label>
+                    <input type="text" id="create-community-name" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6" />
+                </div>
+                <div class="flex items-center">
+                    <label class="w-1/3 lg:w-1/6">Description</label>
+                    <input type="text" id="create-community-description" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6" />
+                </div>
+                <div class="flex pt-12">
+                    <a class="btn-secondary flex items-center" href="./community.html">Back</a>
+                    <input type="submit" class="btn-primary flex items-center ml-4" value="Submit"/>
+                </div>
+            </form>
+            <span id="outcome-message" class="mt-4"></span>
+        </div>
     </main>
 
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
