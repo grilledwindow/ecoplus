@@ -36,8 +36,10 @@ ecoplus is a volunteering and education website that aims to assist visitors in 
 
 **Lai Wai Keat**
 * Education Page
+* View Education Solutions Page
+* View Education Impacts Page
 * Quiz
-* News Articles
+* News Articles API
 
 **Goh Wei Chong**
 * Volunteering Page
@@ -69,6 +71,8 @@ ecoplus is a volunteering and education website that aims to assist visitors in 
 * **Education**
   * Education Page
   * View News Articles
+  * View Education Solutions Page
+  * View Education Impacts Page
   * Quiz
 * **Account**
   * Accounts Details Page
@@ -104,7 +108,8 @@ ecoplus is a volunteering and education website that aims to assist visitors in 
 * [Volunteering Header Image](https://www.freepik.com/premium-photo/group-diversity-people-volunteen-arm-around_3082724.htm#page=1&query=volunteer&position=16&from_view=search)
 * [Home Community Illustration](https://www.freepik.com/free-vector/save-planet-recycling-concept_7712300.htm)
 * [Home Education Illustration](https://storyset.com/illustration/ice-melting/bro)
-* Volcano by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/4xoTMiF0D5J)
-* Bullet train by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/adPIQfcfgBD)
-* Iceberg 1 by S. Paul Michael [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/edgjUwbVVtl)
-* Forest by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/2_fv3tn3NG_)
+* [Volcano model](https://poly.pizza/m/4xoTMiF0D5J)
+* [Bullet train model](https://poly.pizza/m/adPIQfcfgBD)
+* [Iceberg model](https://poly.pizza/m/edgjUwbVVtl)
+* [Forest model](https://poly.pizza/m/2_fv3tn3NG_)
+* [Power plant model](https://poly.pizza/m/0Ipa29gN-iV)
