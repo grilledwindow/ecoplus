@@ -1,6 +1,7 @@
 $(document).ready(function() {
     let parameters = new URLSearchParams(window.location.search)
     const id = parameters.get("id")
+    const user_id = sessionStorage.getItem("userID")
 
     // TODO: Case: if there are no communities
     fetch("/api/community-details", {
@@ -57,15 +58,13 @@ $(document).ready(function() {
     .then((res) => res.json())
     .then(({data}) => {
         data.map(({users}) => {
-            let userID = sessionStorage.getItem("userID")
-
-            if (userID == null) {
+            if (user_id == null) {
                 $("#join-community").attr("disabled", true)
                 $("#join-community").addClass("disabled")
-                $("#joined-message").html("Please login to join this event")
+                $("#joined-message").html("Please login to join this community")
             }
 
-            if (userID == users.id) {
+            if (user_id == users.id) {
                 $("#join-community").attr("disabled", true)
                 $("#join-community").addClass("disabled")
                 $("#joined-message").html("You have joined this community")
@@ -78,7 +77,7 @@ $(document).ready(function() {
             `)
 
             $("#join-community").on("click", function() {
-                let id = userID
+                let id = user_id
                 let community_id = parameters.get("id")
 
                 fetch("/api/community-join", {
@@ -91,6 +90,45 @@ $(document).ready(function() {
                 .then((res) => res.json())
                 .then((data) => window.location.reload())
             })
+        })
+    })
+
+    $("#community-comment").on("submit", function(e) {
+        e.preventDefault()
+        
+        let community_id = parameters.get("id")
+        let post = $("#community-user-comment").val()
+
+        fetch("/api/user-community-post", {
+            method: "POST",
+            body: JSON.stringify({
+                community_id,
+                user_id,
+                post
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => window.location.reload())
+    })
+
+    fetch("/api/community-posts", {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        data.map((data) => {
+            $("#community-comments").append(`
+            <div class="rounded-lg border-4 p-4 flex">
+                <div class="rounded-full bg-gray-200 h-12 w-12"></div>
+                <div class="ml-4 flow-col">
+                    <p class="font-bold">${data.users.username}</p>
+                    <p>${data.post}</p>
+                </div>
+            </div>
+            `)
         })
     })
 })
