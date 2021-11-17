@@ -59,6 +59,12 @@ $(document).ready(function() {
         data.map(({users}) => {
             let userID = sessionStorage.getItem("userID")
 
+            if (userID == null) {
+                $("#join-community").attr("disabled", true)
+                $("#join-community").addClass("disabled")
+                $("#joined-message").html("Please login to join this event")
+            }
+
             if (userID == users.id) {
                 $("#join-community").attr("disabled", true)
                 $("#join-community").addClass("disabled")
