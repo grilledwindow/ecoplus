@@ -4,11 +4,7 @@ $(document).ready(function() {
     if (sessionStorage.getItem("userID") == null) {
         window.location.href = "../index.html";
     }
-
-    $("button.mobile-menu-button").on("click", function() {
-        $(".mobile-menu").toggle("hidden")
-    })
-
+    
     $("#create-event").on("submit", function(e) {
         e.preventDefault()
         let name = $("#create-event-name").val()

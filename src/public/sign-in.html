@@ -3,28 +3,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign In - ecoplus</title>
+    <link rel="icon" href="./assets/icons/ecoplus.png">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <div class="mx-auto px-4">
+        <div class="px-8">
             <div class="flex justify-between">
                 <div class="flex space-x-4 py-5 items-center">
                     <div>
-                        <a href="index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                        <a href="./index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
                     </div>
 
                     <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
-                        <a href="./index.html" class="px-3 hover:text-black text-black">Home</a>
+                        <a href="./index.html" class="px-3 hover:text-black">Home</a>
                         <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
                         <a href="./education.html" class="px-3 hover:text-black">Education</a>
+                        <a href="./community.html" class="px-3 hover:text-black">Community</a>
                     </div>
                 </div>
 
-                <div class="hidden md:flex items-center">
-                    <a class="btn-secondary">Sign Up</a>
-                    <a class="btn-primary ml-4">Sign In</a>
+                <div class="hidden md:flex items-center account">
+                    <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                    <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
                 </div>
 
                 <!-- mobile button -->
@@ -39,51 +44,38 @@
         </div>
 
         <!-- mobile menu -->
-        <div class="mobile-menu hidden md:hidden ml-4 font-semibold text-lg text-gray-400">
-            <a href="index.html" class="block py-3 px-3 hover:text-black text-blacks">Home</a>
-            <a href="./src/html/data-table.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
-            <a href="./src/html/dashboard.html" class="block py-3 px-3 hover:text-black">Education</a>
-            <div class="block py-3 px-3 flex-wrap">
-                <a class="btn-secondary">Sign Up</a>
-                <a class="btn-primary ml-4">Sign In</a>
+        <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
+            <a href="./index.html" class="block py-3 px-3 hover:text-black text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <a href="./community.html" class="block py-3 px-3 hover:text-black">Community</a>
+            <div class="block py-3 px-3 flex-wrap account">
+                <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
             </div>
         </div>
     </nav>
+
     <main>
-        <div class="w-full h-full bg-cover" style="background-image: url(https://i.makeagif.com/media/1-27-2016/0zsEDQ.gif);">
+        <div class="w-full h-full bg-cover" style="background-image: url(https://i.makeagif.com/media/1-27-2016/0zsEDQ.gif)">
             <section class="min-h-screen flex flex-col">
                 <div class="flex flex-1 items-center justify-center">
-                    <div class="rounded-lg sm:border-2 bg-white px-4 lg:px-24 py-14 lg:max-w-xl sm:max-w-md w-full text-center">
-                        <form class="text-center">
-                            <h1 class="font-bold tracking-wider text-3xl mb-8 w-full text-gray-600">
-                                Sign in to Ecoplus
-                            </h1>
-                            <div class="py-2 text-left">
-                                <input type="email" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Email" />
-                            </div>
-                            <div class="py-2 text-left">
-                                <input type="password" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Password" />
-                            </div>
-                            <div class="py-2">
-                                <button type="submit" class="border-2 border-gray-100 focus:outline-none bg-primary text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-gray-700 hover:bg-black">
-                                    Sign In
-                                </button>
-                            </div>
+                    <div class="text-center rounded-lg bg-white p-16 w-full sm:max-w-md lg:max-w-xl">
+                        <h1 class="pb-4">Sign in to <span class="text-primary">ecoplus</span></h1>
+                        <span id="outcome-message"></span>
+                        <form class="space-y-4 pt-4" id="sign-in">
+                            <input id="email" type="email" placeholder="Email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                            <input id="password" type="password" placeholder="Password" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                            <input type="submit" class="btn-primary w-full" value="Submit" />
                         </form>
-                        <div class="text-center">
-                            <a href="#" class="hover:underline">Forgot password?</a>
-                        </div>
-                        <div class="text-center mt-12">
-                            <span>
-                                Don't have an account?
-                            </span>
-                            <a href="#" class="font-light text-md text-indigo-600 underline font-semibold hover:text-indigo-800">Create One</a>
-                        </div>
+                        <a href="#" class="hover:underline">Forgot password?</a>
+                        <p class="mt-4">Don't have an account? <a href="./signup.html" class="text-indigo-600 underline hover:text-indigo-800">Create One</a></p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
+
     <footer class="p-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
             <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
@@ -110,6 +102,7 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="./src/js/script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/sign-in.js"></script>
 </body>
 </html>

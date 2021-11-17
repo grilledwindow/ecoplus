@@ -16,7 +16,7 @@
             <div class="flex justify-between">
                 <div class="flex space-x-4 py-5 items-center">
                     <div>
-                        <a href="index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                        <a href="./index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
                     </div>
 
                     <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
@@ -27,9 +27,9 @@
                     </div>
                 </div>
 
-                <div class="hidden md:flex items-center">
-                    <a class="btn-secondary">Sign Up</a>
-                    <a class="btn-primary ml-4">Sign In</a>
+                <div class="hidden md:flex items-center account">
+                    <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                    <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
                 </div>
 
                 <!-- mobile button -->
@@ -46,69 +46,57 @@
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
             <a href="./index.html" class="block py-3 px-3 hover:text-black">Home</a>
-            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black text-blacks">Volunteer</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black text-black">Volunteer</a>
             <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
             <a href="./community.html" class="block py-3 px-3 hover:text-black">Community</a>
-            <div class="block py-3 px-3 flex-wrap">
-                <a class="btn-secondary">Sign Up</a>
-                <a class="btn-primary ml-4">Sign In</a>
+            <div class="block py-3 px-3 flex-wrap account">
+                <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <div class='mx-10 mt-10' style='font-weight:100; font-size: 20px;'>
-            <div style='font-weight: bold; font-size: 30px;'>Create your own <span class='text-primary'>Event</span></div>
-            <form id='create-event'>
-                <div style='display:flex;' class='mt-10'>
-                    <label style='width: 200px;'>
-                        Event Name
-                    </label>
-                    <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="create-event-name" type="text">
+        <div class="mx-8">
+            <h1 class="mt-12">Create your own Event</h1>
+            <form id="create-event" class="text-lg">
+                <div class="flex mt-8 items-center">
+                    <label class="w-1/6">Event Name</label>
+                    <input id="create-event-name" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-3/6" />
                 </div>
-                <div style='display:flex;' class='mt-10'>
-                    <label style='width: 200px;'>
-                        Description
-                    </label>
-                    <textarea style='border-radius: 24px; width: 500px; height: 300px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="create-event-description" type="text"></textarea>
+                <div class="flex mt-8">
+                    <label class="w-1/6 pt-2">Event Description</label>
+                    <textarea id="create-event-description" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-3/6"></textarea>
                 </div>
-                <div style='display:flex;' class='mt-10'>
-                    <label style='width: 200px;'>
-                        Details
-                    </label>
-                    <textarea style='border-radius: 24px; width: 500px; height: 300px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="create-event-details" type="text"></textarea>
+                <div class="flex mt-8">
+                    <label class="w-1/6 pt-2">Event Details</label>
+                    <textarea id="create-event-details" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-3/6"></textarea>
                 </div>
-                <div style='display:flex;' class='mt-10'>
-                    <label style='width: 200px;'>
-                        Location
-                    </label>
-                    <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="create-event-location" type="text">
+                <div class="flex mt-8 items-center">
+                    <label class="w-1/6">Event Location</label>
+                    <input id="create-event-location" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-3/6" />
                 </div>
-                <div style='display:flex;' class='mt-10'>
-                    <label style='width: 200px;'>
-                        Date
-                    </label>
-                    <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="create-event-date" type="date">
+                <div class="flex mt-8 items-center">
+                    <label class="w-1/6">Event Date</label>
+                    <input id="create-event-date" type="date" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-3/6" />
                 </div>
-                <div style='display:flex;' class='mt-10'>
-                    <label style='width: 200px;'>
-                        Email Address
-                    </label>
-                    <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="create-event-email" type="email">
+                <div class="flex mt-8 items-center">
+                    <label class="w-1/6">Contact Email Address</label>
+                    <input id="create-event-email" type="email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-3/6" />
                 </div>
-                <div style='display:flex;' class='mt-10'>
-                    <label style='width: 200px;'>
-                        Contact Number
-                    </label>
-                    <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="create-event-contactno" type="tel">
+                <div class="flex mt-8 items-center">
+                    <label class="w-1/6">Contact Number</label>
+                    <input id="create-event-contactno" type="tel" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-3/6" />
                 </div>
-                <div style='display:flex; gap: 50px;' class='mt-16'>
-                    <a href='volunteer.html' class="btn-secondary">Back</a>
-                    <input type="submit" class="btn-primary flex items-center ml-4" value="Submit"/>
+
+                <p id="outcome-message" class="mt-4"></p>
+
+                <div class="flex mt-8">
+                    <a href="./volunteer.html" class="btn-secondary">Back</a>
+                    <input type="submit" class="btn-primary ml-4" value="Submit"/>
                 </div>
             </form>
         </div>
-        <span class="mx-8" id="outcome-message"></span>
     </main>
     
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
@@ -138,6 +126,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
     <script src="./js/event-create.js"></script>
 </body>
 </html>
