@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Details - ecoplus</title>
-    <link rel="icon" href="../assets/icons/ecoplus.png">
+    <title>Sign In - ecoplus</title>
+    <link rel="icon" href="./assets/icons/ecoplus.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,19 +16,20 @@
             <div class="flex justify-between">
                 <div class="flex space-x-4 py-5 items-center">
                     <div>
-                        <a href="index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                        <a href="./index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
                     </div>
 
                     <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
                         <a href="./index.html" class="px-3 hover:text-black">Home</a>
-                        <a href="./volunteer.html" class="px-3 hover:text-black text-black">Volunteer</a>
+                        <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
                         <a href="./education.html" class="px-3 hover:text-black">Education</a>
+                        <a href="./community.html" class="px-3 hover:text-black">Community</a>
                     </div>
                 </div>
 
-                <div class="hidden md:flex items-center">
-                    <a class="btn-secondary">Sign Up</a>
-                    <a class="btn-primary ml-4">Sign In</a>
+                <div class="hidden md:flex items-center account">
+                    <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                    <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
                 </div>
 
                 <!-- mobile button -->
@@ -44,51 +45,38 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
-            <a href="index.html" class="block py-3 px-3 hover:text-black">Home</a>
-            <a href="./src/html/data-table.html" class="block py-3 px-3 hover:text-black text-blacks">Volunteer</a>
-            <a href="./src/html/dashboard.html" class="block py-3 px-3 hover:text-black">Education</a>
-            <div class="block py-3 px-3 flex-wrap">
-                <a class="btn-secondary">Sign Up</a>
-                <a class="btn-primary ml-4">Sign In</a>
+            <a href="./index.html" class="block py-3 px-3 hover:text-black text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
+            <a href="./community.html" class="block py-3 px-3 hover:text-black">Community</a>
+            <div class="block py-3 px-3 flex-wrap account">
+                <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
             </div>
         </div>
     </nav>
 
-    <div class='mx-10 mt-10' style='font-weight:100; font-size: 20px;'>
-        <div style='font-weight: bold; font-size: 30px;'>Create your own <span class='text-primary'>Event</span></div>
-        <div style='display:flex; flex-direction: column;' class='mt-10'>
-            <label style='width: 200px;'>
-                Event Name
-            </label>
-            <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="EventName" type="text">
+    <main>
+        <div class="w-full h-full bg-cover" style="background-image: url(https://i.makeagif.com/media/1-27-2016/0zsEDQ.gif)">
+            <section class="min-h-screen flex flex-col">
+                <div class="flex flex-1 items-center justify-center">
+                    <div class="text-center rounded-lg bg-white p-16 w-full sm:max-w-md lg:max-w-xl">
+                        <h1 class="pb-4">Sign in to <span class="text-primary">ecoplus</span></h1>
+                        <span id="outcome-message"></span>
+                        <form class="space-y-4 pt-4" id="sign-in">
+                            <input id="email" type="email" placeholder="Email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                            <input id="password" type="password" placeholder="Password" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                            <input type="submit" class="btn-primary w-full" value="Submit" />
+                        </form>
+                        <a href="#" class="hover:underline">Forgot password?</a>
+                        <p class="mt-4">Don't have an account? <a href="./signup.html" class="text-indigo-600 underline hover:text-indigo-800">Create One</a></p>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div style='display:flex; flex-direction: column;' class='mt-10'>
-            <label style='width: 200px;'>
-                Description
-            </label>
-            <textarea style='border-radius: 24px; width: 500px; height: 300px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="EventName" type="text"></textarea>
-        </div>
-        <div style='display:flex; flex-direction: column;' class='mt-10'>
-            <label style='width: 200px;'>
-                Location
-            </label>
-            <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="EventDescription" type="text">
-        </div>
-        <div style='display:flex; flex-direction: column;' class='mt-10'>
-            <label style='width: 200px;'>
-                Date
-            </label>
-            <input style='border-radius: 24px; width: 500px;' class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="EventDate" type="date">
-        </div>
-        <div style='font-weight: bold; font-size: 30px;' class='mt-16 mb-8'>Delete Event?</div>
-        <a class="btn-delete">Delete Event</a>
-        <div style='display:flex; gap: 50px;' class='mt-16'>
-            <a class="btn-secondary">Back</a>
-            <a class="btn-primary ml-4">Submit</a>
-        </div>
-    </div>
-    
-    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+    </main>
+
+    <footer class="p-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
             <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
             <ul class="w-auto md:w-3/4 grid grid-cols-3 gap-4">
@@ -113,8 +101,8 @@
             <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
         </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/sign-in.js"></script>
 </body>
 </html>

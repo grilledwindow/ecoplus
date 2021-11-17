@@ -1,18 +1,4 @@
 $(document).ready(function() {
-    $("button.mobile-menu-button").on("click", function() {
-        $(".mobile-menu").toggle("hidden")
-    })
-
-    $("#delete-community").on("click", function() {
-        $(".modal").removeClass("hidden")
-    });
-
-    $(".close-modal").each(function() {
-        $(this).on("click", function() {
-            $(".modal").addClass("hidden")
-        });
-    });
-    
     // TODO: Case: if there are no communities
 
     fetch("/api/view-communities")
