@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $("#filter-event").on("submit", function(e) {
+    $("#search-event").on("submit", function(e) {
         e.preventDefault()
-
-        let name = $("#filter-event-name").val()
-
+        
+        let name = $("#search-event-name").val()
+      
         fetch("/api/volunteer-search", {
             method: "POST",
             body: JSON.stringify({
@@ -12,10 +12,9 @@ $(document).ready(function() {
         })
         .then((res) => res.json())
         .then(({data}) => {
-            console.log(data)
-            $("#events-browse").html("")
+            $("#event-browse").html("")
             data.map((event) => {
-                $("#events-browse").append(`
+                $("#event-browse").append(`
                     <div class="text-lg bg-gray-200 border-4 border-gray-200 rounded-lg">
                         <div class="h-48"></div>
                         <div class="bg-white p-4 w-auto min-w-full rounded-b-md">
