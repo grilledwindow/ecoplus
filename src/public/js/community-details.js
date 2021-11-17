@@ -93,6 +93,15 @@ $(document).ready(function() {
         })
     })
 
+    if (user_id != undefined) {
+        $("#community-comment-box").html(`
+            <form class="flex" id="community-comment">
+                <textarea id="community-user-comment" type="text" required class="border-4 border-gray-200 rounded-lg h-32 w-full p-4" placeholder="Post your comment"></textarea>
+                <input type="submit" value="Post" class="w-24 h-20 grid place-items-center bg-primary hover:bg-black cursor-pointer rounded-lg ml-4 font-semibold text-white"/>
+            </form>
+        `)
+    }
+
     $("#community-comment").on("submit", function(e) {
         e.preventDefault()
         
