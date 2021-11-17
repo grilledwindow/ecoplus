@@ -108,8 +108,27 @@ $(document).ready(function() {
             })
         })
         .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
+        .then((data) => window.location.reload())
+    })
+
+    fetch("/api/community-posts", {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        data.map((data) => {
+            $("#community-comments").append(`
+            <div class="rounded-lg border-4 p-4 flex">
+                <div class="rounded-full bg-gray-200 h-12 w-12"></div>
+                <div class="ml-4 flow-col">
+                    <p class="font-bold">${data.users.username}</p>
+                    <p>${data.post}</p>
+                </div>
+            </div>
+            `)
         })
     })
 })
