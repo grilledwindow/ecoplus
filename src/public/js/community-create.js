@@ -1,6 +1,6 @@
 $(document).ready(function() {
     if (sessionStorage.getItem("userID") == null) {
-        window.location.href = "../index.html";
+        window.location.href = "../sign-in.html";
     }
 
     $("#create-community").on("submit", function(e) {
