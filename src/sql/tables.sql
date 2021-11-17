@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS public.communities_posts;
 DROP TABLE IF EXISTS public.volunteers;
 DROP TABLE IF EXISTS public.events;
 DROP TABLE IF EXISTS public.communities;
-DROP TABLE IF EXISTS public.users;
+-- DROP TABLE IF EXISTS public.users;
 
 CREATE TABLE public.users (
   id uuid not null PRIMARY KEY, -- UUID from auth.users
@@ -60,3 +60,67 @@ CREATE TABLE public.events_posts (
   post text NOT NULL,
   created_at timestamp with time zone DEFAULT timezone('gmt'::text, now()) NOT NULL
 );
+
+DECLARE user1_uuid uuid := "34649132-c570-4c9e-95bf-d86bfda470f0";
+DECLARE user2_uuid uuid := "3dd21662-a58d-4af3-828d-14d60ed84c80";
+DECLARE user3_uuid uuid := "42970af1-9dce-4b2e-865b-bcce5cea4879";
+DECLARE user4_uuid uuid := "578ac123-d56a-4221-85fb-654bc6d1df5c";
+DECLARE user5_uuid uuid := "5c83ff7a-12c1-4a8e-b953-b6c57528796b";
+DECLARE user6_uuid uuid := "70f20a6f-4e6d-4361-8966-b40b89993aae";
+DECLARE user7_uuid uuid := "7fbb1c0b-0b6a-4f62-a79d-c757797eec74";
+DECLARE user8_uuid uuid := "af2e7ab9-306f-490e-a4ed-972bee22ccc0";
+DECLARE user9_uuid uuid := "d5114beb-9ed0-4511-8ba1-ca7c4aec9f66";
+DECLARE user10_uuid uuid := "d5596d42-31cf-4480-8227-c38e6ea9c017";
+
+UPDATE public.users
+SET name = "Avo Kado", username = "fresh"
+WHERE id = user1_uuid;
+
+UPDATE public.users
+SET name = "Mark Zuck", username = "lizard"
+WHERE id = user2_uuid;
+
+UPDATE public.users
+SET name = "Chuck Norris", username = "chuck"
+WHERE id = user3_uuid;
+
+UPDATE public.users
+SET name = "Gordon Ramsay", username = "youdonkey"
+WHERE id = user4_uuid;
+
+UPDATE public.users
+SET name = "Jackie Chan", username = "chan"
+WHERE id = user5_uuid;
+
+UPDATE public.users
+SET name = "Seed Seed", username = "seed"
+WHERE id = user6_uuid;
+
+UPDATE public.users
+SET name = "Olaf", username = "snowman"
+WHERE id = user7_uuid;
+
+UPDATE public.users
+SET name = "James Olive", username = "friedrice"
+WHERE id = user8_uuid;
+
+UPDATE public.users
+SET name = "Bruce Lee", username = "water"
+WHERE id = user9_uuid;
+
+UPDATE public.users
+SET name = "Ben Dover", username = "brick"
+WHERE id = user10_uuid;
+
+INSERT INTO public.communities (name, description, owner_id)
+VALUES
+("Clean and Green Singapore", "Clean and Green Singapore (CGS) aims to inspire Singaporeans to care for and protect our environment by adopting a clean, green and sustainable lifestyle. Each of us can shape our neighbourhoods and common spaces through our green practices, championing a sustainable way of life, and by being a more gracious society. Together, we can make Singapore A Liveable and Endearing Home, and A Vibrant and Sustainable City.", user1_uuid),
+("National Parks Board", "The National Parks Board is a statutory board under the Ministry of National Development of the Government of Singapore. NParks is responsible for enhancing and managing the urban ecosystems of which the government calls a ""City in Nature"".", user6_uuid)
+("Team Seas", "Team Seas, stylized as #TeamSeas, is an international collaborative fundraiser project run by YouTubers MrBeast and Mark Rober as a follow up to Team Trees.", user4_uuid);
+("Team Trees", "Team Trees, stylized as #teamtrees, is a collaborative fundraiser that raised 20 million U.S. dollars before 2020 to plant 20 million trees.", user4_uuid),
+("World Wide Fund for Nature", "The World Wide Fund for Nature is an international non-governmental organization founded in 1961 that works in the field of wilderness preservation and the reduction of human impact on the environment. It was formerly named the World Wildlife Fund, which remains its official name in Canada and the United States.", user4_uuid),
+("Ocean Conservancy", "Ocean Conservancy is working with you to protect the ocean from today's greatest global challenges. Together, we create science-based solutions for a healthy ocean and the wildlife and communities that depend on it.", user4_uuid),
+("Greenpeace International", "Greenpeace uses non-violent creative action to pave the way towards a greener, more peaceful world, and to confront the systems that threaten our environment.", user4_uuid),
+("Earth Helpers", "The Earth Helpers programme was launched in 2011 to promote environmental volunteerism among the general public and corporations. Volunteers come from all walks of life and from diverse backgrounds. This ever-growing pool of volunteers can choose from a selection of projects within different community and industry groups.", user4_uuid),
+("Zero Waste SG", "Zero Waste SG is a non-profit and non-governmental organisation dedicated to help Singapore eliminate the concept of waste, and accelerate the shift towards zero waste and the circular economy. It started as a website in 2008 providing tips and resources on waste minimisation and recycling, and is officially registered as a non-governmental organisation on 13 Jul 2015.", user4_uuid),
+("Waterways Watch Society", "Since around 1998, WWS’ aim is to create both awareness and volunteer-run clean-ups around Singapore’s bodies of water. They have regular clean-ups at various locations.", user4_uuid);
