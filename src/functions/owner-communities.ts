@@ -5,11 +5,12 @@ const handler: Handler = async (event, context) => {
   const { id } = JSON.parse(event.body);
 
   try {
-    const { data } = await supabase
+    const { data: data, error: error } = await supabase
       .from("communities")
       .select("id, name")
       .eq("owner_id", id)
-      console.log(data)
+    if (error) throw (error)
+
     return {
       statusCode: 200,
       body: JSON.stringify(data),
