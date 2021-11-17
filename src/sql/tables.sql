@@ -38,7 +38,11 @@ CREATE TABLE public.events (
   contact_email text NOT NULL,
   contact_contact_no char(8) NOT NULL,
   community_id bigint references public.communities,
+<<<<<<< HEAD
   host_user_id uuid references public.users NOT NULL
+=======
+  owner_id uuid references public.users NOT NULL
+>>>>>>> 163f4df (Rename again)
 );
 
 CREATE TABLE public.events_users (
@@ -124,3 +128,11 @@ VALUES
 ("Earth Helpers", "The Earth Helpers programme was launched in 2011 to promote environmental volunteerism among the general public and corporations. Volunteers come from all walks of life and from diverse backgrounds. This ever-growing pool of volunteers can choose from a selection of projects within different community and industry groups.", user4_uuid),
 ("Zero Waste SG", "Zero Waste SG is a non-profit and non-governmental organisation dedicated to help Singapore eliminate the concept of waste, and accelerate the shift towards zero waste and the circular economy. It started as a website in 2008 providing tips and resources on waste minimisation and recycling, and is officially registered as a non-governmental organisation on 13 Jul 2015.", user4_uuid),
 ("Waterways Watch Society", "Since around 1998, WWS’ aim is to create both awareness and volunteer-run clean-ups around Singapore’s bodies of water. They have regular clean-ups at various locations.", user4_uuid);
+
+INSERT INTO public.communities_users
+VALUES
+(1, user4_uuid),
+(2, user4_uuid),
+(1, user5_uuid),
+(2, user5_uuid),
+(2, user8_uuid);
