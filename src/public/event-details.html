@@ -3,13 +3,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer - ecoplus</title>
-    <link rel="icon" href="./assets/icons/ecoplus.png">
+    <title>Event Details - ecoplus</title>
+    <link rel="icon" href="../assets/icons/ecoplus.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <nav>
         <div class="px-8">
@@ -56,56 +57,30 @@
         </div>
     </nav>
 
-    <main>
-        <div>
-            <img class="object-cover object-top h-64 w-full" src='./assets/images/volunteer-header.jpg'>
-        </div>
-
-        <div class="my-8 mx-8">
-            <h1 class="text-center">Together, we can help one another lead better lives and a greener world.</h1>
-            <p class="text-center text-lg">
-                We have curated the following volunteering opportunities for you!<br />
-                Find the opportunity that strikes a chord to kick start your volunteering journey today!
-            </p>
-        </div>
-
-        <div class="flex mb-12 flex-col md:flex-row">
-            <iframe class="w-auto h-72 md:h-auto md:w-1/3" src='https://www.youtube.com/embed/QQYgCxu988s'></iframe>
-            <div class="w-auto bg-primary p-8 md:w-2/3">
-                <h1>Help a cause, Protect the world</h1>
-                <p class="text-lg">
-                    People love to post about and marvel at Earth's beauty, but many don't show you the trash and litter all around the world. One Earth shows the world, its beautiful and ugly side. See the problems in the video and what you can do to help solve it. The Earth needs our help. If we don’t make massive changes to our behavior over the next twelve years, the damage we’ve done to this planet will be irreversible. But the power to prevent this is in our hands! We can save the Earth!
-                </p>
+    <div class="flex mx-8 mt-8 flex-col md:flex-row">
+        <div class="bg-gray-400 rounded-lg w-auto md:w-1/2"></div>
+        <div class="w-auto ml-0 mt-8 md:w-1/2 md:ml-8 md:mt-0">
+            <h1 id="event-name">Event Name</h1>
+            <p>Posted by <span id="event-host">Event Host</span></p>
+            <p id="event-community"></p>
+            <p class="mt-4 mb-6" id="event-description">Event Description</p>
+            <span id="joined-message"></span>
+            <div class="flex mt-6">
+                <a class="btn-secondary" href="javascript:history.back()">Back</a>
+                <button class="btn-primary ml-4" id="join-event">Join Event</button>
             </div>
         </div>
+    </div>
 
-        <div class="flex mb-12 flex-col items-center">
-            <h1 class="text-center">Maybe you want to start your own Event?</h1>
-            <a class="btn-primary flex items-center max-w-min" href="./event-create.html">
-                Start a Event
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </a>
-        </div>
-
-        <div class="bg-primary p-8 flex flex-col items-center">
-            <h1>Search Event(s)</h1>
-            <div class="flex flex-col md:flex-row">
-                <input class="rounded-lg px-4 py-2" type="date" id="selectDate" name="selectDate">
-                <input class="rounded-lg px-4 py-2 mx-0 mt-4 md:mx-4 md:mt-0" type="text" placeholder="Event Name" id='search' name="search">
-                <button class="self-center mt-4 md:mt-0 md:self-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="mx-4 mt-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="event-browse"></div>
-        </div>
-    </main>
+    <div class="flex flex-col mx-8">
+        <h1 class="mt-8 pb-2">Location</h1>
+        <p id="event-location"></p>
+        <h1 class="mt-8 pb-2">Date</h1>
+        <p id="event-date"></p>
+        <h1 class="mt-8 pb-2">Details</h1>
+        <p id="event-details" class="w-auto md:w-1/2"></p>
+    </div>
+    
 
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
@@ -135,6 +110,6 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
-    <script src="./js/volunteer.js"></script>
+    <script src="./js/event-details.js"></script>
 </body>
 </html>

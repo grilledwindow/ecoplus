@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer - ecoplus</title>
+    <title>Sign In - ecoplus</title>
     <link rel="icon" href="./assets/icons/ecoplus.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
 
                     <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
                         <a href="./index.html" class="px-3 hover:text-black">Home</a>
-                        <a href="./volunteer.html" class="px-3 hover:text-black text-black">Volunteer</a>
+                        <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
                         <a href="./education.html" class="px-3 hover:text-black">Education</a>
                         <a href="./community.html" class="px-3 hover:text-black">Community</a>
                     </div>
@@ -45,8 +45,8 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
-            <a href="./index.html" class="block py-3 px-3 hover:text-black">Home</a>
-            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black text-black">Volunteer</a>
+            <a href="./index.html" class="block py-3 px-3 hover:text-black text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
             <a href="./education.html" class="block py-3 px-3 hover:text-black">Education</a>
             <a href="./community.html" class="block py-3 px-3 hover:text-black">Community</a>
             <div class="block py-3 px-3 flex-wrap account">
@@ -57,57 +57,26 @@
     </nav>
 
     <main>
-        <div>
-            <img class="object-cover object-top h-64 w-full" src='./assets/images/volunteer-header.jpg'>
-        </div>
-
-        <div class="my-8 mx-8">
-            <h1 class="text-center">Together, we can help one another lead better lives and a greener world.</h1>
-            <p class="text-center text-lg">
-                We have curated the following volunteering opportunities for you!<br />
-                Find the opportunity that strikes a chord to kick start your volunteering journey today!
-            </p>
-        </div>
-
-        <div class="flex mb-12 flex-col md:flex-row">
-            <iframe class="w-auto h-72 md:h-auto md:w-1/3" src='https://www.youtube.com/embed/QQYgCxu988s'></iframe>
-            <div class="w-auto bg-primary p-8 md:w-2/3">
-                <h1>Help a cause, Protect the world</h1>
-                <p class="text-lg">
-                    People love to post about and marvel at Earth's beauty, but many don't show you the trash and litter all around the world. One Earth shows the world, its beautiful and ugly side. See the problems in the video and what you can do to help solve it. The Earth needs our help. If we don’t make massive changes to our behavior over the next twelve years, the damage we’ve done to this planet will be irreversible. But the power to prevent this is in our hands! We can save the Earth!
-                </p>
-            </div>
-        </div>
-
-        <div class="flex mb-12 flex-col items-center">
-            <h1 class="text-center">Maybe you want to start your own Event?</h1>
-            <a class="btn-primary flex items-center max-w-min" href="./event-create.html">
-                Start a Event
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </a>
-        </div>
-
-        <div class="bg-primary p-8 flex flex-col items-center">
-            <h1>Search Event(s)</h1>
-            <div class="flex flex-col md:flex-row">
-                <input class="rounded-lg px-4 py-2" type="date" id="selectDate" name="selectDate">
-                <input class="rounded-lg px-4 py-2 mx-0 mt-4 md:mx-4 md:mt-0" type="text" placeholder="Event Name" id='search' name="search">
-                <button class="self-center mt-4 md:mt-0 md:self-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="mx-4 mt-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="event-browse"></div>
+        <div class="w-full h-full bg-cover" style="background-image: url(https://i.makeagif.com/media/1-27-2016/0zsEDQ.gif)">
+            <section class="min-h-screen flex flex-col">
+                <div class="flex flex-1 items-center justify-center">
+                    <div class="text-center rounded-lg bg-white p-16 w-full sm:max-w-md lg:max-w-xl">
+                        <h1 class="pb-4">Sign in to <span class="text-primary">ecoplus</span></h1>
+                        <span id="outcome-message"></span>
+                        <form class="space-y-4 pt-4" id="sign-in">
+                            <input id="email" type="email" placeholder="Email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                            <input id="password" type="password" placeholder="Password" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
+                            <input type="submit" class="btn-primary w-full" value="Submit" />
+                        </form>
+                        <a href="#" class="hover:underline">Forgot password?</a>
+                        <p class="mt-4">Don't have an account? <a href="./signup.html" class="text-indigo-600 underline hover:text-indigo-800">Create One</a></p>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
-    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+    <footer class="p-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
             <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
             <ul class="w-auto md:w-3/4 grid grid-cols-3 gap-4">
@@ -132,9 +101,8 @@
             <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
         </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
-    <script src="./js/volunteer.js"></script>
+    <script src="./js/sign-in.js"></script>
 </body>
 </html>
