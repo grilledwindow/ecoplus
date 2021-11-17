@@ -8,7 +8,7 @@ const handler: Handler = async (event, context) => {
     let { data } = await supabase
       .from("events")
       .select("*")
-      .eq("name", name)
+      .or(`name.like.%${name}%`)
 
     return {
       statusCode: 200,
