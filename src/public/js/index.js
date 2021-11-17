@@ -2,6 +2,7 @@ $(document).ready(function() {
     fetch("/api/view-events")
     .then((res) => res.json())
     .then(({data}) => {
+        $("#event-mini-browse").html("")
         data.map((event) => {
             $("#event-mini-browse").append(`
             <div class="event-card">
@@ -27,6 +28,7 @@ $(document).ready(function() {
     fetch("/api/view-communities")
     .then((res) => res.json())
     .then(({data}) => {
+        $("#community-mini-browse").html("")
         data.map((community) => {
             $("#community-mini-browse").append(`
             <div class="community-card">
