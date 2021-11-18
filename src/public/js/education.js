@@ -1,3 +1,4 @@
+//Load news using BingNews Search API for the article section
 $(document).ready(function() {
     let query = "Climate Change"
     const URL = `https://bing-news-search1.p.rapidapi.com/news/search?q=${query}&originalImg=true&safeSearch=Off&textFormat=Raw&freshness=Day`
