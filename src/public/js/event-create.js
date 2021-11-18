@@ -2,6 +2,17 @@ $(document).ready(function() {
     if (sessionStorage.getItem("userID") == null) {
         window.location.href = "../sign-in.html";
     }
+
+    // Retrieve and display community dropdown
+    fetch("/api/view-communities")
+    .then((res) => res.json())
+    .then(({data}) => {
+        data.map((community) => {
+            $("#create-event-communityid").append(`
+            <option value=${community.id}>${community.name}</option>
+            `)
+        })
+    })
     
     $("#create-event").on("submit", function(e) {
         e.preventDefault()
@@ -12,19 +23,21 @@ $(document).ready(function() {
         let date = $("#create-event-date").val()
         let contact_email = $("#create-event-email").val()
         let contact_no = $("#create-event-contactno").val()
-        let user_id = sessionStorage.getItem("userID")
+        let community_id = $('#create-event-communityid').val()
+        let owner_id = sessionStorage.getItem("userID")
         
         fetch("/api/event-create", {
             method: "POST",
             body: JSON.stringify({
                 name, 
-                description, 
-                details, 
-                location, 
                 date, 
+                location,
+                details,
+                description,
                 contact_email, 
                 contact_no, 
-                user_id
+                community_id,
+                owner_id
             })
         })
         .then((res) => res.json())
