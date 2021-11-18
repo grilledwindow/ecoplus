@@ -1,6 +1,7 @@
 DROP TRIGGER IF EXISTS create_user_from_auth ON auth.users;
 DROP TRIGGER IF EXISTS on_user_update ON public.users;
 DROP TRIGGER IF EXISTS on_community_create ON public.communities;
+DROP TRIGGER IF EXISTS on_event_create ON public.events;
 
 CREATE OR REPLACE FUNCTION public.create_user_from_auth()
 RETURNS trigger AS $$
@@ -31,7 +32,7 @@ CREATE OR REPLACE FUNCTION public.add_community_owner_to_communities_users()
 RETURNS trigger AS $$
   BEGIN
     INSERT INTO public.communities_users
-    VALUES (NEW.community_id, NEW.creator_id, NEW.created_at);
+    VALUES (NEW.community_id, NEW.owner_id, NEW.created_at);
     RETURN NEW;
   END;
 $$ LANGUAGE plpgsql;
@@ -39,3 +40,16 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER on_community_create
 AFTER INSERT ON public.communities
   FOR EACH ROW EXECUTE FUNCTION public.add_community_owner_to_communities_users();
+
+CREATE OR REPLACE FUNCTION public.add_event_owner_to_events_users()
+RETURNS trigger AS $$
+  BEGIN
+    INSERT INTO public.events_users
+    VALUES (NEW.event_id, NEW.owner_id, NEW.created_at);
+    RETURN NEW;
+  END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER on_event_create
+AFTER INSERT ON public.events
+  FOR EACH ROW EXECUTE FUNCTION public.add_event_owner_to_events_users();
