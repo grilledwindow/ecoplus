@@ -52,7 +52,7 @@ $(document).ready(function() {
         }
     })
     
-    fetch("/api/owner-communities", {
+    fetch("/api/owner-events", {
         method: "POST",
         body: JSON.stringify({
             id
