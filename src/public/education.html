@@ -1,12 +1,142 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education Page</title>
+    <title>Education - ecoplus</title>
+    <link rel="icon" href="../assets/icons/ecoplus.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Did you know?</h1>
+    <nav>
+        <div class="px-8">
+            <div class="flex justify-between">
+                <div class="flex space-x-4 py-5 items-center">
+                    <div>
+                        <a href="./index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                    </div>
+
+                    <div class="hidden font-semibold pt-2 text-lg text-gray-400 lg:flex items-center space-x-1">
+                        <a href="./index.html" class="px-3 hover:text-black">Home</a>
+                        <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
+                        <a href="./education.html" class="px-3 hover:text-black text-black">Education</a>
+                        <a href="./community.html" class="px-3 hover:text-black">Community</a>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex items-center account">
+                    <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                    <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
+                </div>
+
+                <!-- mobile button -->
+                <div class="lg:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-gray-400 hover:text-black" fill="#FFF" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
+            <a href="./index.html" class="block py-3 px-3 hover:text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black text-black">Education</a>
+            <a href="./community.html" class="block py-3 px-3 hover:text-black">Community</a>
+            <div class="block py-3 px-3 flex-wrap account">
+                <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="bg-primary mt-8 mx-8 rounded-2xl flex flex-col md:flex-row">
+            <div class="w-full p-8 flex-col md:w-1/2 md:p-12">
+                <h1>Did you know?</h1>
+                <p class="pb-8">Global Warming poses the biggest threat for the human race in the 21st century. With global temperatures rising at an exponential rate, natural disasters occuring more frequently around the world and even causing sea levels to rise the highest in the past 100 years.</p>
+            </div>
+            <div class="z-10 w-full h-72 md:w-1/2 md:h-auto">
+                <model-viewer class="h-full w-full rounded-2xl" camera-controls alt="Power Plant" loading="eager" auto-rotate src="./assets/models/Power_plant.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+            </div>
+        </div>
+        <div>
+            <!--Buttons to navigate through education pages-->
+            <h1 class="text-center my-12 p-0">Boost your knowledge!</h1>
+            <div class="mx-8 font-bold text-green-900 text-4xl grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a class="bg-primary p-8 hover:text-primary hover:bg-green-900 flex flex-col items-center rounded-2xl transition-colors duration-200" href="./education-impacts.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="pt-2">Impacts</p>
+                </a>
+                <a class="bg-primary p-8 hover:text-primary hover:bg-green-900 flex flex-col items-center rounded-2xl transition-colors duration-200" href="./education-solutions.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="pt-2">Solutions</p>
+                </a>
+                <a class="bg-primary p-8 hover:text-primary hover:bg-green-900 flex flex-col items-center rounded-2xl transition-colors duration-200" href="./education-quiz.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="pt-2">Quiz</p>
+                </a>
+            </div>
+        </div>
+        <!--Articles section using API-->
+        <div class="mx-8 mt-12 flex flex-col">
+            <h1>Article(s)</h1>
+            <div class="flex overflow-x-auto slide" id="articles"></div>
+        </div>
+    </main>
+
+    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+        <div class="flex flex-col md:flex-row pb-12">
+            <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
+            <ul class="w-auto md:w-3/4 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <li class="space-y-4">
+                    <h2 class="text-primary">sources</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.un.org/press/en/2019/ga12131.doc.htm">United Nations</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.climate.gov/news-features/featured-images/month-month-recap-2020s-global-temperature-patterns">Climate.gov</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.nationalgeographic.com/environment/article/renewable-energy">National Geographic</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.greenpeace.org.uk/challenges/climate-change/solutions-climate-change/">Greenpeace</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.nasa.gov/press-release/2020-tied-for-warmest-year-on-record-nasa-analysis-shows/">NASA</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.theguardian.com/environment/2021/apr/28/speed-at-which-worlds-glaciers-are-melting-has-doubled-in-20-years">The Guardian</a></li>
+                    </ul>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">api used</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://modelviewer.dev/">model-viewer</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1">Bing News</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://supabase.io/">Supabase</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.netlify.com/">Netlify</a></li>
+                    </ul>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">developer</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://github.com/grilledwindow/ecoplus">github</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/education.js"></script>
 </body>
 </html>

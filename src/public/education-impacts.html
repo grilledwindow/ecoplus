@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solutions - ecoplus</title>
-    <link rel="icon" href="./assets/icons/ecoplus.png">
+    <title>Impacts - ecoplus</title>
+    <link rel="icon" href="../assets/icons/ecoplus.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,42 +58,78 @@
 
     <main>
         <div class="bg-primary mt-4 p-8 text-center">
-            <h1 class="p-0">Solutions</h1>
+            <h1 class="p-0">Impacts</h1>
             <p>Education</p>
             <!--Buttons to navigate through education pages-->
             <div class="mt-4">
                 <a href="javascript:history.back()" class="btn-secondary">Back</a>
-                <a href="./education-quiz.html" class="btn-primary ml-4">Next</a>
+                <a href="./education-solutions.html" class="btn-primary ml-4">Next</a>
             </div>
         </div>
-        <!--Solutions with model viewers-->
+
+        <!--Impacts and Causes with model viewer-->
         <div class="mx-8 mt-8 space-y-20">
             <div class="flex flex-col md:flex-row">
                 <div class="w-full md:w-1/2">
-                    <h2 class="text-4xl font-bold pb-4">Reduce, Reuse, Recycle</h2>
-                    <p class="text-lg">The three R's all help to cut down on the amount of waste we throw away. The best way to manage waste is to not produce it. E.g. We can reduce the usage of plastic by bringing our own bag during grocery trips. Reusing products means less fossil fuels will be burned to create new products. Lastly, recyling also reduces emissions of greenhouse gases, such as carbon dioxide, methane, nitrous oxide and chlorofluorocarbons, that contribute to global climate change.</p>    
+                    <h2 class="text-4xl font-bold pb-4">Extreme Natural Disasters</h2>
+                    <p class="text-lg">With increasing global temperatures at a steady rate of 1.5 degrees celcius, the earth has experienced higher intensity earthquakes, larger tsunamis and increased drought. In just February 2020 alone, 26 countries all experienced natural disasters which lead to many lives lost.</p>    
                 </div>
                 <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-green-500" camera-controls alt="Recycle" loading="eager" auto-rotate src="./assets/models/Recycle.glb" camera-target="0m 0m 1m" camera-orbit="180deg" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                    <model-viewer class="h-full w-full rounded-2xl bg-yellow-500" camera-controls alt="Volcano" loading="eager" auto-rotate src="./assets/models/Volcano.glb" camera-target="0m 5m 0m" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row">
                 <div class="w-full md:w-1/2">
-                    <h2 class="text-4xl font-bold pb-4">Sustainable Transportation</h2>
-                    <p class="text-lg">Sustainable Transportation refers to traveling without emitting large amounts of greenhouse gases such as CO2 and Methane. For example, instead of using Fuel Vehicles we can use electric vehicles, walk or cycle. For example, the train system in Sweden is extemely energy-efficient as the trains are built using 98% recyclable materials.</p>    
+                    <h2 class="text-4xl font-bold pb-4">Sea Levels Rising</h2>
+                    <p class="text-lg">Global mean sea level has risen about 8–9 inches (21–24 centimeters) since 1880, with about a third of that coming in just the last two and a half decades. The rising water level is mostly due to a combination of melt water from glaciers and ice sheets and thermal expansion of seawater as it warms. In 2020, global mean sea level was 91.3 millimeters (3.6 inches) above the 1993 average, making it the highest annual average in the satellite record (1993-present).</p>    
                 </div>
                 <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-yellow-500" camera-controls alt="Train" loading="eager" auto-rotate src="./assets/models/Bullet_Train.glb" camera-target="0m 0m 0m" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                    <model-viewer class="h-full w-full rounded-2xl bg-blue-500" camera-controls alt="Iceberg" loading="eager" auto-rotate src="./assets/models/Iceberg.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row">
                 <div class="w-full md:w-1/2">
-                    <h2 class="text-4xl font-bold pb-4">Renewable Energy</h2>
-                    <p class="text-lg">Renewable energy helps combat climate change as it creates no direct greenhouse emissions. It can also decrease pollution as wind, solar, hydro-electric systems produce no air pollution which decreases the threat to our health. Lastly, it is a reliable source of power. The energy is converted to electrical energy and can power our appliances as well as cities for it to function.</p>    
+                    <h2 class="text-4xl font-bold pb-4">Mass Deforestation</h2>
+                    <p class="text-lg">When more trees are cut down, there will be less trees to absorb the carbon dioxide from the atmospheric air. Thus, more greenhouse gases in the air trapping heat and leading to global warming.</p>    
                 </div>
                 <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-purple-300" camera-controls alt="Solar Panel" loading="eager" auto-rotate src="./assets/models/Solar_Panel.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                    <model-viewer class="h-full w-full rounded-2xl bg-green-500" camera-controls alt="Tree" loading="eager" auto-rotate src="./assets/models/Forest.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
                 </div>
+            </div>
+        </div>
+            
+        <!--Cards for fun facts-->
+        <div class="mx-8 mt-12">
+            <h1 class="text-center">Fun Facts</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="border-4 border-gray-200 rounded-xl">
+                    <img class="h-52 w-full object-cover rounded-t-lg" src="./assets/images/education-drought.jpg">
+                    <div class="p-4 text-lg">
+                        <h2 class="font-bold text-2xl pb-4">The Hottest Year</h2>
+                        <p>Earth’s global average surface temperature in 2020 tied with 2016 as the warmest year on record, according to an analysis by NASA.</p>
+                    </div>
+                </div>
+                <div class="border-4 border-gray-200 rounded-xl">
+                    <img class="h-52 w-full object-cover rounded-t-lg" src="./assets/images/education-deforestation.jpg">
+                    <div class="p-4 text-lg">
+                        <h2 class="font-bold text-2xl pb-4">Mass Deforestation</h2>
+                        <p>Mass deforestation contributes the most to the greenhouse effect as trees provide almost 67% of our oxygen and releases the most Carbon dioxide gas in return.</p>
+                    </div>
+                </div>
+                <div class="border-4 border-gray-200 rounded-xl">
+                    <img class="h-52 w-full object-cover rounded-t-lg" src="./assets/images/education-iceberg.jpg">
+                    <div class="p-4 text-lg">
+                        <h2 class="font-bold text-2xl pb-4">Icebergs</h2>
+                        <p>Every year the earth loses 1.2 trillion tons of ice. The rate of ice melting has nearly doubled in speed over the past 20 years causing sea-levels to rise significantly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-8 my-12">
+            <h1 class="text-center">Watch a Summary Video!</h1>
+            <div class="grid place-items-center">
+                <iframe class="w-full h-96 md:w-2/4" src="https://www.youtube.com/embed/RVcsV_-erys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </main>
@@ -134,7 +170,7 @@
             <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>

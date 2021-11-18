@@ -8,7 +8,7 @@ const handler: Handler = async (event, context) => {
     const { data } = await supabase
       .from("communities_users")
       .select("communities(id, name)")
-      .eq("id", id)
+      .eq("user_id", id)
       
     return {
       statusCode: 200,

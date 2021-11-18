@@ -1,8 +1,11 @@
 $(document).ready(function() {
+
+    // if user is not logged in, redirect them to sign in page
     if (sessionStorage.getItem("userID") == null) {
-        window.location.href = "../index.html";
+        window.location.href = "../sign-in.html";
     }
 
+    // when user clicks submit to submit the new community information
     $("#create-community").on("submit", function(e) {
         e.preventDefault()
         let name = $("#create-community-name").val()
@@ -27,6 +30,7 @@ $(document).ready(function() {
             
             $("#outcome-message").css("color", "#10B981")
             $("#outcome-message").html(`${name} community has successfully been created.`)
+            window.location.href = "../account.html";
         })
     })
 })

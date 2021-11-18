@@ -19,7 +19,7 @@
                         <a href="./index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
                     </div>
 
-                    <div class="hidden font-semibold pt-2 text-lg text-gray-400 md:flex items-center space-x-1">
+                    <div class="hidden font-semibold pt-2 text-lg text-gray-400 lg:flex items-center space-x-1">
                         <a href="./index.html" class="px-3 hover:text-black text-black">Home</a>
                         <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
                         <a href="./education.html" class="px-3 hover:text-black">Education</a>
@@ -27,13 +27,13 @@
                     </div>
                 </div>
 
-                <div class="hidden md:flex items-center account">
+                <div class="hidden lg:flex items-center account">
                     <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
                     <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
                 </div>
 
                 <!-- mobile button -->
-                <div class="md:hidden flex items-center">
+                <div class="lg:hidden flex items-center">
                     <button class="mobile-menu-button">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-gray-400 hover:text-black" fill="#FFF" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -57,6 +57,7 @@
     </nav>
 
     <main>
+        <!-- Header -->
         <div class="bg-primary mx-8 rounded-2xl flex flex-col md:flex-row">
             <div class="w-full p-8 flex-col md:w-1/2 md:p-12">
                 <h1>Protect the Earth now.</h1>
@@ -73,22 +74,28 @@
                 <model-viewer class="h-full w-full rounded-2xl" camera-controls alt="Earth" loading="eager" auto-rotate src="./assets/models/Earth.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
             </div>
         </div>
+
+        <!-- List of Events Section -->
         <div class="mx-8 mt-8 flex flex-col">
             <h1>Upcoming Volunteering Events</h1>
             <div class="flex overflow-x-auto slide" id="event-mini-browse">
                 <div class="h-80 rounded-lg bg-gray-200 w-full grid place-items-center">
-                    <h1 class="p-0 text-gray-600">Could not find any Events</h1>
+                    <h1 class="p-0 text-gray-600 text-center">Could not find any Events</h1>
                 </div>
             </div>
         </div>
+
+        <!-- List of Communities Section -->
         <div class="mx-8 mt-8 flex flex-col">
             <h1>Join a Community</h1>
             <div class="flex overflow-x-auto slide" id="community-mini-browse">
                 <div class="h-80 rounded-lg bg-gray-200 w-full grid place-items-center">
-                    <h1 class="p-0 text-gray-600">Could not find any Community</h1>
+                    <h1 class="p-0 text-gray-600 text-center">Could not find any Community</h1>
                 </div>
             </div>
         </div>
+
+        <!-- Call to action community page -->
         <div class="mx-8 mt-8 flex flex-col md:flex-row">
             <div class="w-auto md:w-1/2 flex items-center">
                 <img class="object-scale-down w-full h-80 rounded-lg" src="./assets/images/community-illustration.jpg"></img>
@@ -104,6 +111,8 @@
                 </a>
             </div>
         </div>
+
+        <!-- Call to action education page -->
         <div class="mx-8 mt-8 flex flex-col-reverse md:flex-row">
             <div class="w-auto p-0 pt-12 md:w-1/2 md:p-12">
                 <h1>Learn about playing your part</h1>
@@ -124,14 +133,25 @@
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
             <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
-            <ul class="w-auto md:w-3/4 grid grid-cols-3 gap-4">
+            <ul class="w-auto md:w-3/4 grid grid-cols-2 md:grid-cols-3 gap-4">
                 <li class="space-y-4">
                     <h2 class="text-primary">sources</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.un.org/press/en/2019/ga12131.doc.htm">United Nations</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.climate.gov/news-features/featured-images/month-month-recap-2020s-global-temperature-patterns">Climate.gov</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.nationalgeographic.com/environment/article/renewable-energy">National Geographic</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.greenpeace.org.uk/challenges/climate-change/solutions-climate-change/">Greenpeace</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.nasa.gov/press-release/2020-tied-for-warmest-year-on-record-nasa-analysis-shows/">NASA</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.theguardian.com/environment/2021/apr/28/speed-at-which-worlds-glaciers-are-melting-has-doubled-in-20-years">The Guardian</a></li>
+                    </ul>
                 </li>
                 <li class="space-y-4">
                     <h2 class="text-primary">api used</h2>
                     <ul>
                         <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://modelviewer.dev/">model-viewer</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1">Bing News</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://supabase.io/">Supabase</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.netlify.com/">Netlify</a></li>
                     </ul>
                 </li>
                 <li class="space-y-4">
