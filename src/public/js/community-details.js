@@ -1,7 +1,11 @@
+// grab the community id from the url parameters
 let parameters = new URLSearchParams(window.location.search)
 const community_id = parameters.get("id")
+
+// grab the user id from session storage
 const user_id = sessionStorage.getItem("userID")
 
+// check if the user is within the community
 function checkUserInCommunity() {
     fetch("/api/community-users", {
         method: "POST",
@@ -11,7 +15,10 @@ function checkUserInCommunity() {
     })
     .then((res) => res.json())
     .then(({data}) => {
+        $("#community-users").html("")
         data.map(({users}) => {
+
+            // if user is not logged in
             if (user_id == null) {
                 $("#join-community").attr("disabled", true)
                 $("#join-community").addClass("disabled")
@@ -24,29 +31,18 @@ function checkUserInCommunity() {
                 $("#joined-message").html("You have joined this community")
             }
             
-            $("#community-users").html("")
             $("#community-users").append(`
                 <tr>
                     <td class="px-6 py-3 whitespace-nowrap text-gray-500">${users.name}</td>
                 </tr>
             `)
-
-            $("#join-community").on("click", function() {
-                fetch("/api/community-join", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        community_id,
-                        user_id
-                    })
-                })
-                .then((res) => res.json())
-                .then((data) => {})
-            })
         })
     })
 }
 
 $(document).ready(function() {
+    
+    // fetch community details by passing the community id
     fetch("/api/community-details", {
         method: "POST",
         body: JSON.stringify({
@@ -61,8 +57,10 @@ $(document).ready(function() {
         })
     })
 
+    // check if the user is logged in and change the join button accordingly
     checkUserInCommunity()
 
+    // fetch the community-related events
     fetch("/api/community-events", {
         method: "POST",
         body: JSON.stringify({
@@ -94,6 +92,7 @@ $(document).ready(function() {
         }
     })
 
+    // if the user clicks on the button, create a record for joining and then check if user is in community again
     $("#join-community").on("click", function() {
         fetch("/api/community-join", {
             method: "POST",
@@ -108,6 +107,7 @@ $(document).ready(function() {
         })
     })
 
+    // if user is not logged in, disable comment section
     if (user_id != undefined) {
         $("#community-comment-box").html(`
             <form class="flex" id="community-comment">
@@ -117,6 +117,7 @@ $(document).ready(function() {
         `)
     }
 
+    // fetch the comments of the community
     $("#community-comment").on("submit", function(e) {
         e.preventDefault()
         
