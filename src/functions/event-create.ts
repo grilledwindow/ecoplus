@@ -6,13 +6,11 @@ const handler: Handler = async (event, context) => {
 
   try {
     // Check if event name exists
-    /*
     const { data: sameEventName } = await supabase
-      .from("event")
-      .select("name")
-      .eq("name", name);
+        .from("events")
+        .select("name")
+        .eq("name", name);
     if (sameEventName.length > 0) throw { error: "Event name has been taken" };
-    */
 
     // Create a new event in the public schema (public.events)
     let { data: event, error: eventError } = await supabase

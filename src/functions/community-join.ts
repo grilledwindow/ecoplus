@@ -2,15 +2,13 @@ import { Handler } from "@netlify/functions";
 import { supabase } from "./utils/supabase";
 
 const handler: Handler = async (event, context) => {
-  const { id, community_id } = JSON.parse(event.body);
+  const { community_id, user_id } = JSON.parse(event.body);
 
   try {
     // Create a new usesr in the public schema (public.communities_users)
     let { data: communityUser, error: communityUserError } = await supabase
       .from("communities_users")
-      .insert([
-          {id: id, community_id: community_id}
-      ])
+      .insert([{community_id: community_id, user_id: user_id}])
     if (communityUserError) throw { error: communityUserError };
       
     return {

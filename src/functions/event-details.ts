@@ -2,20 +2,20 @@ import { Handler } from "@netlify/functions";
 import { supabase } from "./utils/supabase";
 
 const handler: Handler = async (event, context) => {
-  const { id } = JSON.parse(event.body);
+  const { event_id } = JSON.parse(event.body);
   
   try {
 
     let { data: event, error: eventError } = await supabase
       .from("events")
       .select("*")
-      .eq("id", id)
+      .eq("id", event_id)
       if (eventError) throw { error: eventError };
 
     let { data: user, error: userError } = await supabase
       .from("users")
       .select("*")
-      .eq("id", event[0].user_id)
+      .eq("id", event[0].owner_id)
       if (userError) throw { error: userError };
 
     if (event[0].community_id != null) {
@@ -27,13 +27,13 @@ const handler: Handler = async (event, context) => {
 
       return {
         statusCode: 200,
-        body: JSON.stringify({ data: {user:user, event:event, community:community} }),
+        body: JSON.stringify({ data: {user: user, event: event, community: community} }),
       };
     }
     
     return {
       statusCode: 200,
-      body: JSON.stringify({ data: {user:user, event:event} }),
+      body: JSON.stringify({ data: {user: user, event: event} }),
     };
   } 
   
