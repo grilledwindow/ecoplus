@@ -8,9 +8,7 @@ const handler: Handler = async (event, context) => {
     // Create a new post in the public schema (public.community_posts)
     let { data: eventPost, error: eventPostError } = await supabase
       .from("events_posts")
-      .insert([
-          {event_id: event_id, user_id: user_id, post: post}
-      ])
+      .insert([{event_id: event_id, user_id: user_id, post: post}])
     if (eventPostError) throw { error: eventPostError };
       
     return {
