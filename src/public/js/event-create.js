@@ -2,6 +2,17 @@ $(document).ready(function() {
     if (sessionStorage.getItem("userID") == null) {
         window.location.href = "../sign-in.html";
     }
+
+    // Retrieve and display community dropdown
+    fetch("/api/view-communities")
+    .then((res) => res.json())
+    .then(({data}) => {
+        data.map((community) => {
+            $("#create-event-communityid").append(`
+            <option value=${community.id}>${community.name}</option>
+            `)
+        })
+    })
     
     $("#create-event").on("submit", function(e) {
         e.preventDefault()
