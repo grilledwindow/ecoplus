@@ -6,7 +6,7 @@ const handler: Handler = async (event, context) => {
 
   try {
     const { data: data, error: error } = await supabase
-      .from("communities")
+      .from("events")
       .select("id, name")
       .eq("owner_id", id)
     if (error) throw (error)
