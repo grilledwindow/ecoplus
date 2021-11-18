@@ -32,7 +32,7 @@ CREATE OR REPLACE FUNCTION public.add_community_owner_to_communities_users()
 RETURNS trigger AS $$
   BEGIN
     INSERT INTO public.communities_users
-    VALUES (NEW.community_id, NEW.owner_id, NEW.created_at);
+    VALUES (NEW.id, NEW.owner_id, NEW.created_at);
     RETURN NEW;
   END;
 $$ LANGUAGE plpgsql;
@@ -45,7 +45,7 @@ CREATE OR REPLACE FUNCTION public.add_event_owner_to_events_users()
 RETURNS trigger AS $$
   BEGIN
     INSERT INTO public.events_users
-    VALUES (NEW.event_id, NEW.owner_id, NEW.created_at);
+    VALUES (NEW.id, NEW.owner_id, NEW.created_at);
     RETURN NEW;
   END;
 $$ LANGUAGE plpgsql;
