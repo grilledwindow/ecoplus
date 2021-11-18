@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // fetch list of events
     fetch("/api/view-events")
     .then((res) => res.json())
     .then(({data}) => {
@@ -27,6 +28,7 @@ $(document).ready(function() {
         }
     })
 
+    // fetch list of communities
     fetch("/api/view-communities")
     .then((res) => res.json())
     .then(({data}) => {

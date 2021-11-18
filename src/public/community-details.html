@@ -58,6 +58,7 @@
 
     <main>
         <div class="mx-8">
+            <!-- General information regarding the community -->
             <h1 class="mt-8" id="community-name">Community Name</h1>
             <p class="text-lg mb-6" id="community-description">Description</p>
             <span id="joined-message"></span>
@@ -66,6 +67,8 @@
                 <button class="btn-primary flex items-center ml-4" id="join-community">Join Community</button>
             </div>
         </div>
+
+        <!-- List of community related events -->
         <div class="mx-8">
             <h1 class="mt-8">Event(s)</h1>
             <div class="flex overflow-x-auto slide" id="community-events">
@@ -74,6 +77,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- List of members in the community -->
         <div class="mx-8">
             <h1 class="mt-8">Member(s)</h1>
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -82,7 +87,7 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-200">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-left font-bold text-gray-500">Member Name</th>g
+                                    <th scope="col" class="px-6 py-3 text-left font-bold text-gray-500">Member Name</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200" id="community-users"></tbody>
@@ -91,6 +96,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- List of comments made on the community -->
         <div class="mx-8">
             <h1 class="mt-8">Comment(s)</h1>
             <div id="community-comment-box">
