@@ -6,8 +6,8 @@ const handler: Handler = async (event, context) => {
 
   try {
     const { data } = await supabase
-      .from("events")
-      .select("*")
+      .from("communities_posts")
+      .select("users(username), post")
       .eq("community_id", community_id)
       
     return {
