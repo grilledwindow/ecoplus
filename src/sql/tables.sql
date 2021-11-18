@@ -176,5 +176,14 @@ DO $$
     (2, user9_uuid, 'Woahh I would''ve joined but I''m swarmed with homework :('),
     (3, user10_uuid, 'I loooove butterflies!!'),
     (3, user2_uuid, 'Oohh looks interesting.');
+
+    -- Create public storage bucket
+    IF NOT EXISTS (
+      SELECT * FROM storage.buckets
+      WHERE id = 'public'
+    ) THEN
+      INSERT INTO storage.buckets (id, name)
+      VALUES ('public', 'public');
+    END IF;
   END
 $$ LANGUAGE plpgsql;
