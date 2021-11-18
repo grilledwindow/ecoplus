@@ -24,7 +24,8 @@ CREATE TABLE public.communities (
 CREATE TABLE public.communities_users (
   community_id bigint references public.communities NOT NULL,
   user_id uuid references public.users NOT NULL,
-  joined_at timestamp with time zone DEFAULT timezone('gmt'::text, now()) NOT NULL
+  joined_at timestamp with time zone DEFAULT timezone('gmt'::text, now()) NOT NULL,
+  PRIMARY KEY (community_id, user_id)
 );
 
 CREATE TABLE public.events (
@@ -42,13 +43,14 @@ CREATE TABLE public.events (
 );
 
 CREATE TABLE public.events_users (
-  user_id uuid references public.users,
   event_id bigint references public.events,
-  joined_at timestamp with time zone DEFAULT timezone('gmt'::text, now()) NOT NULL
+  user_id uuid references public.users,
+  joined_at timestamp with time zone DEFAULT timezone('gmt'::text, now()) NOT NULL,
+  PRIMARY KEY (event_id, user_id)
 );
 
 CREATE TABLE public.communities_posts (
-  communityt_id bigint references public.communities NOT NULL,
+  community_id bigint references public.communities NOT NULL,
   user_id uuid references public.users NOT NULL,
   post text NOT NULL,
   created_at timestamp with time zone DEFAULT timezone('gmt'::text, now()) NOT NULL
@@ -152,9 +154,9 @@ DO $$
     INSERT INTO public.events
     (name, datetime, location, details, description, contact_email, contact_no, community_id, owner_id)
     VALUES
-    ('Coney Island Cleanup', timezone('gmt'::text, '20-11-2021 09:00'), 'Coney Island', '20 people needed!', 'Coney Island is filled with trash.', 'beachwarriors@nail.com', '90366421', 1, user1_uuid),
-    ('Lazarus Island Cleanup', '14-11-2021 15:00', 'Lazarus Island', '10 people needed!', 'Lazarus Island is filled with trash.', 'beachwarriors@nail.com', '90366421', 1, user5_uuid),
-    ('Butterfly Habitat Enhancement', '17-11-2021 09:00', '1384 Ang Mo Kio Avenue 1 Pet & Koi Centre Singapore 569932', 'Only 1 person needed.', '[Only appointed volunteer leaders can apply for this role] The volunteer leader will work closely with NParks and is expected to play a leadership role, including delegation of tasks to be carried out, supervise other volunteers, be accountable for tools, attendance and safe management measures.', '84516729', 2, user4_uuid);
+    ('Coney Island Cleanup', '11-20-2021 09:00', 'Coney Island', '20 people needed!', 'Coney Island is filled with trash.', 'beachwarriors@nail.com', '90366421', 1, user1_uuid),
+    ('Lazarus Island Cleanup', '11-14-2021 15:00', 'Lazarus Island', '10 people needed!', 'Lazarus Island is filled with trash.', 'beachwarriors@nail.com', '90366421', 1, user5_uuid),
+    ('Butterfly Habitat Enhancement', '11-17-2021 09:00', '1384 Ang Mo Kio Avenue 1 Pet & Koi Centre Singapore 569932', 'Only 1 person needed.', '[Only appointed volunteer leaders can apply for this role] The volunteer leader will work closely with NParks and is expected to play a leadership role, including delegation of tasks to be carried out, supervise other volunteers, be accountable for tools, attendance and safe management measures.', 'nparks@nail.com', '84516729', 2, user4_uuid);
 
     INSERT INTO public.events_users (event_id, user_id)
     VALUES
