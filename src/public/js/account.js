@@ -57,7 +57,6 @@ $(document).ready(function() {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
         $("#owner-events-count").text(data.length)
         data.map((event) => {
             $("#owner-events").append(`
