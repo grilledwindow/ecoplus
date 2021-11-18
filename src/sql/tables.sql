@@ -136,7 +136,7 @@ VALUES
 INSERT INTO public.events
 (name, datetime, location, details, description, contact_email, contact_no, community_id, owner_id)
 VALUES
-('Coney Island Cleanup', '20-11-2021 09:00', 'Coney Island', '20 people needed1!', 'Coney Island is filled with trash.', 'beachwarriors@nail.com', '90366421', 1, user1_uuid),
+('Coney Island Cleanup', '20-11-2021 09:00', 'Coney Island', '20 people needed!', 'Coney Island is filled with trash.', 'beachwarriors@nail.com', '90366421', 1, user1_uuid),
 ('Lazarus Island Cleanup', '14-11-2021 15:00', 'Lazarus Island', '10 people needed!', 'Lazarus Island is filled with trash.', 'beachwarriors@nail.com', '90366421', 1, user5_uuid),
 ('Butterfly Habitat Enhancement', '17-11-2021 09:00', '1384 Ang Mo Kio Avenue 1 Pet & Koi Centre Singapore 569932', 'Only 1 person needed.', '[Only appointed volunteer leaders can apply for this role] The volunteer leader will work closely with NParks and is expected to play a leadership role, including delegation of tasks to be carried out, supervise other volunteers, be accountable for tools, attendance and safe management measures.', '84516729', 2, user4_uuid);
 
@@ -148,3 +148,13 @@ VALUES
 (2, user4_uuid),
 (3, user5_uuid),
 (3, user8_uuid);
+
+INSERT INTO public.events_posts
+VALUES
+(1, user4_uuid, 'I can''t wait!'),
+(1, user7_uuid, 'Wow I go here a lot!'),
+(1, user8_uuid, 'I hope you get enough people.'),
+(2, user3_uuid, 'This island needs to be revived.'),
+(2, user9_uuid, 'Woahh I would''ve joined but I''m swarmed with homework :('),
+(3, user10_uuid, 'I loooove butterflies!!'),
+(3, user2_uuid, 'Oohh looks interesting.');
