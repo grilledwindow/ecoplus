@@ -25,6 +25,7 @@ $(document).ready(function() {
         let contact_no = $("#create-event-contactno").val()
         let community_id = $('#create-event-communityid').val()
         let owner_id = sessionStorage.getItem("userID")
+        console.log(community_id)
         
         fetch("/api/event-create", {
             method: "POST",
