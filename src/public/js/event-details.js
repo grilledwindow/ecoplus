@@ -1,12 +1,37 @@
-$(document).ready(function() {
-    let parameters = new URLSearchParams(window.location.search)
-    const id = parameters.get("id")
-    let user_id = sessionStorage.getItem("userID")
+let parameters = new URLSearchParams(window.location.search)
+const event_id = parameters.get("id")
+const user_id = sessionStorage.getItem("userID")
 
+function checkUserInEvent() {
+    fetch("/api/event-users",  {
+        method: "POST",
+        body: JSON.stringify({
+            event_id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        data.map(({users}) => {
+            if (user_id == null) {
+                $("#join-event").attr("disabled", true)
+                $("#join-event").addClass("disabled")
+                $("#joined-message").html("Please login to join this event")
+            }
+
+            if (users.id == user_id) {
+                $("#join-event").attr("disabled", true)
+                $("#join-event").addClass("disabled")
+                $("#joined-message").html("You have joined this event")
+            }
+        })
+    })
+}
+
+$(document).ready(function() {
     fetch("/api/event-details",  {
         method: "POST",
         body: JSON.stringify({
-            id
+            event_id
         })
     })
     .then((res) => res.json())
@@ -21,41 +46,19 @@ $(document).ready(function() {
         if (data.community != undefined) $("#event-community").html(data.community[0].name)
     })
 
-    fetch("/api/event-users",  {
-        method: "POST",
-        body: JSON.stringify({
-            id
-        })
-    })
-    .then((res) => res.json())
-    .then(({data}) => {
+    checkUserInEvent()
 
-        data.map(({users}) => {
-            if (user_id == null) {
-                $("#join-event").attr("disabled", true)
-                $("#join-event").addClass("disabled")
-                $("#joined-message").html("Please login to join this event")
-            }
-
-            if (users.id == user_id) {
-                $("#join-event").attr("disabled", true)
-                $("#join-event").addClass("disabled")
-                $("#joined-message").html("You have joined this event")
-            }
-
-            $("#join-event").on("click", function() {
-                let id = parameters.get("id")
-
-                fetch("/api/event-join", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        id,
-                        user_id
-                    })
-                })
-                .then((res) => res.json())
-                .then((data) => window.location.reload())
+    $("#join-event").on("click", function() {
+        fetch("/api/event-join", {
+            method: "POST",
+            body: JSON.stringify({
+                event_id,
+                user_id
             })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            checkUserInEvent()
         })
     })
 
@@ -70,8 +73,6 @@ $(document).ready(function() {
 
     $("#event-comment").on("submit", function(e) {
         e.preventDefault()
-        
-        let event_id = parameters.get("id")
         let post = $("#event-user-comment").val()
 
         fetch("/api/user-event-post", {
@@ -89,7 +90,7 @@ $(document).ready(function() {
     fetch("/api/event-posts", {
         method: "POST",
         body: JSON.stringify({
-            id
+            event_id
         })
     })
     .then((res) => res.json())

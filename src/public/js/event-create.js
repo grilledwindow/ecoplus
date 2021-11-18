@@ -12,19 +12,21 @@ $(document).ready(function() {
         let date = $("#create-event-date").val()
         let contact_email = $("#create-event-email").val()
         let contact_no = $("#create-event-contactno").val()
-        let user_id = sessionStorage.getItem("userID")
+        let community_id = $('#create-event-communityid').val()
+        let owner_id = sessionStorage.getItem("userID")
         
         fetch("/api/event-create", {
             method: "POST",
             body: JSON.stringify({
                 name, 
-                description, 
-                details, 
-                location, 
                 date, 
+                location,
+                details,
+                description,
                 contact_email, 
                 contact_no, 
-                user_id
+                community_id,
+                owner_id
             })
         })
         .then((res) => res.json())
