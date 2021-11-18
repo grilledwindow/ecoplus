@@ -64,18 +64,20 @@
         
         <div class="flex justify-between mx-8 mt-8 flex-col md:flex-row">
             <div class="w-auto md:w-2/3">
-                <h1 class="mt-8" id="community-name"></h1>
-                <p class="text-lg" id="community-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit eros, eleifend ac mollis sed, ornare ut ex. Pellentesque scelerisque feugiat mi, in feugiat lectus tincidunt nec.</p>
+                <h1 class="mt-8" id="event-name">Event Name</h1>
+                <p class="text-lg" id="event-description">Event Description</p>
             </div>
 
             <div class="bg-primary p-8 rounded-lg w-full self-center mt-8 md:mt-0 md:max-w-min">
-                <p class="text-6xl font-bold">24</p>
-                <p class="text-lg min-w-max">Days remaining<br />before volunteer event!</p>
+                <p class="text-6xl font-bold" id="days-remaining">-</p>
+                <p class="text-lg min-w-max">Days remaining<br />before event!</p>
+                <br />
+                <p class="font-semibold">Event Date: <br /><span id="event-datetime">-</span></p>
             </div>
         </div>
 
         <div class="mt-8 w-full bg-primary p-4">
-            <input onkeyup="myFunction()" id="search-volunteer-name" class="bg-white w-full text-lg rounded-lg p-4 md:w-1/3" type="search" name="search" placeholder="Search Volunteer Name">
+            <input onkeyup="searchFunction()" id="search-volunteer-name" class="bg-white w-full text-lg rounded-lg p-4 md:w-1/3" type="search" name="search" placeholder="Search Volunteer Name">
         </div>
 
         <div class="mx-8">
@@ -90,7 +92,7 @@
                                     <th scope="col" class="px-6 py-3 text-left font-bold text-gray-500">Action</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200" id="community-users"></tbody>
+                            <tbody class="bg-white divide-y divide-gray-200" id="event-users"></tbody>
                         </table>
                     </div>
                 </div>

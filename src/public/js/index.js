@@ -25,8 +25,6 @@ $(document).ready(function() {
         }
     })
 
-    // TODO: Case: if there are no communities
-
     fetch("/api/view-communities")
     .then((res) => res.json())
     .then(({data}) => {
