@@ -1,6 +1,7 @@
 # ecoplus
-ecoplus - Volunteering and Education Website <br>
-Ngee Ann Polytechnic ICT Year 2 Sem 2 - PFD Assignment
+A Volunteering and Education Website <br>
+Ngee Ann Polytechnic ICT Year 2 Sem 2 - PFD Assignment <br>
+Please visit ecoplus by clicking [here](https://ecoplus.netlify.app/)
 
 ## Team Members ##
 **Chew Kah Seng** - S10208180 <br>
@@ -10,48 +11,53 @@ Ngee Ann Polytechnic ICT Year 2 Sem 2 - PFD Assignment
 **Xavier Ang Yan Jun** - S10203108 <br>
 
 ## Description ##
-ecoplus is a volunteering and education website that aims to assist visitors in connecting to other communities and people for volunteering events such as Beach clean up or spread awareness campaigns. Visitors can also view our education hub for more environmental-related information to stay informed and interact with Augmented Reality models.
+ecoplus is a volunteering and education website that aims to connect volunteers to environmental organisations and communities for volunteering events like a Beach Clean-Up or Spread Awareness Campaigns. Visitors can also visit our Education Hub for more environmental-related information to stay informed and also interact with Augmented Reality models.
+
+## Developers ##
+For developers, please view our technical documents and its functions located in the docs folder.
+Please click [here](https://github.com/grilledwindow/ecoplus/tree/main/docs) to view the documents.
 
 ## Design Process ##
 * **Regular People**
     * Anyone can start volunteering and contribute to the community and environment.
 
-* **Curious Users**
-    * Curious users that want to learn about various environmental topics and interact with Augmented Reality models to stay engaged.
+* **Curious Visitors**
+    * For curious visitors that want to learn about various environmental topics and can interact with Augmented Reality models to stay engaged with the topics.
 
 * **Avid Volunteers**
     * Avid volunteers may be interested in event postings so that they can continue volunteering with other people and communities.
 
 * **Environmental Groups**
-    * Environmental groups can start their community on our website to connect with users and start their own events for their members to join.
+    * Environmental groups can start their community on our website to connect with visitors and/or create their own events for visitors to join.
 
 ## Roles & Contributions ##
 **Chew Kah Seng**
 * Home Page
-* Community Page
-* Browse Communities
+* Community Page - Browse list of Communities
 * View Community Details
-* Create Community Details
+* Create a Community
+* Join a Community
 * Augmented Reality Models
+* Restyling and Debugging
 
 **Lai Wai Keat**
 * Education Page
-* View Education Solutions Page
-* View Education Impacts Page
-* Quiz
+* Education Solutions Page
+* Education Impacts Page
+* Education Quiz Page
 * News Articles API
 
 **Goh Wei Chong**
-* Volunteering Page
-* Browse Events
+* Volunteering Page - Browse list of Events
 * View Event Details
-* Create Event
+* Create a Event
+* Join a Event
 
 **Swan Htat Aung**
-* Account Details Page
-* View Volunteers Page
 * Sign In
 * Sign Up
+* Account Details Page
+* View Volunteers Page
 
 **Xavier Ang Yan Jun**
 * Setup of supabase (database)
@@ -60,29 +66,34 @@ ecoplus is a volunteering and education website that aims to assist visitors in 
 
 ## Features ##
 * **Home**
-    * Attractive Header with AR Earth model
-    * A mini browse of various events
-    * A mini browse of various communities
+  * Attractive Header with AR Earth model
+  * A mini browse of various events
+  * A mini browse of various communities
+
 * **Volunteering**
   * Browse Events
   * View Event Details
   * Create a Event
   * View Volunteers Page
+
 * **Education**
   * Education Page
   * View News Articles
   * View Education Solutions Page
   * View Education Impacts Page
   * Quiz
+
 * **Account**
   * Accounts Details Page
   * Sign In
   * Sign Up
+
 * **Community**
   * Browse Communities
   * View Community Details
   * Create Community
   * Join a Community
+
 ## Technologies Used ##
 **Tools**
 * [Visual Studio Code](https://code.visualstudio.com/) → Integrated Development Environment used
@@ -109,7 +120,7 @@ ecoplus is a volunteering and education website that aims to assist visitors in 
 * [Home Community Illustration](https://www.freepik.com/free-vector/save-planet-recycling-concept_7712300.htm)
 * [Home Education Illustration](https://storyset.com/illustration/ice-melting/bro)
 * [Volcano model](https://poly.pizza/m/4xoTMiF0D5J)
-* [Bullet train model](https://poly.pizza/m/adPIQfcfgBD)
+* [Bullet Train model](https://poly.pizza/m/adPIQfcfgBD)
 * [Iceberg model](https://poly.pizza/m/edgjUwbVVtl)
 * [Forest model](https://poly.pizza/m/2_fv3tn3NG_)
-* [Power plant model](https://poly.pizza/m/0Ipa29gN-iV)
+* [Power Plant model](https://poly.pizza/m/0Ipa29gN-iV)
