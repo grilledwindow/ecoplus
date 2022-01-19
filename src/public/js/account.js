@@ -6,7 +6,8 @@ $(document).ready(function() {
     }
     
     $("#sign-out").on("click", function() {
-        sessionStorage.clear()
+        sessionStorage.clear();
+        localStorage.removeItem("session");
         window.location.reload();
     })
 
