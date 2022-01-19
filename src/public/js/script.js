@@ -49,8 +49,8 @@ function checkUserLogin() {
                     return;
                 }
                 localStorage.setItem("session", JSON.stringify(data.session));
-                sessionStorage.setItem("userID", JSON.stringify(data.session.user.id));
-                sessionStorage.setItem("username", JSON.stringify(data.username));
+                sessionStorage.setItem("userID", data.session.user.id);
+                sessionStorage.setItem("username", data.username);
 
                 $(".account").html(`
                     <div class="flex items-center">
