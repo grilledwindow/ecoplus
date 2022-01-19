@@ -9,7 +9,7 @@ const handler: Handler = async (event, context) => {
     let { data: communityUser, error: communityUserError } = await supabase
       .from("communities_users")
       .insert([
-          {id: id, community_id: community_id}
+          {community_id: community_id, user_id: id}
       ])
     if (communityUserError) throw { error: communityUserError };
       
