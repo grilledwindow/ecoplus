@@ -28,7 +28,6 @@ function handleMove(e) {
 function checkUserLogin() {
     let session = localStorage.getItem("session");
     if (session) {
-        console.log(session)
         session = JSON.parse(session);
         fetch("/api/refresh-token", {
             method: "POST",
@@ -66,7 +65,14 @@ function checkUserLogin() {
 }
 
 $(document).ready(function () {
-    setInterval(checkUserLogin, 603000 * 1000);
+    checkUserLogin();
+    let session = localStorage.getItem("session");
+    if (session) {
+        session = JSON.parse(session);
+        let interval = (session.expires_at - 1000) * 1000 - Date.now();
+        console.log(interval);
+        setInterval(checkUserLogin, interval);
+    }
 
     $("button.mobile-menu-button").on("click", function () {
         $(".mobile-menu").toggle("hidden")
