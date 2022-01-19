@@ -25,6 +25,7 @@ $(document).ready(function() {
             console.log(data)
             sessionStorage.setItem("userID", data.user.id)
             sessionStorage.setItem("username", data.data[0].username)
+            localStorage.setItem("session", JSON.stringify(data.session))
             window.location.href = "../index.html";
         })
     })

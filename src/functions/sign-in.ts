@@ -6,7 +6,7 @@ const handler: Handler = async (event, context) => {
 
   try {
     // Create a new user in the auth schema (auth.users)
-    let { user: user, error: error } = await supabase.auth.signIn({
+    let { user, session, error } = await supabase.auth.signIn({
       email,
       password,
     });
@@ -19,7 +19,7 @@ const handler: Handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ user: user, data: data }),
+      body: JSON.stringify({ user, session, data }),
     };
   } catch (error) {
     console.error(error);
