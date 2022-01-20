@@ -29,9 +29,8 @@ $(document).ready(function () {
                         localStorage.setItem("session", JSON.stringify(data.session));
                         localStorage.setItem("imgUrl", JSON.stringify(data.imgUrl));
 
-                        // HIde modal if open
-                        $("#modal-bg").hide();
-                        $("#modal-form").hide();
+                        // Refresh so changes can be seen automatically
+                        location.reload();
                     })
                     .catch(console.error);
             };
