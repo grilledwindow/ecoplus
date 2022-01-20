@@ -1,11 +1,24 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let id = sessionStorage.getItem("userID")
 
     if (id == null) {
         window.location.href = "../index.html";
     }
-    
-    $("#sign-out").on("click", function() {
+
+    const modalBg = $("#modal-bg");
+    const modalForm = $("#modal-form");
+    function hideModal() {
+        modalBg.hide();
+        modalForm.hide();
+    }
+    $("#account-change-photo").click(() => {
+        modalBg.show();
+        modalForm.show();
+    });
+    modalBg.click(hideModal);
+    $("#modal-cancel").click(hideModal);
+
+    $("#sign-out").on("click", function () {
         sessionStorage.clear();
         localStorage.removeItem("session");
         window.location.reload();
@@ -17,12 +30,12 @@ $(document).ready(function() {
             id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        $("#account-name").html(data[0].name)
-        $("#account-username").html(data[0].username)
-        $("#account-date").html(new Date(data[0].created_at).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit'}))
-    })
+        .then((res) => res.json())
+        .then(({ data }) => {
+            $("#account-name").html(data[0].name)
+            $("#account-username").html(data[0].username)
+            $("#account-date").html(new Date(data[0].created_at).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
+        })
 
     fetch("/api/user-communities", {
         method: "POST",
@@ -30,11 +43,11 @@ $(document).ready(function() {
             id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        $("#account-communities-count").text(data.length)
-        data.map(({communities}) => {
-            $("#account-communities").append(`
+        .then((res) => res.json())
+        .then(({ data }) => {
+            $("#account-communities-count").text(data.length)
+            data.map(({ communities }) => {
+                $("#account-communities").append(`
             <div class="community-card">
                 <div class="w-88 min-w-full">
                     <h2 class="text-xl font-bold">${communities.name}</h2>
@@ -47,8 +60,8 @@ $(document).ready(function() {
                 </div>
             </div>
             `)
+            })
         })
-    })
 
     fetch("/api/user-events", {
         method: "POST",
@@ -56,8 +69,8 @@ $(document).ready(function() {
             id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        $("#account-events-count").text(data.length)
-    })
+        .then((res) => res.json())
+        .then(({ data }) => {
+            $("#account-events-count").text(data.length)
+        })
 })

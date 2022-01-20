@@ -59,11 +59,12 @@
     <main>
         <div class="mx-8 mt-8 flex items-center">
             <div class="w-1/3 md:w-1/4">
-                <div class="rounded-full object-cover h-24 w-24 bg-gray-400 md:h-48 md:w-48"></div>
+                <img id="profile-photo" class="rounded-full object-cover h-24 w-24 bg-gray-400 md:h-48 md:w-48" />
             </div>
             <div class="w-2/3 md:w-3/4">
                 <h1 class="pb-4" id="account-name">Name</h1>
                 <p id="account-username">Username</p>
+                <button id="account-change-photo" class="btn-secondary mt-6">Change photo</button>
             </div>
         </div>
         <div class="mx-8 mt-8">
@@ -98,6 +99,21 @@
         <div class="mx-8 mt-8 flex">
             <a class="btn-secondary" href="javascript:history.back()">Back</a>
             <button class="btn-primary ml-4" id="sign-out">Sign Out</button>
+        </div>
+        <div id="modal-bg" class="hidden fixed w-full h-full left-0 top-0 bg-black opacity-25"></div>
+        <div id="modal-form" class="hidden fixed w-5/6 p-4 rounded-2xl bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 320px">
+            <h1 class="text-center">Profile Photo</h1>  
+            <div class="flex flex-col items-center">
+                <img id="profile-photo-input" class="rounded-full object-cover h-36 w-36 bg-gray-400" />
+                <label class="btn-secondary mt-4" style="width: fit-content">
+                    <span>Choose photo</span>
+                    <input type="file" id="img" name="img" accept="image/*" class="hidden" />
+                </label>
+            </div>
+            <div class="w-full flex justify-center mt-4">
+                <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="modal-upload" class="btn-primary ml-4">Upload</button>
+            </div>
         </div>
     </main>
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
