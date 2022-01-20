@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     $("#sign-out").on("click", function () {
         sessionStorage.clear();
-        localStorage.removeItem("session");
+        localStorage.clear();
         window.location.reload();
     })
 
