@@ -27,6 +27,7 @@ $(document).ready(function () {
 
                         // Update session
                         localStorage.setItem("session", JSON.stringify(data.session));
+                        localStorage.setItem("imgUrl", JSON.stringify(data.imgUrl));
 
                         // HIde modal if open
                         $("#modal-bg").hide();

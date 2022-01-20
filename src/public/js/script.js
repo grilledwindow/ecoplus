@@ -38,7 +38,7 @@ function checkUserLogin() {
             .then(res => res.json())
             .then(data => {
                 if (data.error != undefined) {
-                    localStorage.removeItem("session");
+                    localStorage.clear();
                     sessionStorage.removeItem("userID");
                     sessionStorage.removeItem("username");
 
@@ -49,27 +49,30 @@ function checkUserLogin() {
                     return;
                 }
                 localStorage.setItem("session", JSON.stringify(data.session));
+                localStorage.setItem("imgUrl", JSON.stringify(data.imgUrl));
                 sessionStorage.setItem("userID", data.session.user.id);
                 sessionStorage.setItem("username", data.username);
-
-                $(".account").html(`
-                    <div class="flex items-center">
-                        <a href="./account.html" class="h-8 w-8 mr-4">
-                            <img class="profile-photo rounded-full object-cover h-full w-full bg-gray-400" />
-                        </a>
-                        <p>Hi 
-                            <a href="./account.html" class="text-primary">${data.username}</a>
-                        !</p>
-                    </div>
-                `);
-                console.log(data);
-                setPfpImgSrc(data.imgUrl);
+                _checkUserLogin();
             });
     }
 }
 
+function _checkUserLogin() {
+    $(".account").html(`
+        <div class="flex items-center">
+            <a href="./account.html" class="h-8 w-8 mr-4">
+                <img class="profile-photo rounded-full object-cover h-full w-full bg-gray-400" />
+            </a>
+            <p>Hi 
+                <a href="./account.html" class="text-primary">${sessionStorage.getItem("username")}</a>
+            !</p>
+        </div>
+    `);
+    setPfpImgSrc(JSON.parse(localStorage.getItem("imgUrl")));
+}
+
 $(document).ready(function () {
-    checkUserLogin();
+    _checkUserLogin();
     let session = localStorage.getItem("session");
     if (session) {
         session = JSON.parse(session);
