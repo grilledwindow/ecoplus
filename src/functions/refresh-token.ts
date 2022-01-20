@@ -1,5 +1,6 @@
 import { Handler } from "@netlify/functions";
 import { supabase } from "./utils/supabase";
+import { profilePhotoUrl } from "./utils/imgUrl";
 
 const handler: Handler = async (event, context) => {
   const { session: clientSession } = JSON.parse(event.body);
@@ -13,18 +14,22 @@ const handler: Handler = async (event, context) => {
     console.log("try session:", s.expires_at, s.refresh_token);
 
     const { data: session, error } = await supabase.auth.refreshSession();
-    if (error) throw { error: error }
+    if (error) throw { error }
     console.log("new session:", session.expires_at, session.refresh_token);
 
-    const { data, error: usernameError } = await supabase
+    const { data: userData, error: userError } = await supabase
       .from("users")
-      .select("username")
+      .select("username, has_img")
       .eq("id", session.user.id);
-    if (usernameError) throw { error: usernameError }
+    if (userError) throw { error: userError }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ session, username: data[0].username }),
+      body: JSON.stringify({
+        session,
+        username: userData[0].username,
+        imgUrl: userData[0].has_img ? profilePhotoUrl(session.user.id) : null,
+      }),
     };
   } catch (error) {
     console.error(error);

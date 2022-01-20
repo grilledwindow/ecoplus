@@ -54,12 +54,16 @@ function checkUserLogin() {
 
                 $(".account").html(`
                     <div class="flex items-center">
-                        <a href="./account.html" class="rounded-full object-cover h-8 w-8 bg-gray-400 mr-4"></a>
+                        <a href="./account.html" class="h-8 w-8 mr-4">
+                            <img class="profile-photo rounded-full object-cover h-full w-full bg-gray-400" />
+                        </a>
                         <p>Hi 
                             <a href="./account.html" class="text-primary">${data.username}</a>
                         !</p>
                     </div>
                 `);
+                console.log(data);
+                setPfpImgSrc(data.imgUrl);
             });
     }
 }
@@ -85,3 +89,10 @@ $(document).ready(function () {
         "mousemove": handleMove
     });
 })
+
+function setPfpImgSrc(url) {
+    if (!url) { return; }
+    for (const img of document.querySelectorAll("img.profile-photo")) {
+        img.src = url;
+    }
+}
