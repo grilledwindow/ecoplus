@@ -43,15 +43,44 @@ $(document).ready(function () {
             id
         })
     })
-        .then((res) => res.json())
-        .then(({ data }) => {
-            $("#account-communities-count").text(data.length)
-            data.map(({ communities }) => {
+    .then((res) => res.json())
+    .then(({data}) => {
+        $("#account-communities-count").text(data.length)
+        if (data.length > 0) {
+            $("#account-communities").html("")
+            data.map(({communities}) => {
                 $("#account-communities").append(`
+                <div class="community-card">
+                    <div class="w-88 min-w-full">
+                        <h2 class="text-xl font-bold">${communities.name}</h2>
+                        <a class="btn-primary flex items-center justify-center mt-8" href="./community-details.html?id=${communities.id}">
+                            More Info
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                `)
+            })
+        }
+    })
+    
+    fetch("/api/user-events", {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        $("#account-events-count").text(data.length)
+        data.map(({events}) => {
+            $("#account-events").append(`
             <div class="community-card">
                 <div class="w-88 min-w-full">
-                    <h2 class="text-xl font-bold">${communities.name}</h2>
-                    <a class="btn-primary flex items-center justify-center mt-8" href="./community-details.html?id=${communities.id}">
+                    <h2 class="text-xl font-bold">${events.name}</h2>
+                    <a class="btn-primary flex items-center justify-center mt-8" href="./event-details.html?id=${events.id}">
                         More Info
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -62,6 +91,35 @@ $(document).ready(function () {
             `)
             })
         })
+    
+    fetch("/api/owner-events", {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        $("#owner-events-count").text(data.length)
+        if (data.length > 0) {
+            $("#owner-events").html("")
+            data.map((event) => {
+                $("#owner-events").append(`
+                    <div class="community-card">
+                        <div class="w-88 min-w-full">   
+                            <h2 class="text-xl font-bold">${event.name}</h2>
+                            <a class="btn-primary flex items-center justify-center mt-8" href="./view-volunteer.html?id=${event.id}">
+                                More Info
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                `)
+            })
+        }
+    })
 
     fetch("/api/user-events", {
         method: "POST",

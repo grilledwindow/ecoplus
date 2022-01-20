@@ -2,13 +2,13 @@ import { Handler } from "@netlify/functions";
 import { supabase } from "./utils/supabase";
 
 const handler: Handler = async (event, context) => {
-  const { community_id } = JSON.parse(event.body);
+  const { event_id } = JSON.parse(event.body);
 
   try {
     const { data } = await supabase
-      .from("events")
-      .select("*")
-      .eq("community_id", community_id)
+      .from("events_posts")
+      .select("users(username), post")
+      .eq("event_id", event_id)
       
     return {
       statusCode: 200,

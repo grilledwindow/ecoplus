@@ -2,14 +2,14 @@ import { Handler } from "@netlify/functions";
 import { supabase } from "./utils/supabase";
 
 const handler: Handler = async (event, context) => {
-  const { community_id } = JSON.parse(event.body);
+  const { name } = JSON.parse(event.body);
 
   try {
-    const { data } = await supabase
+    let { data } = await supabase
       .from("events")
       .select("*")
-      .eq("community_id", community_id)
-      
+      .or(`name.like.%${name}%`)
+
     return {
       statusCode: 200,
       body: JSON.stringify({ data }),

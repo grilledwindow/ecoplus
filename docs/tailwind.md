@@ -11,7 +11,7 @@ Install NodeJS via this [link](https://nodejs.org/en/)
 2. TailwindCSS
 
 ```
-    npm i
+npm i
 ```
 
 ## TailwindCSS usage
@@ -26,7 +26,7 @@ For documentation of the various Tailwind classes can be found [here](https://ta
 ## TailwindCSS example
 
 ```
-    <p class="font-bold text-lg">Hello World</p>
+<p class="font-bold text-lg">Hello World</p>
 ```
 
-This means that the text will be Bolded and have a font-size of 1.125rem and line-height of 1.75rem according to the TailwindCSS documentation.
+This means that the text will be Bolded and have a font-size of 1.125rem and line-height of 1.75rem (according to the TailwindCSS documentation).

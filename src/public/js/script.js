@@ -25,6 +25,7 @@ function handleMove(e) {
     $(this).scrollLeft(scrollLeft - walk);
 }
 
+// check if user is logged in and replace the sign-in/sign-up buttons with a profile name
 function checkUserLogin() {
     let session = localStorage.getItem("session");
     if (session) {
@@ -81,10 +82,12 @@ $(document).ready(function () {
         setInterval(checkUserLogin, interval);
     }
 
-    $("button.mobile-menu-button").on("click", function () {
+    // for mobile view button
+    $("button.mobile-menu-button").on("click", function() {
         $(".mobile-menu").toggle("hidden")
     })
-
+    
+    // if section has slide class, the user can drag to slide the section
     $(".slide").on({
         "mousedown": handleDown,
         "mouseleave": handleLeave,

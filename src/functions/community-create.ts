@@ -15,17 +15,14 @@ const handler: Handler = async (event, context) => {
     // Create a new community in the public schema (public.communities)
     let { data: community, error: communityError } = await supabase
       .from("communities")
-      .insert([
-          {name: name, description: description, owner_id: owner_id}
-      ])
+      .insert([{name: name, description: description, owner_id: owner_id}])
+    if (communityError) throw { error: communityError };
     
     // Add owner to communities users table
     let { data: userCommunity, error: userCommunityError } = await supabase
       .from("communities_users")
-      .insert([
-          {id: owner_id, community_id: community[0].id}
-      ])
-    if (communityError) throw { error: communityError };
+      .insert([{community_id: community[0].id, user_id: owner_id}])
+    if (userCommunityError) throw { error: userCommunityError };
 
     return {
       statusCode: 200,

@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    // TODO: Case: if there are no communities
-
+    // fetch the list of communities
     fetch("/api/view-communities")
     .then((res) => res.json())
     .then(({data}) => {
