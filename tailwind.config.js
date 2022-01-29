@@ -12,6 +12,12 @@ module.exports = {
       'montserrat': "'Montserrat', sans-serif"
     },
     extend: {
+      height: {
+        '144': '36rem',
+      },
+      width: {
+        '144': '36rem',
+      },
       colors: {
         primary: '#a2d729',
       },
