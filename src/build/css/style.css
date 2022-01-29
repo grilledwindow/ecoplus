@@ -61,4 +61,17 @@
     .disabled {
         @apply disabled:opacity-50 hover:bg-black;
     }
+
+    button[slot="hotspot-us"]{
+        --min-hotspot-opacity: 0;
+    }
+
+    .annotation {
+        @apply block w-4 h-4 rounded-full border-none bg-red-500 box-border;
+    }
+
+    .annotation-tooltip {
+        transform: translate(1rem, 1rem);
+        @apply bg-blue-50 text-xs absolute rounded-md p-3;
+    }
 }
