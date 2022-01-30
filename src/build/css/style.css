@@ -69,9 +69,18 @@
     .annotation {
         @apply block w-4 h-4 rounded-full border-none bg-red-500 box-border;
     }
+    
+    .annotation-bg {
+        transform: translate(0rem, 0rem);
+        @apply relative block w-4 h-4 rounded-full border-none bg-red-500 animate-ping
+    }
 
     .annotation-tooltip {
         transform: translate(1rem, 1rem);
-        @apply bg-blue-50 text-xs absolute rounded-md p-3;
+        @apply bg-blue-50 text-xs absolute rounded-md p-3 invisible;
+    }
+
+    .annotation:hover .annotation-tooltip {
+        @apply visible;
     }
 }
