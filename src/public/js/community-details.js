@@ -5,6 +5,9 @@ const community_id = parameters.get("id")
 // grab the user id from session storage
 const user_id = sessionStorage.getItem("userID")
 
+// variable to store data to view
+let community
+
 // check if the user is within the community
 function checkUserInCommunity() {
     fetch("/api/community-users", {
@@ -63,6 +66,7 @@ function setAllDetailViewButtonAsBlank() {
 
 function hideModal() {
     $("#modal-bg").hide()
+    $("#delete-community-modal-form").hide()
     $("#leave-community-modal-form").hide()
 }
 
@@ -108,7 +112,7 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        let community = data[0]
+        community = data[0]
         $("#community-name").html(community.name)
         $("#community-description").html(community.description)
 
@@ -119,7 +123,9 @@ $(document).ready(function() {
                     <span>Edit Community</span>
                 </a>
             `)
-            
+
+            $("#delete-community").show()
+
             $("#leave-community-button").attr("disabled", true)
             $("#leave-community-button").addClass("disabled")
             $("#leave-community-message").html("You are the owner of this community")
@@ -186,7 +192,7 @@ $(document).ready(function() {
         `)
     }
 
-    // fetch the comments of the community
+    // if user posts a comment
     $("#community-comment").on("submit", function(e) {
         e.preventDefault()
         
@@ -204,7 +210,8 @@ $(document).ready(function() {
         .then((res) => res.json())
         .then((data) => window.location.reload())
     })
-
+    
+    // fetch the comments of the community
     fetch("/api/community-posts", {
         method: "POST",
         body: JSON.stringify({
@@ -231,8 +238,13 @@ $(document).ready(function() {
         $("#leave-community-modal-form").show()
     })
 
+    $("#delete-community-button").on("click", () => {
+        $("#modal-bg").show()
+        $("#delete-community-modal-form").show()
+    })
+
     $("#modal-bg").click(hideModal)
-    $("#modal-cancel").click(hideModal)
+    $(".modal-cancel").click(hideModal)
 
     $("#modal-leave").on("click", () => {
         fetch("/api/community-delete-user", {
@@ -254,5 +266,23 @@ $(document).ready(function() {
             $("#outcome-message").html("The user has left the community")
             window.location.href = `../community-details.html?id=${community_id}`;
         })
+    })
+
+    $("#modal-delete").on("click", () => {
+        $("#error-message").html("")
+        if (community.name == $("#delete-community-input").val()) {
+            fetch("/api/community-delete", {
+                method: "POST",
+                body: JSON.stringify({
+                    community_id
+                })
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                window.location.href = "../account.html";
+            })
+        }
+        
+        else $("#error-message").html("You didn't enter the community name correctly")
     })
 })

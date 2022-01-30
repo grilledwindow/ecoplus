@@ -55,6 +55,7 @@ $(document).ready(() => {
     .then((res) => res.json())
     .then(({data}) => {
         let community = data[0]
+        $("#community-name").html(community.name)
         $("#edit-community-name").val(community.name)
         $("#edit-community-description").val(community.description)
 

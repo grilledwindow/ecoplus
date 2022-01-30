@@ -97,6 +97,14 @@
                         <span id="leave-community-message"></span>
                     </div>
                 </div>
+                <div id="delete-community" class="hidden mt-8">
+                    <div class="flex items-center">
+                        <button class="btn-delete flex items-center mr-4" id="delete-community-button">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            Delete Community
+                        </button>
+                    </div>
+                </div>
                 <div id="modal-bg" class="hidden fixed w-full h-full left-0 top-0 bg-black opacity-25 transition-opacity"></div>
                 <div id="leave-community-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <div class="flex flex-col items-center md:items-start md:flex-row">
@@ -109,6 +117,24 @@
                             <div class="mt-8 flex flex-col md:flex-row">
                                 <button id="modal-cancel" class="btn-secondary">Cancel</button>
                                 <button id="modal-leave" class="btn-warning mt-4 md:ml-4 md:mt-0">Leave Community</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="delete-community-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <div class="flex flex-col items-center md:items-start md:flex-row">
+                        <div class="bg-red-200 flex items-center mb-4 md:mb-0 justify-center rounded-full flex-shrink-0 w-12 h-12">
+                            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        </div>
+                        <div class="ml-4 flex-col">
+                            <p class="font-bold">Delete Community</p>
+                            <p class="w-auto md:w-96">Are you sure you want to delete this community? This action cannot be undone.</p><br/>
+                            <p class="w-auto md:w-96">Enter Community Name</p>
+                            <input id="delete-community-input" type="text" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
+                            <span class="text-red-600" id="error-message"></span>
+                            <div class="mt-8 flex flex-col md:flex-row">
+                                <button class="modal-cancel btn-secondary">Cancel</button>
+                                <button id="modal-delete" class="btn-warning mt-4 md:ml-4 md:mt-0">Delete Community</button>
                             </div>
                         </div>
                     </div>
