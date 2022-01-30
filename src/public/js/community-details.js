@@ -29,6 +29,8 @@ function checkUserInCommunity() {
                 $("#join-community").attr("disabled", true)
                 $("#join-community").addClass("disabled")
                 $("#joined-message").html("You have joined this community")
+
+                $("#leave-community").show()
             }
             
             $("#community-users").append(`
@@ -57,6 +59,11 @@ function setAllDetailViewButtonAsBlank() {
     $("#community-events-button").addClass("btn-blank")
     $("#community-members-button").addClass("btn-blank")
     $("#community-comments-button").addClass("btn-blank")
+}
+
+function hideModal() {
+    $("#modal-bg").hide()
+    $("#leave-community-modal-form").hide()
 }
 
 $(document).ready(function() {
@@ -112,6 +119,10 @@ $(document).ready(function() {
                     <span>Edit Community</span>
                 </a>
             `)
+            
+            $("#leave-community-button").attr("disabled", true)
+            $("#leave-community-button").addClass("disabled")
+            $("#leave-community-message").html("You are the owner of this community")
         }
     })
 
@@ -212,6 +223,36 @@ $(document).ready(function() {
                 </div>
             </div>
             `)
+        })
+    })
+
+    $("#leave-community-button").on("click", () => {
+        $("#modal-bg").show()
+        $("#leave-community-modal-form").show()
+    })
+
+    $("#modal-bg").click(hideModal)
+    $("#modal-cancel").click(hideModal)
+
+    $("#modal-leave").on("click", () => {
+        fetch("/api/community-delete-user", {
+            method: "POST",
+            body: JSON.stringify({
+                community_id,
+                user_id
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.error != undefined) {
+                $("#outcome-message").css("color", "#EF4444")
+                $("#outcome-message").html(`${data.error.message}.`)
+                return
+            }
+            
+            $("#outcome-message").css("color", "#10B981")
+            $("#outcome-message").html("The user has left the community")
+            window.location.href = `../community-details.html?id=${community_id}`;
         })
     })
 })

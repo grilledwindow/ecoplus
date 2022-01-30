@@ -11,10 +11,12 @@ $(document).ready(function () {
         modalBg.hide();
         modalForm.hide();
     }
+
     $("#account-change-photo").click(() => {
         modalBg.show();
         modalForm.show();
     });
+    
     modalBg.click(hideModal);
     $("#modal-cancel").click(hideModal);
 

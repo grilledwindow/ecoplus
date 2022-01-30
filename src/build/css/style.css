@@ -63,7 +63,7 @@
     }
 
     .disabled {
-        @apply disabled:opacity-50 hover:bg-black;
+        @apply disabled:opacity-50;
     }
 
     button[slot="hotspot-us"]{
