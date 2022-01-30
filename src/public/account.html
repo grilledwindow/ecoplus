@@ -83,7 +83,15 @@
             <h1 class="text-2xl md:text-4xl">My Events</h1>
             <div class="flex overflow-x-auto slide" id="owner-events">
                 <div class="h-80 rounded-lg bg-gray-200 w-full grid place-items-center">
-                    <h1 class="p-0 text-gray-600 text-center">Could not find any created events</h1>
+                    <h1 class="p-0 text-gray-600 text-center">Could not find any created Events</h1>
+                </div>
+            </div>
+        </div>
+        <div class="mx-8 mt-8">
+            <h1 class="text-2xl md:text-4xl">My Communities</h1>
+            <div class="flex overflow-x-auto slide" id="owner-communities">
+                <div class="h-80 rounded-lg bg-gray-200 w-full grid place-items-center">
+                    <h1 class="p-0 text-gray-600 text-center">Could not find any created Communities</h1>
                 </div>
             </div>
         </div>
@@ -112,9 +120,12 @@
                 </div>
             </div>
         </div>
-        <div class="mx-8 mt-8 flex">
-            <a class="btn-secondary" href="javascript:history.back()">Back</a>
-            <button class="btn-primary ml-4" id="sign-out">Sign Out</button>
+        <div class="mx-8 mt-8 flex flex-col mb-8">
+            <h1 class="text-2xl md:text-4xl">Account Actions</h1>
+            <div>
+                <a class="btn-secondary" href="javascript:history.back()">Back</a>
+                <button class="btn-primary ml-4" id="sign-out">Sign Out</button>
+            </div>
         </div>
         <div id="modal-bg" class="hidden fixed w-full h-full left-0 top-0 bg-black opacity-25"></div>
         <div id="modal-form" class="hidden fixed w-5/6 p-4 rounded-2xl bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 320px">
