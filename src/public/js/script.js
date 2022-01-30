@@ -74,13 +74,23 @@ function _checkUserLogin() {
     setPfpImgSrc(JSON.parse(localStorage.getItem("imgUrl")));
 }
 
+function checkForPasswordRecovery() {
+    let fragment = new URLSearchParams(window.location.hash)
+
+    let type = fragment.get("type")
+    if (type == "recovery") {
+        window.location.href = `../reset-password?${window.location.hash}`
+    }
+}
+
 $(document).ready(function () {
+    checkForPasswordRecovery();
+    
     _checkUserLogin();
     let session = localStorage.getItem("session");
     if (session) {
         session = JSON.parse(session);
         let interval = (session.expires_at - 1000) * 1000 - Date.now();
-        console.log(interval);
         setInterval(checkUserLogin, interval);
     }
 

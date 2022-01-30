@@ -18,7 +18,6 @@ $(document).ready(function() {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
             if (data.error != undefined) {
                 $("#outcome-message").css("color", "#EF4444")
                 $("#outcome-message").html(data.error.message)

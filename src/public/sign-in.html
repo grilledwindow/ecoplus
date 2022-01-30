@@ -57,21 +57,20 @@
     </nav>
 
     <main>
-        <div class="w-full h-full bg-cover" style="background-image: url(https://i.makeagif.com/media/1-27-2016/0zsEDQ.gif)">
-            <section class="min-h-screen flex flex-col">
-                <div class="flex flex-1 items-center justify-center">
-                    <div class="text-center rounded-lg bg-white p-8 md:p-16 w-full max-w-md lg:max-w-xl">
-                        <h1 class="pb-4">Sign in to <span class="text-primary">ecoplus</span></h1>
-                        <span id="outcome-message"></span>
-                        <form class="space-y-4 pt-4" id="sign-in">
-                            <input id="email" type="email" placeholder="Email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
-                            <input id="password" type="password" placeholder="Password" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-full" />
-                            <input type="submit" class="btn-primary w-full" value="Submit" />
-                        </form>
-                        <p class="mt-4">Don't have an account? <a href="./sign-up.html" class="text-indigo-600 underline hover:text-indigo-800">Create One</a></p>
-                    </div>
+        <div class="bg-white md:bg-gray-200 grid place-items-center p-0 py-8 sm:p-8 md:p-24">
+            <div class="rounded-lg bg-white border-gray-300 p-4 sm:p-12 flex flex-col justify-evenly w-auto sm:w-96 md:w-144" style="height: 30rem;">
+                <h1 class="p-0 text-center">Sign in to <span class="text-primary">ecoplus</span></h1>
+                <div>
+                    <span id="outcome-message"></span>
+                    <form class="space-y-4 pt-4" id="sign-in">
+                        <input id="email" type="email" placeholder="Email" required class="p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
+                        <input id="password" type="password" placeholder="Password" required class="p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
+                        <input type="submit" class="btn-primary w-full" value="Submit" />
+                    </form>
+                    <p class="mt-4 text-center">Don't have an account? <a href="./sign-up.html" class="text-primary hover:text-green-500">Create One</a></p>
+                    <p class="mt-2 text-center"><a href="./forgot-password.html" class="text-primary hover:text-green-500">Forgot Password</a></p>
                 </div>
-            </section>
+            </div>
         </div>
     </main>
 

@@ -41,7 +41,6 @@ $(document).ready(function () {
 
     function imgSelect() {
         const img = imgInput.files[0];
-        console.log(img);
         document.getElementById("profile-photo-input-img").src = window.URL.createObjectURL(img);
     }
 });
