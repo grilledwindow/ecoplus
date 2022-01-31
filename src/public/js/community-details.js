@@ -67,9 +67,10 @@ function setAllDetailViewButtonAsBlank() {
 }
 
 function hideModal() {
-    $("#modal-bg").hide()
+    $(".modal-bg").hide()
     $("#delete-community-modal-form").hide()
     $("#leave-community-modal-form").hide()
+    $("#change-profile-img-modal-form").hide()
 }
 
 function fetchComments() {
@@ -144,6 +145,16 @@ $(document).ready(function() {
             community = data[0]
             $("#community-name").html(community.name)
             $("#community-description").html(community.description)
+
+            if (community.has_profile_img) {
+                let url = `https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/communities/profile_img/${community.id}.jpg`
+                $(".profile-community-img").attr('src', url)
+            }
+
+            if (community.has_cover_img) {
+                let url = `https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/communities/cover_img/${community.id}.jpg`
+                $(".cover-community-img").attr('src', url)
+            }
     
             if (community.owner_id == user_id) {
                 $("#edit-community-button").html(`
@@ -152,12 +163,68 @@ $(document).ready(function() {
                         <span>Edit Community</span>
                     </a>
                 `)
-    
-                $("#delete-community").show()
+
+                $("#change-profile-img").html(`
+                    <button id="change-profile-img-button" class="mt-8 btn-primary flex items-center max-w-min cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span>Change Profile Image</span>
+                    </button>
+                `)
+
+                $("#change-profile-img-button").on("click", () => {
+                    $(".modal-bg").show()
+                    $("#change-profile-img-modal-form").show()
+                })
+
+                $(".modal-bg").click(hideModal)
+                $(".modal-cancel").click(hideModal)
+
+                $("#modal-change-profile-img").on("click", () => {
+                    $("#profile-img-error-message").html("")
+                    const imgInput = document.getElementById("change-profile-community-input");
+                    const img = imgInput.files[0];
+                    const session = JSON.parse(localStorage.getItem("session"));
+
+                    if (img) {
+                        const reader = new FileReader();
+
+                        reader.onload = function (re) {
+                            const binaryString = re.target.result;
+                            // encode as base64 because Netlify doesn't support img uploads properly
+                            const base64string = btoa(binaryString);
+
+                            fetch('/api/community-profile-picture', {
+                                method: 'POST',
+                                body: JSON.stringify({ 
+                                    session,
+                                    community_id,
+                                    img: base64string
+                                })
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    
+                                    // Update session
+                                    localStorage.setItem("session", JSON.stringify(data.session));
+                                    
+                                    // Refresh so changes can be seen automatically
+                                    location.reload();
+                                })
+                                .catch(console.error);
+                        };
+            
+                        reader.readAsBinaryString(img);
+                    }
+                    else $("#profile-img-error-message").html("Please locate a image to be set")
+                })
     
                 $("#leave-community-button").attr("disabled", true)
                 $("#leave-community-button").addClass("disabled")
                 $("#leave-community-message").html("You are the owner of this community")
+                
+                $("#delete-community").show()
             }
         }
     })
@@ -249,16 +316,16 @@ $(document).ready(function() {
     }
 
     $("#leave-community-button").on("click", () => {
-        $("#modal-bg").show()
+        $(".modal-bg").show()
         $("#leave-community-modal-form").show()
     })
 
     $("#delete-community-button").on("click", () => {
-        $("#modal-bg").show()
+        $(".modal-bg").show()
         $("#delete-community-modal-form").show()
     })
 
-    $("#modal-bg").click(hideModal)
+    $(".modal-bg").click(hideModal)
     $(".modal-cancel").click(hideModal)
 
     $("#modal-leave").on("click", () => {

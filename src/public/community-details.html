@@ -57,11 +57,17 @@
     </nav>
 
     <main>
+        <!-- Community Profile Images -->
+        <div>
+            <img class="cover-community-img bg-gray-300 h-64" />
+            <img class="profile-community-img object-cover bg-gray-400 h-48 w-48 mx-auto md:mx-0 md:ml-20 -mt-24 rounded-full" />
+        </div>
+
         <div class="mx-8">
             <!-- General information regarding the community -->
-            <h1 class="mt-8" id="community-name">Community Name</h1>
-            <p class="text-lg mb-6" id="community-description">Description</p>
-            <div class="flex mt-6">
+            <h1 id="community-name" class="md:text-white md:drop-shadow-md text-center mt-12 md:mt-0 md:text-left md:ml-72 md:-mt-40 md:mb-28">Community Name</h1>
+            <p class="text-lg mb-6 text-center md:text-left" id="community-description">Description</p>
+            <div class="grid mt-6 place-items-center md:place-items-start">
                 <a class="btn-secondary flex items-center" href="javascript:history.back()">Back</a>
             </div>
         </div>
@@ -88,8 +94,12 @@
                 </div>
                 <div id="edit-community-button">
                 </div>
+                <div id="change-profile-img">
+                </div>
+                <div id="change-cover-img-button">
+                </div>
                 <div id="leave-community" class="hidden mt-24">
-                    <div class="flex items-center">
+                    <div class="flex flex-col md:flex-row items-start md:items-center">
                         <button class="btn-warning flex items-center mr-4" id="leave-community-button">
                             <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
                             Leave Community
@@ -105,7 +115,7 @@
                         </button>
                     </div>
                 </div>
-                <div id="modal-bg" class="hidden fixed w-full h-full left-0 top-0 bg-black opacity-25 transition-opacity"></div>
+                <div class="hidden modal-bg fixed w-full h-full left-0 top-0 bg-black opacity-25 transition-opacity"></div>
                 <div id="leave-community-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <div class="flex flex-col items-center md:items-start md:flex-row">
                         <div class="bg-red-200 flex items-center mb-4 md:mb-0 justify-center rounded-full flex-shrink-0 w-12 h-12">
@@ -135,6 +145,20 @@
                             <div class="mt-8 flex flex-col md:flex-row">
                                 <button class="modal-cancel btn-secondary">Cancel</button>
                                 <button id="modal-delete" class="btn-warning mt-4 md:ml-4 md:mt-0">Delete Community</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="change-profile-img-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <div class="flex flex-col items-center md:flex-row">
+                        <img class="profile-community-img bg-gray-200 h-48 w-48 rounded-full flex-shrink-0" />
+                        <div class="mt-4 md:mt-0 md:ml-4 flex-col">
+                            <p class="font-bold text-center md:text-left">Change Profile Picture</p>
+                            <p><span class="text-red-600" id="profile-img-error-message"></span></p>
+                            <input id="change-profile-community-input" type="file" accept=".png, .jpg" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full md:w-4/6" />
+                            <div class="mt-8 flex flex-col md:flex-row">
+                                <button class="modal-cancel btn-secondary">Cancel</button>
+                                <button id="modal-change-profile-img" class="btn-outline mt-4 md:ml-4 md:mt-0">Change Image</button>
                             </div>
                         </div>
                     </div>

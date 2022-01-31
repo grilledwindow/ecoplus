@@ -45,6 +45,10 @@
         @apply whitespace-nowrap text-center hover:bg-gray-300 hover:text-black text-gray-300 text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-400 focus:outline-none transition-colors duration-200;
     }
 
+    .btn-outline {
+        @apply whitespace-nowrap text-center border-2 border-primary hover:border-black text-primary hover:text-black text-lg font-semibold pt-1.5 pb-2 px-6 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-black focus:outline-none transition-colors duration-200; 
+    }
+
     .btn-warning {
         @apply whitespace-nowrap text-center bg-red-500 hover:bg-red-100 text-white hover:text-red-700 text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-red-500 focus:outline-none transition-colors duration-200; 
     }
