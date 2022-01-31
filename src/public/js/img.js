@@ -2,7 +2,7 @@ $(document).ready(function () {
     const imgInput = document.getElementById("profile-photo-input");
 
     imgInput.addEventListener("change", imgSelect);
-    $("#modal-upload").click(imgUpload);
+    $("#modal-form-upload").click(imgUpload);
 
     function imgUpload(event) {
         event.preventDefault();
