@@ -1,6 +1,7 @@
 import { Handler } from "@netlify/functions";
 import { brotliDecompressSync } from "zlib";
 import { supabase } from "./utils/supabase";
+import { profilePhotoUrl } from "./utils/imgUrl";
 
 const handler: Handler = async (event, context) => {
   const { email, password } = JSON.parse(event.body);
@@ -21,7 +22,7 @@ const handler: Handler = async (event, context) => {
     let user = data[0];
     let body = { user, session, data };
     if (user.has_img) {
-      body["imgUrl"] = `https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/users/${user.id}.jpg`
+      body["imgUrl"] = profilePhotoUrl(user.id);
     }
     return {
       statusCode: 200,
