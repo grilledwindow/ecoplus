@@ -12,6 +12,10 @@
         @apply font-bold text-4xl pb-8;
     }
 
+    h2 {
+        @apply font-bold text-3xl;
+    }
+
     /* scrollbar css */
     ::-webkit-scrollbar {
         @apply w-4;
@@ -36,7 +40,7 @@
     .btn-secondary {
         @apply whitespace-nowrap text-center bg-gray-200 hover:bg-gray-400 text-black text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-400 focus:outline-none transition-colors duration-200;
     }
-
+    
     .btn-blank {
         @apply whitespace-nowrap text-center hover:bg-gray-300 hover:text-black text-gray-300 text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-400 focus:outline-none transition-colors duration-200;
     }

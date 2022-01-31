@@ -19,29 +19,31 @@ function checkUserInCommunity() {
     .then((res) => res.json())
     .then(({data}) => {
         $("#community-users").html("")
-        data.map(({users}) => {
+        if (data != null) {
 
-            // if user is not logged in
-            if (user_id == null) {
-                $("#join-community").attr("disabled", true)
-                $("#join-community").addClass("disabled")
-                $("#joined-message").html("Please login to join this community")
-            }
-
-            if (user_id == users.id) {
-                $("#join-community").attr("disabled", true)
-                $("#join-community").addClass("disabled")
-                $("#joined-message").html("You have joined this community")
-
-                $("#leave-community").show()
-            }
-            
-            $("#community-users").append(`
-                <tr>
-                    <td class="px-6 py-3 whitespace-nowrap text-gray-500">${users.name}</td>
-                </tr>
-            `)
-        })
+            data.map(({users}) => {
+                // if user is not logged in
+                if (user_id == null) {
+                    $("#join-community").attr("disabled", true)
+                    $("#join-community").addClass("disabled")
+                    $("#joined-message").html("Please login to join this community")
+                }
+    
+                if (user_id == users.id) {
+                    $("#join-community").attr("disabled", true)
+                    $("#join-community").addClass("disabled")
+                    $("#joined-message").html("You have joined this community")
+    
+                    $("#leave-community").show()
+                }
+                
+                $("#community-users").append(`
+                    <tr>
+                        <td class="px-6 py-3 whitespace-nowrap text-gray-500">${users.name}</td>
+                    </tr>
+                `)
+            })
+        }
     })
 }
 
@@ -68,6 +70,32 @@ function hideModal() {
     $("#modal-bg").hide()
     $("#delete-community-modal-form").hide()
     $("#leave-community-modal-form").hide()
+}
+
+function fetchComments() {
+    // fetch the comments of the community
+    fetch("/api/community-posts", {
+        method: "POST",
+        body: JSON.stringify({
+            community_id
+        })
+    })
+    .then((res) => res.json())
+    .then(({data}) => {
+        if (data != null) {
+            data.map((data) => {
+                $("#community-comments").append(`
+                    <div class="rounded-lg border-4 p-4 flex">
+                        <div class="rounded-full bg-gray-200 h-12 w-12"></div>
+                        <div class="ml-4 flow-col">
+                            <p class="font-bold">${data.users.username}</p>
+                            <p>${data.post}</p>
+                        </div>
+                    </div>
+                `)
+            })
+        }
+    })
 }
 
 $(document).ready(function() {
@@ -112,23 +140,25 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        community = data[0]
-        $("#community-name").html(community.name)
-        $("#community-description").html(community.description)
-
-        if (community.owner_id == user_id) {
-            $("#edit-community-button").html(`
-                <a class="mt-8 btn-primary flex items-center max-w-min cursor-pointer" href="../community-edit.html?id=${community.id}">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    <span>Edit Community</span>
-                </a>
-            `)
-
-            $("#delete-community").show()
-
-            $("#leave-community-button").attr("disabled", true)
-            $("#leave-community-button").addClass("disabled")
-            $("#leave-community-message").html("You are the owner of this community")
+        if (data != null) {
+            community = data[0]
+            $("#community-name").html(community.name)
+            $("#community-description").html(community.description)
+    
+            if (community.owner_id == user_id) {
+                $("#edit-community-button").html(`
+                    <a class="mt-8 btn-primary flex items-center max-w-min cursor-pointer" href="../community-edit.html?id=${community.id}">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        <span>Edit Community</span>
+                    </a>
+                `)
+    
+                $("#delete-community").show()
+    
+                $("#leave-community-button").attr("disabled", true)
+                $("#leave-community-button").addClass("disabled")
+                $("#leave-community-message").html("You are the owner of this community")
+            }
         }
     })
 
@@ -144,7 +174,7 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        if (data.length != 0) {
+        if (data != null && data.length != 0) {
             $("#community-events").html("")
             data.map((event) => {
                 $("#community-events").append(`
@@ -182,56 +212,41 @@ $(document).ready(function() {
         })
     })
 
-    // if user is not logged in, disable comment section
+    // if user is logged in
     if (user_id != undefined) {
         $("#community-comment-box").html(`
-            <form class="flex" id="community-comment">
+            <div class="flex" id="community-comment">
                 <textarea id="community-user-comment" type="text" required class="border-4 border-gray-200 rounded-lg h-32 w-full p-4" placeholder="Post your comment"></textarea>
-                <input type="submit" value="Post" class="w-24 h-20 grid place-items-center bg-primary hover:bg-black cursor-pointer rounded-lg ml-4 font-semibold text-white"/>
-            </form>
-        `)
-    }
-
-    // if user posts a comment
-    $("#community-comment").on("submit", function(e) {
-        e.preventDefault()
-        
-        let community_id = parameters.get("id")
-        let post = $("#community-user-comment").val()
-
-        fetch("/api/user-community-post", {
-            method: "POST",
-            body: JSON.stringify({
-                community_id,
-                user_id,
-                post
-            })
-        })
-        .then((res) => res.json())
-        .then((data) => window.location.reload())
-    })
-    
-    // fetch the comments of the community
-    fetch("/api/community-posts", {
-        method: "POST",
-        body: JSON.stringify({
-            community_id
-        })
-    })
-    .then((res) => res.json())
-    .then(({data}) => {
-        data.map((data) => {
-            $("#community-comments").append(`
-            <div class="rounded-lg border-4 p-4 flex">
-                <div class="rounded-full bg-gray-200 h-12 w-12"></div>
-                <div class="ml-4 flow-col">
-                    <p class="font-bold">${data.users.username}</p>
-                    <p>${data.post}</p>
-                </div>
+                <button id="community-comment-button" class="bg-primary hover:bg-black text-white font-semibold ml-4 h-16 px-6 rounded-lg">Post</button>
             </div>
-            `)
+        `)
+
+        fetchComments()
+
+        // if user posts a comment
+        $("#community-comment-button").on("click", function(e) {
+            $("#comment-outcome-message").html("")
+
+            let post = $("#community-user-comment").val()
+
+            if (post != "") {
+                fetch("/api/user-community-post", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        community_id: community.id,
+                        user_id,
+                        post
+                    })
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    fetchComments()
+                })
+            }
+
+            else $("#comment-outcome-message").html("Please write a comment before posting")
         })
-    })
+    }
 
     $("#leave-community-button").on("click", () => {
         $("#modal-bg").show()
