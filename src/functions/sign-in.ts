@@ -1,4 +1,5 @@
 import { Handler } from "@netlify/functions";
+import { brotliDecompressSync } from "zlib";
 import { supabase } from "./utils/supabase";
 
 const handler: Handler = async (event, context) => {
@@ -6,7 +7,7 @@ const handler: Handler = async (event, context) => {
 
   try {
     // Create a new user in the auth schema (auth.users)
-    let { user, session, error } = await supabase.auth.signIn({
+    let { user: authUser, session, error } = await supabase.auth.signIn({
       email,
       password,
     });
@@ -15,11 +16,16 @@ const handler: Handler = async (event, context) => {
     let { data } = await supabase
       .from("users")
       .select("*")
-      .eq("id", user.id)
+      .eq("id", authUser.id)
 
+    let user = data[0];
+    let body = { user, session, data };
+    if (user.has_img) {
+      body["imgUrl"] = `https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/users/${user.id}.jpg`
+    }
     return {
       statusCode: 200,
-      body: JSON.stringify({ user, session, data }),
+      body: JSON.stringify(body),
     };
   } catch (error) {
     console.error(error);
