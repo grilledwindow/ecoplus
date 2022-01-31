@@ -2,24 +2,17 @@ import { Handler } from "@netlify/functions";
 import { supabase } from "./utils/supabase";
 
 const handler: Handler = async (event, context) => {
-  const { email, password } = JSON.parse(event.body);
+  const { access_token, new_password } = JSON.parse(event.body);
 
   try {
-    // Create a new user in the auth schema (auth.users)
-    let { user, session, error } = await supabase.auth.signIn({
-      email,
-      password,
-    });
+      // reset passsword
+    const { error, data } = await supabase.auth.api
+      .updateUser(access_token, { password : new_password })
     if (error) throw { error: error };
-
-    let { data } = await supabase
-      .from("users")
-      .select("*")
-      .eq("id", user.id)
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ user, session, data }),
+      body: JSON.stringify({ data, error }),
     };
   } catch (error) {
     console.error(error);

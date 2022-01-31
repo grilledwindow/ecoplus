@@ -5,6 +5,9 @@ const community_id = parameters.get("id")
 // grab the user id from session storage
 const user_id = sessionStorage.getItem("userID")
 
+// variable to store data to view
+let community
+
 // check if the user is within the community
 function checkUserInCommunity() {
     fetch("/api/community-users", {
@@ -29,6 +32,8 @@ function checkUserInCommunity() {
                 $("#join-community").attr("disabled", true)
                 $("#join-community").addClass("disabled")
                 $("#joined-message").html("You have joined this community")
+
+                $("#leave-community").show()
             }
             
             $("#community-users").append(`
@@ -40,8 +45,64 @@ function checkUserInCommunity() {
     })
 }
 
-$(document).ready(function() {
+function hideAllDetailViews() {
+    $("#community-settings-view").hide()
+    $("#community-events-view").hide()
+    $("#community-members-view").hide()
+    $("#community-comments-view").hide()
+}
+
+function setAllDetailViewButtonAsBlank() {
+    $("#community-settings-button").removeClass("btn-primary")
+    $("#community-events-button").removeClass("btn-primary")
+    $("#community-members-button").removeClass("btn-primary")
+    $("#community-comments-button").removeClass("btn-primary")
     
+    $("#community-settings-button").addClass("btn-blank")
+    $("#community-events-button").addClass("btn-blank")
+    $("#community-members-button").addClass("btn-blank")
+    $("#community-comments-button").addClass("btn-blank")
+}
+
+function hideModal() {
+    $("#modal-bg").hide()
+    $("#delete-community-modal-form").hide()
+    $("#leave-community-modal-form").hide()
+}
+
+$(document).ready(function() {
+    $("#community-settings-button").on("click", (e) => {
+        hideAllDetailViews()
+        setAllDetailViewButtonAsBlank()
+        $("#community-settings-view").show()
+        $("#community-settings-button").removeClass("btn-blank")
+        $("#community-settings-button").addClass("btn-primary")
+    })
+
+    $("#community-events-button").on("click", (e) => {
+        hideAllDetailViews()
+        setAllDetailViewButtonAsBlank()
+        $("#community-events-view").show()
+        $("#community-events-button").removeClass("btn-blank")
+        $("#community-events-button").addClass("btn-primary")
+    })
+
+    $("#community-members-button").on("click", (e) => {
+        hideAllDetailViews()
+        setAllDetailViewButtonAsBlank()
+        $("#community-members-view").show()
+        $("#community-members-button").removeClass("btn-blank")
+        $("#community-members-button").addClass("btn-primary")
+    })
+
+    $("#community-comments-button").on("click", (e) => {
+        hideAllDetailViews()
+        setAllDetailViewButtonAsBlank()
+        $("#community-comments-view").show()
+        $("#community-comments-button").removeClass("btn-blank")
+        $("#community-comments-button").addClass("btn-primary")
+    })
+
     // fetch community details by passing the community id
     fetch("/api/community-details", {
         method: "POST",
@@ -51,10 +112,24 @@ $(document).ready(function() {
     })
     .then((res) => res.json())
     .then(({data}) => {
-        data.map((community) => {
-            $("#community-name").html(community.name)
-            $("#community-description").html(community.description)
-        })
+        community = data[0]
+        $("#community-name").html(community.name)
+        $("#community-description").html(community.description)
+
+        if (community.owner_id == user_id) {
+            $("#edit-community-button").html(`
+                <a class="mt-8 btn-primary flex items-center max-w-min cursor-pointer" href="../community-edit.html?id=${community.id}">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    <span>Edit Community</span>
+                </a>
+            `)
+
+            $("#delete-community").show()
+
+            $("#leave-community-button").attr("disabled", true)
+            $("#leave-community-button").addClass("disabled")
+            $("#leave-community-message").html("You are the owner of this community")
+        }
     })
 
     // check if the user is logged in and change the join button accordingly
@@ -117,7 +192,7 @@ $(document).ready(function() {
         `)
     }
 
-    // fetch the comments of the community
+    // if user posts a comment
     $("#community-comment").on("submit", function(e) {
         e.preventDefault()
         
@@ -135,7 +210,8 @@ $(document).ready(function() {
         .then((res) => res.json())
         .then((data) => window.location.reload())
     })
-
+    
+    // fetch the comments of the community
     fetch("/api/community-posts", {
         method: "POST",
         body: JSON.stringify({
@@ -155,5 +231,58 @@ $(document).ready(function() {
             </div>
             `)
         })
+    })
+
+    $("#leave-community-button").on("click", () => {
+        $("#modal-bg").show()
+        $("#leave-community-modal-form").show()
+    })
+
+    $("#delete-community-button").on("click", () => {
+        $("#modal-bg").show()
+        $("#delete-community-modal-form").show()
+    })
+
+    $("#modal-bg").click(hideModal)
+    $(".modal-cancel").click(hideModal)
+
+    $("#modal-leave").on("click", () => {
+        fetch("/api/community-delete-user", {
+            method: "POST",
+            body: JSON.stringify({
+                community_id,
+                user_id
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.error != undefined) {
+                $("#outcome-message").css("color", "#EF4444")
+                $("#outcome-message").html(`${data.error.message}.`)
+                return
+            }
+            
+            $("#outcome-message").css("color", "#10B981")
+            $("#outcome-message").html("The user has left the community")
+            window.location.href = `../community-details.html?id=${community_id}`;
+        })
+    })
+
+    $("#modal-delete").on("click", () => {
+        $("#error-message").html("")
+        if (community.name == $("#delete-community-input").val()) {
+            fetch("/api/community-delete", {
+                method: "POST",
+                body: JSON.stringify({
+                    community_id
+                })
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                window.location.href = "../account.html";
+            })
+        }
+        
+        else $("#error-message").html("You didn't enter the community name correctly")
     })
 })

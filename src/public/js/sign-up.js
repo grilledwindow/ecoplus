@@ -23,10 +23,16 @@ $(document).ready(function() {
                 $("#outcome-message").html(data.error.message)
                 return
             }
-            
+            sessionStorage.setItem("userID", data.user.id)
+            sessionStorage.setItem("username", username)
+            localStorage.setItem("session", JSON.stringify(data.session))
             $("#outcome-message").css("color", "#10B981")
             $("#outcome-message").html("Signed up sucessfully")
-            window.location.href = "../sign-in.html";
+            window.location.href = "../index.html";
+        })
+        .catch(err => {
+            $("#outcome-message").css("color", "#EF4444")
+            $("#outcome-message").html(err.message)
         })
     })
 })

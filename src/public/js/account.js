@@ -1,12 +1,28 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let id = sessionStorage.getItem("userID")
 
     if (id == null) {
         window.location.href = "../index.html";
     }
+
+    const modalBg = $("#modal-bg");
+    const modalForm = $("#modal-form");
+    function hideModal() {
+        modalBg.hide();
+        modalForm.hide();
+    }
+
+    $("#account-change-photo").click(() => {
+        modalBg.show();
+        modalForm.show();
+    });
     
-    $("#sign-out").on("click", function() {
-        sessionStorage.clear()
+    modalBg.click(hideModal);
+    $("#modal-cancel").click(hideModal);
+
+    $("#sign-out").on("click", function () {
+        sessionStorage.clear();
+        localStorage.clear();
         window.location.reload();
     })
 
@@ -16,12 +32,12 @@ $(document).ready(function() {
             id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        $("#account-name").html(data[0].name)
-        $("#account-username").html(data[0].username)
-        $("#account-date").html(new Date(data[0].created_at).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit'}))
-    })
+        .then((res) => res.json())
+        .then(({ data }) => {
+            $("#account-name").html(data[0].name)
+            $("#account-username").html(data[0].username)
+            $("#account-date").html(new Date(data[0].created_at).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
+        })
 
     fetch("/api/user-communities", {
         method: "POST",
@@ -75,8 +91,8 @@ $(document).ready(function() {
                 </div>
             </div>
             `)
+            })
         })
-    })
     
     fetch("/api/owner-events", {
         method: "POST",
@@ -86,7 +102,6 @@ $(document).ready(function() {
     })
     .then(res => res.json())
     .then(data => {
-        $("#owner-events-count").text(data.length)
         if (data.length > 0) {
             $("#owner-events").html("")
             data.map((event) => {
@@ -95,7 +110,35 @@ $(document).ready(function() {
                         <div class="w-88 min-w-full">   
                             <h2 class="text-xl font-bold">${event.name}</h2>
                             <a class="btn-primary flex items-center justify-center mt-8" href="./view-volunteer.html?id=${event.id}">
-                                More Info
+                                View Volunteers
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                `)
+            })
+        }
+    })
+
+    fetch("/api/owner-communities", {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.length > 0) {
+            $("#owner-communities").html("")
+            data.map((community) => {
+                $("#owner-communities").append(`
+                    <div class="community-card">
+                        <div class="w-88 min-w-full">   
+                            <h2 class="text-xl font-bold">${community.name}</h2>
+                            <a class="btn-primary flex items-center justify-center mt-8" href="./community-details.html?id=${community.id}">
+                                Community Details Info
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
@@ -113,8 +156,8 @@ $(document).ready(function() {
             id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        $("#account-events-count").text(data.length)
-    })
+        .then((res) => res.json())
+        .then(({ data }) => {
+            $("#account-events-count").text(data.length)
+        })
 })

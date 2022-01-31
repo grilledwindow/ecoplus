@@ -13,7 +13,7 @@ const handler: Handler = async (event, context) => {
     if (sameUsername.length > 0) throw { error: "Username taken" };
 
     // Create a new user in the auth schema (auth.users)
-    let { user: authUser, error: authUserError } = await supabase.auth.signUp({
+    let { user: authUser, session, error: authUserError } = await supabase.auth.signUp({
       email,
       password,
     });
@@ -28,7 +28,7 @@ const handler: Handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ user: publicUser[0] }),
+      body: JSON.stringify({ user: publicUser[0], session }),
     };
   } catch (error) {
     console.error(error);

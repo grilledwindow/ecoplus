@@ -37,8 +37,16 @@
         @apply whitespace-nowrap text-center bg-gray-200 hover:bg-gray-400 text-black text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-400 focus:outline-none transition-colors duration-200;
     }
 
+    .btn-blank {
+        @apply whitespace-nowrap text-center hover:bg-gray-300 hover:text-black text-gray-300 text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-400 focus:outline-none transition-colors duration-200;
+    }
+
     .btn-warning {
         @apply whitespace-nowrap text-center bg-red-500 hover:bg-red-100 text-white hover:text-red-700 text-lg font-semibold pt-1.5 pb-2 px-6 border border-transparent rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-red-500 focus:outline-none transition-colors duration-200; 
+    }
+    
+    .btn-delete {
+        @apply whitespace-nowrap text-center border-2 border-red-500 hover:bg-red-100 text-red-500 hover:text-red-700 text-lg font-semibold pt-1.5 pb-2 px-6 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-red-500 focus:outline-none transition-colors duration-200; 
     }
 
     .event-card {
@@ -59,6 +67,40 @@
     }
 
     .disabled {
-        @apply disabled:opacity-50 hover:bg-black;
+        @apply disabled:opacity-50;
+    }
+
+    button[slot="hotspot-us"]{
+        --min-hotspot-opacity: 0;
+    }
+
+    .annotation {
+        @apply block w-4 h-4 rounded-full border-none bg-red-500 box-border;
+    }
+    
+    .annotation-bg {
+        transform: translate(0rem, 0rem);
+        @apply relative block w-4 h-4 rounded-full border-none bg-red-500 animate-ping
+    }
+
+    .annotation-tooltip {
+        transform: translate(1rem, 1rem);
+        @apply bg-blue-50 text-xs absolute rounded-md p-3 invisible;
+    }
+
+    .annotation:hover .annotation-tooltip {
+        @apply visible;
+    }
+
+    .details-mini-navigation {
+        @apply flex overflow-x-auto space-x-8 p-2;
+    }
+
+    .form-card {
+        @apply rounded-lg bg-white border-gray-300 p-4 sm:p-12 flex flex-col justify-evenly w-auto sm:w-96 md:w-144;
+    }
+
+    .form-card form {
+        @apply space-y-4;
     }
 }

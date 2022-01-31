@@ -1,15 +1,13 @@
 $(document).ready(function() {
-    $("#sign-in").on("submit", function(e) {
+    $("#forgot-password").on("submit", function(e) {
         e.preventDefault()
 
         let email = $("#email").val()
-        let password = $("#password").val()
 
-        fetch("/api/sign-in", {
+        fetch("/api/forgot-password", {
             method: "POST",
             body: JSON.stringify({
-                email,
-                password
+                email
             })
         })
         .then((res) => res.json())
@@ -21,11 +19,7 @@ $(document).ready(function() {
             }
             
             $("#outcome-message").css("color", "#10B981")
-            $("#outcome-message").html(`Logged in sucessfully`)
-            sessionStorage.setItem("userID", data.user.id)
-            sessionStorage.setItem("username", data.data[0].username)
-            localStorage.setItem("session", JSON.stringify(data.session))
-            window.location.href = "../index.html";
+            $("#outcome-message").html("Please check your email to recover password.")
         })
     })
 })
