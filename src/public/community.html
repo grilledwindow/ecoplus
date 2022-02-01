@@ -64,14 +64,24 @@
             </div>
         </div>
 
+        <!-- Search Bar -->
+        <div class="bg-gray-200 flex justify-center p-8">
+            <input type="text" placeholder="Search for a Community..." id="search-community" class="p-3 rounded-lg border-2 border-gray-400 w-full md:w-96 outline-none focus:outline-none focus:ring" />
+            <button id="search-community-button" class="ml-4 btn-primary w-min">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+        </div>
+
         <!-- List of communities -->
-        <div class="mx-4 mt-8">
+        <div class="mx-4 mt-8 overflow-y-auto h-screen">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="community-browse"></div>
         </div>
 
         <!-- Call to action to create a community -->
         <div class="mt-8 flex flex-col items-center">
-            <h1 class="text-center">Maybe you want to start your own community?</h1>
+            <h1 class="text-center">Could not find a community? How about starting your own?</h1>
             <a class="btn-primary flex items-center max-w-min" href="./community-create.html">
                 Start a Community
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
