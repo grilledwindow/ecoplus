@@ -3,52 +3,52 @@ const event_id = parameters.get("id")
 const user_id = sessionStorage.getItem("userID")
 
 function checkUserInEvent() {
-    fetch("/api/event-users",  {
+    fetch("/api/event-users", {
         method: "POST",
         body: JSON.stringify({
             event_id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        data.map(({users}) => {
-            if (user_id == null) {
-                $("#join-event").attr("disabled", true)
-                $("#join-event").addClass("disabled")
-                $("#joined-message").html("Please login to join this event")
-            }
+        .then((res) => res.json())
+        .then(({ data }) => {
+            data.map(({ users }) => {
+                if (user_id == null) {
+                    $("#join-event").attr("disabled", true)
+                    $("#join-event").addClass("disabled")
+                    $("#joined-message").html("Please login to join this event")
+                }
 
-            if (users.id == user_id) {
-                $("#join-event").attr("disabled", true)
-                $("#join-event").addClass("disabled")
-                $("#joined-message").html("You have joined this event")
-            }
+                if (users.id == user_id) {
+                    $("#join-event").attr("disabled", true)
+                    $("#join-event").addClass("disabled")
+                    $("#joined-message").html("You have joined this event")
+                }
+            })
         })
-    })
 }
 
-$(document).ready(function() {
-    fetch("/api/event-details",  {
+$(document).ready(function () {
+    fetch("/api/event-details", {
         method: "POST",
         body: JSON.stringify({
             event_id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        $("#event-name").html(data.event[0].name)
-        $("#event-description").html(data.event[0].description)
-        $("#event-location").html(data.event[0].location)
-        $("#event-details").html(data.event[0].details)
-        $("#event-date").html(new Date(data.event[0].datetime).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit'}))
-        $("#event-host").html(data.user[0].name)
+        .then((res) => res.json())
+        .then(({ data }) => {
+            $("#event-name").html(data.event[0].name)
+            $("#event-description").html(data.event[0].description)
+            $("#event-location").html(data.event[0].location)
+            $("#event-details").html(data.event[0].details)
+            $("#event-date").html(new Date(data.event[0].datetime).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
+            $("#event-host").html(data.user[0].name)
 
-        if (data.community != undefined) $("#event-community").html(data.community[0].name)
-    })
+            if (data.community != undefined) $("#event-community").html(data.community[0].name)
+        })
 
     checkUserInEvent()
 
-    $("#join-event").on("click", function() {
+    $("#join-event").on("click", function () {
         fetch("/api/event-join", {
             method: "POST",
             body: JSON.stringify({
@@ -56,10 +56,10 @@ $(document).ready(function() {
                 user_id
             })
         })
-        .then((res) => res.json())
-        .then((data) => {
-            checkUserInEvent()
-        })
+            .then((res) => res.json())
+            .then((data) => {
+                checkUserInEvent()
+            })
     })
 
     if (user_id != undefined) {
@@ -71,7 +71,7 @@ $(document).ready(function() {
         `)
     }
 
-    $("#event-comment").on("submit", function(e) {
+    $("#event-comment").on("submit", function (e) {
         e.preventDefault()
         let post = $("#event-user-comment").val()
 
@@ -83,9 +83,11 @@ $(document).ready(function() {
                 post
             })
         })
-        .then((res) => res.json())
-        .then((data) => window.location.reload())
+            .then((res) => res.json())
+            .then((data) => window.location.reload())
     })
+
+
 
     fetch("/api/event-posts", {
         method: "POST",
@@ -93,18 +95,6 @@ $(document).ready(function() {
             event_id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        data.map((data) => {
-            $("#event-comments").append(`
-            <div class="rounded-lg border-4 p-4 flex">
-                <div class="rounded-full bg-gray-200 h-12 w-12"></div>
-                <div class="ml-4 flow-col">
-                    <p class="font-bold">${data.users.username}</p>
-                    <p>${data.post}</p>
-                </div>
-            </div>
-            `)
-        })
-    })
+        .then((res) => res.json())
+        .then(({ posts }) => fillComments("#event-comments", posts));
 })

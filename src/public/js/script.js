@@ -85,7 +85,7 @@ function checkForPasswordRecovery() {
 
 $(document).ready(function () {
     checkForPasswordRecovery();
-    
+
     _checkUserLogin();
     let session = localStorage.getItem("session");
     if (session) {
@@ -115,4 +115,55 @@ function setPfpImgSrc(url) {
     } else {
         imges.attr("src", url);
     }
+}
+
+function fillComments(elementCss, posts) {
+    const commentsFragment = document.createDocumentFragment();
+
+    // Underscored variables will be cloned later.
+
+    // Main container
+    const _commentContainer = document.createElement("div");
+    _commentContainer.classList.add("rounded-lg", "border-4", "p-4", "flex");
+
+    // To display user's profile picture (if they have one)
+    const _pfpImg = document.createElement("img");
+    _pfpImg.classList.add("rounded-full", "h-12", "w-12");
+
+    // To display a grey circle (if user doesn't have profile picture)
+    const _pfpDiv = document.createElement("div");
+    _pfpDiv.classList.add("rounded-full", "bg-gray-200", "h-12", "w-12");
+
+    // Comment container for _username and _comment
+    const _commentContent = document.createElement("div");
+    _commentContent.classList.add("ml-4", "flow-col");
+
+    const _username = document.createElement("p");
+    _username.classList.add("font-bold");
+
+    const _comment = document.createElement("p");
+
+    for (const post of posts) {
+        let commentContainer = _commentContainer.cloneNode(true);
+        let pfp;
+        let commentContent = _commentContent.cloneNode(true);
+        let username = _username.cloneNode(true);
+        let comment = _comment.cloneNode(true);
+
+        if (post.has_img) {
+            pfp = _pfpImg.cloneNode(true);
+            pfp.setAttribute("src", post.imgUrl);
+        } else {
+            pfp = _pfpDiv.cloneNode(true);
+        }
+        username.insertAdjacentText("afterbegin", post.username);
+        comment.insertAdjacentText("afterbegin", post.post);
+
+        commentContent.appendChild(username);
+        commentContent.appendChild(comment);
+        commentContainer.appendChild(pfp);
+        commentContainer.appendChild(commentContent);
+        commentsFragment.append(commentContainer);
+    }
+    $(elementCss).append(commentsFragment);
 }

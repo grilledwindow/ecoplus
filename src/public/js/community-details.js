@@ -16,33 +16,33 @@ function checkUserInCommunity() {
             community_id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        $("#community-users").html("")
-        data.map(({users}) => {
+        .then((res) => res.json())
+        .then(({ data }) => {
+            $("#community-users").html("")
+            data.map(({ users }) => {
 
-            // if user is not logged in
-            if (user_id == null) {
-                $("#join-community").attr("disabled", true)
-                $("#join-community").addClass("disabled")
-                $("#joined-message").html("Please login to join this community")
-            }
+                // if user is not logged in
+                if (user_id == null) {
+                    $("#join-community").attr("disabled", true)
+                    $("#join-community").addClass("disabled")
+                    $("#joined-message").html("Please login to join this community")
+                }
 
-            if (user_id == users.id) {
-                $("#join-community").attr("disabled", true)
-                $("#join-community").addClass("disabled")
-                $("#joined-message").html("You have joined this community")
+                if (user_id == users.id) {
+                    $("#join-community").attr("disabled", true)
+                    $("#join-community").addClass("disabled")
+                    $("#joined-message").html("You have joined this community")
 
-                $("#leave-community").show()
-            }
-            
-            $("#community-users").append(`
+                    $("#leave-community").show()
+                }
+
+                $("#community-users").append(`
                 <tr>
                     <td class="px-6 py-3 whitespace-nowrap text-gray-500">${users.name}</td>
                 </tr>
             `)
+            })
         })
-    })
 }
 
 function hideAllDetailViews() {
@@ -57,7 +57,7 @@ function setAllDetailViewButtonAsBlank() {
     $("#community-events-button").removeClass("btn-primary")
     $("#community-members-button").removeClass("btn-primary")
     $("#community-comments-button").removeClass("btn-primary")
-    
+
     $("#community-settings-button").addClass("btn-blank")
     $("#community-events-button").addClass("btn-blank")
     $("#community-members-button").addClass("btn-blank")
@@ -70,7 +70,7 @@ function hideModal() {
     $("#leave-community-modal-form").hide()
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     $("#community-settings-button").on("click", (e) => {
         hideAllDetailViews()
         setAllDetailViewButtonAsBlank()
@@ -110,27 +110,27 @@ $(document).ready(function() {
             community_id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        community = data[0]
-        $("#community-name").html(community.name)
-        $("#community-description").html(community.description)
+        .then((res) => res.json())
+        .then(({ data }) => {
+            community = data[0]
+            $("#community-name").html(community.name)
+            $("#community-description").html(community.description)
 
-        if (community.owner_id == user_id) {
-            $("#edit-community-button").html(`
+            if (community.owner_id == user_id) {
+                $("#edit-community-button").html(`
                 <a class="mt-8 btn-primary flex items-center max-w-min cursor-pointer" href="../community-edit.html?id=${community.id}">
                     <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                     <span>Edit Community</span>
                 </a>
             `)
 
-            $("#delete-community").show()
+                $("#delete-community").show()
 
-            $("#leave-community-button").attr("disabled", true)
-            $("#leave-community-button").addClass("disabled")
-            $("#leave-community-message").html("You are the owner of this community")
-        }
-    })
+                $("#leave-community-button").attr("disabled", true)
+                $("#leave-community-button").addClass("disabled")
+                $("#leave-community-message").html("You are the owner of this community")
+            }
+        })
 
     // check if the user is logged in and change the join button accordingly
     checkUserInCommunity()
@@ -142,18 +142,18 @@ $(document).ready(function() {
             community_id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        if (data.length != 0) {
-            $("#community-events").html("")
-            data.map((event) => {
-                $("#community-events").append(`
+        .then((res) => res.json())
+        .then(({ data }) => {
+            if (data.length != 0) {
+                $("#community-events").html("")
+                data.map((event) => {
+                    $("#community-events").append(`
                     <div class="event-card">
                         <div class="h-48"></div>
                         <div class="bg-white p-4 w-96 min-w-full rounded-b-md">
                             <h2 class="text-xl font-bold">${event.name}</h2>
                             <p>${event.location}</p>
-                            <p>${new Date(event.datetime).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit'})}</p>
+                            <p>${new Date(event.datetime).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' })}</p>
                             <a class="btn-primary flex items-center justify-center mt-8" href="./event-details.html?id=${event.id}">
                                 More Info
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -163,12 +163,12 @@ $(document).ready(function() {
                         </div>
                     </div>
                 `)
-            })
-        }
-    })
+                })
+            }
+        })
 
     // if the user clicks on the button, create a record for joining and then check if user is in community again
-    $("#join-community").on("click", function() {
+    $("#join-community").on("click", function () {
         fetch("/api/community-join", {
             method: "POST",
             body: JSON.stringify({
@@ -176,10 +176,10 @@ $(document).ready(function() {
                 user_id
             })
         })
-        .then((res) => res.json())
-        .then((data) => {
-            checkUserInCommunity()
-        })
+            .then((res) => res.json())
+            .then((data) => {
+                checkUserInCommunity()
+            })
     })
 
     // if user is not logged in, disable comment section
@@ -193,9 +193,9 @@ $(document).ready(function() {
     }
 
     // if user posts a comment
-    $("#community-comment").on("submit", function(e) {
+    $("#community-comment").on("submit", function (e) {
         e.preventDefault()
-        
+
         let community_id = parameters.get("id")
         let post = $("#community-user-comment").val()
 
@@ -207,10 +207,10 @@ $(document).ready(function() {
                 post
             })
         })
-        .then((res) => res.json())
-        .then((data) => window.location.reload())
+            .then((res) => res.json())
+            .then((data) => window.location.reload())
     })
-    
+
     // fetch the comments of the community
     fetch("/api/community-posts", {
         method: "POST",
@@ -218,20 +218,8 @@ $(document).ready(function() {
             community_id
         })
     })
-    .then((res) => res.json())
-    .then(({data}) => {
-        data.map((data) => {
-            $("#community-comments").append(`
-            <div class="rounded-lg border-4 p-4 flex">
-                <div class="rounded-full bg-gray-200 h-12 w-12"></div>
-                <div class="ml-4 flow-col">
-                    <p class="font-bold">${data.users.username}</p>
-                    <p>${data.post}</p>
-                </div>
-            </div>
-            `)
-        })
-    })
+        .then((res) => res.json())
+        .then(({ posts }) => fillComments("#community-comments", posts));
 
     $("#leave-community-button").on("click", () => {
         $("#modal-bg").show()
@@ -254,18 +242,18 @@ $(document).ready(function() {
                 user_id
             })
         })
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.error != undefined) {
-                $("#outcome-message").css("color", "#EF4444")
-                $("#outcome-message").html(`${data.error.message}.`)
-                return
-            }
-            
-            $("#outcome-message").css("color", "#10B981")
-            $("#outcome-message").html("The user has left the community")
-            window.location.href = `../community-details.html?id=${community_id}`;
-        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.error != undefined) {
+                    $("#outcome-message").css("color", "#EF4444")
+                    $("#outcome-message").html(`${data.error.message}.`)
+                    return
+                }
+
+                $("#outcome-message").css("color", "#10B981")
+                $("#outcome-message").html("The user has left the community")
+                window.location.href = `../community-details.html?id=${community_id}`;
+            })
     })
 
     $("#modal-delete").on("click", () => {
@@ -277,12 +265,12 @@ $(document).ready(function() {
                     community_id
                 })
             })
-            .then((res) => res.json())
-            .then((data) => {
-                window.location.href = "../account.html";
-            })
+                .then((res) => res.json())
+                .then((data) => {
+                    window.location.href = "../account.html";
+                })
         }
-        
+
         else $("#error-message").html("You didn't enter the community name correctly")
     })
 })
