@@ -3,14 +3,18 @@ $(document).ready(function() {
         window.location.href = "../sign-in.html";
     }
 
+    let user_id = sessionStorage.getItem("userID")
+
     // Retrieve and display community dropdown
     fetch("/api/view-communities")
     .then((res) => res.json())
     .then(({data}) => {
         data.map((community) => {
-            $("#create-event-communityid").append(`
-            <option value=${community.id}>${community.name}</option>
-            `)
+            if (user_id == community.owner_id) {
+                $("#create-event-communityid").append(`
+                    <option value=${community.id}>${community.name}</option>
+                `)
+            }
         })
     })
     
