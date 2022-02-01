@@ -57,14 +57,16 @@
     </nav>
     
     <main>
-        <div class="w-2/3 ms:w-1/4 flex items-center mx-8 mt-8">
-            <img class="profile-photo rounded-full object-cover h-24 w-24 bg-gray-400 md:h-48 md:w-48" />
-            <div class="w-2/3 md:w-3/4 ml-8 lg:ml-16">
+        <div class="w-2/3 min-h-24 ms:w-1/4 flex flex flex-col md:flex-row md:items-center mt-2 md:mt-8 ml-8">
+            <div class="w-48 h-48">
+                <img id="account-profile-photo" class="profile-photo w-full rounded-full object-cover bg-gray-400"/>
+            </div>
+            <div class="w-2/3 md:w-3/4 mt-4 md:mt-0 md:ml-16">
                 <h1 class="pb-4 text-2xl md:text-5xl" id="account-name">Name</h1>
                 <p id="account-username">Username</p>
             </div>
         </div>
-        <div class="mx-8 mt-4">
+        <div class="mx-8 mt-4 md:mt-1">
             <button id="account-change-photo" class="btn-primary mr-4">Change photo</button>
             <button id="account-delete-photo" class="btn-warning mt-4">Delete photo</button>
         </div>
@@ -149,7 +151,7 @@
             <span>This action cannot be undone.</span>
             <div class="w-full flex justify-end mt-4">
                 <button class="modal-cancel btn-secondary">Cancel</button>
-                <button id="modal-upload" class="btn-warning ml-4">Delete</button>
+                <button id="modal-delete" class="btn-warning ml-4">Delete</button>
             </div>
         </div>
     </main>

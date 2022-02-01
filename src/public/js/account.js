@@ -5,6 +5,14 @@ $(document).ready(function () {
         window.location.href = "../index.html";
     }
 
+    resizeImg();
+    function resizeImg() {
+        const imgw = $("#account-profile-photo").width();
+        $("#account-profile-photo").css({ "height": imgw + "px" });
+    }
+
+    window.addEventListener('resize', resizeImg);
+
     const modalBg = $("#modal-bg");
     const modalUploadForm = $("#modal-form-upload");
     const modalDeleteForm = $("#modal-form-delete");
