@@ -84,8 +84,6 @@ function checkForPasswordRecovery() {
 }
 
 $(document).ready(function () {
-    checkForPasswordRecovery();
-
     _checkUserLogin();
     let session = localStorage.getItem("session");
     if (session) {
@@ -93,6 +91,8 @@ $(document).ready(function () {
         let interval = (session.expires_at - 1000) * 1000 - Date.now();
         setInterval(checkUserLogin, interval);
     }
+    
+    checkForPasswordRecovery();
 
     // for mobile view button
     $("button.mobile-menu-button").on("click", function () {
