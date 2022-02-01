@@ -72,7 +72,9 @@ function hideModal() {
     $("#change-cover-img-modal-form").hide()
 }
 
-function fetchComments() {
+function fetchComments(community_id) {
+    $("#community-comments").html("")
+
     // fetch the comments of the community
     fetch("/api/community-posts", {
         method: "POST",
@@ -81,15 +83,15 @@ function fetchComments() {
         })
     })
     .then((res) => res.json())
-    .then(({data}) => {
-        if (data != null) {
-            data.map((data) => {
+    .then(({posts}) => {
+        if (posts != null) {
+            posts.map((post) => {
                 $("#community-comments").append(`
                     <div class="rounded-lg border-4 p-4 flex">
                         <div class="rounded-full bg-gray-200 h-12 w-12"></div>
                         <div class="ml-4 flow-col">
-                            <p class="font-bold">${data.users.username}</p>
-                            <p>${data.post}</p>
+                            <p class="font-bold">${name}</p>
+                            <p>${post.post}</p>
                         </div>
                     </div>
                 `)
@@ -351,7 +353,7 @@ $(document).ready(function () {
         .then((res) => res.json())
         .then(({ posts }) => fillComments("#community-comments", posts));
 
-        fetchComments()
+        fetchComments(community_id)
 
         // if user posts a comment
         $("#community-comment-button").on("click", function(e) {
@@ -370,7 +372,7 @@ $(document).ready(function () {
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    fetchComments()
+                    fetchComments(community_id)
                 })
             }
 
