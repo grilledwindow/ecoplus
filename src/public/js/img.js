@@ -2,8 +2,33 @@ $(document).ready(function () {
     const imgInput = document.getElementById("profile-photo-input");
 
     imgInput.addEventListener("change", imgSelect);
-    $("#modal-form-upload").click(imgUpload);
+    $("#modal-upload").click(imgUpload);
+    $("#modal-delete").click(imgDelete);
 
+    function imgDelete(event) {
+        event.preventDefault();
+        const session = JSON.parse(localStorage.getItem("session"));
+        fetch('/api/user-profile-picture-delete', {
+            method: 'POST',
+            body: JSON.stringify({ session })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                // Update session
+                localStorage.setItem("session", JSON.stringify(data.session));
+                localStorage.removeItem("imgUrl");
+
+                // Remove profile photo in relevant places by not specifying parameter
+                // function src: ./script.js
+                setPfpImgSrc();
+
+                // Refresh so changes can be seen automatically
+                location.reload();
+            })
+            .catch(console.error);
+    }
     function imgUpload(event) {
         event.preventDefault();
         const img = imgInput.files[0];

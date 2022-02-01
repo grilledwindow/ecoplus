@@ -29,7 +29,7 @@ function handleMove(e) {
 function checkUserLogin() {
     let session = localStorage.getItem("session");
     if (!session) { return; }
-    
+
     session = JSON.parse(session);
     fetch("/api/refresh-token", {
         method: "POST",
@@ -109,8 +109,10 @@ $(document).ready(function () {
 })
 
 function setPfpImgSrc(url) {
-    if (!url) { return; }
-    for (const img of document.querySelectorAll("img.profile-photo")) {
-        img.src = url;
+    const imges = $("img.profile-photo")
+    if (!url) {
+        imges.removeAttr("src");
+    } else {
+        imges.attr("src", url);
     }
 }
