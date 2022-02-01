@@ -165,5 +165,6 @@ function fillComments(elementCss, posts) {
         commentContainer.appendChild(commentContent);
         commentsFragment.append(commentContainer);
     }
+    $(elementCss).empty();
     $(elementCss).append(commentsFragment);
 }
