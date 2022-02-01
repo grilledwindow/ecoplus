@@ -193,7 +193,7 @@ $(document).ready(function () {
                 })
 
                 $(".modal-bg").click(hideModal)
-                $(".modal-cancel").click(hideModal)
+                $("#modal-cancel").click(hideModal)
 
                 $("#modal-change-profile-img").on("click", () => {
                     $("#profile-img-error-message").html("")
@@ -341,25 +341,6 @@ $(document).ready(function () {
             </div>
         `)
 
-    // if user posts a comment
-    $("#community-comment").on("submit", function (e) {
-        e.preventDefault()
-
-        let community_id = parameters.get("id")
-        let post = $("#community-user-comment").val()
-
-        fetch("/api/user-community-post", {
-            method: "POST",
-            body: JSON.stringify({
-                community_id,
-                user_id,
-                post
-            })
-        })
-            .then((res) => res.json())
-            .then((data) => window.location.reload())
-    })
-
     // fetch the comments of the community
     fetch("/api/community-posts", {
         method: "POST",
@@ -408,7 +389,7 @@ $(document).ready(function () {
     })
 
     $(".modal-bg").click(hideModal)
-    $(".modal-cancel").click(hideModal)
+    $("#modal-cancel").click(hideModal)
 
     $("#modal-leave").on("click", () => {
         fetch("/api/community-delete-user", {
