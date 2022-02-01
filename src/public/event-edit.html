@@ -3,9 +3,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Volunteers - ecoplus</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./assets/icons/ecoplus.png">
+    <title>Event Edit - ecoplus</title>
+    <link rel="icon" href="../assets/icons/ecoplus.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,84 +55,52 @@
             </div>
         </div>
     </nav>
-    
+
     <main>
-        <div>
-            <img class="object-cover h-64 w-full" src="https://mycommunity.org.sg/wp-content/uploads/2020/09/Banner-About-My-Community.jpg">
-        </div>
-        
-        <div class="flex justify-between mx-8 mt-8 flex-col md:flex-row">
-            <div class="w-auto md:w-2/3">
-                <h1 class="mt-8" id="event-name">Event Name</h1>
-                <p class="text-lg" id="event-description">Event Description</p>
-            </div>
-
-            <div class="bg-primary p-8 rounded-lg w-full self-center mt-8 md:mt-0 md:max-w-min">
-                <p class="text-6xl font-bold" id="days-remaining">-</p>
-                <p class="text-lg min-w-max">Days remaining<br />before event!</p>
-                <br />
-                <p class="font-semibold">Event Date: <br /><span id="event-datetime">-</span></p>
-            </div>
-        </div>
-
         <div class="mx-8">
-            <h1 class="mt-8">Event Settings(s)</h1>
-            <div id="edit-event-button">
-            </div>
-            <div id="delete-event" class="hidden mt-8">
+            <h1 class="my-12">Edit Event</h1>
+            <form id="edit-event" class="text-lg space-y-8">
                 <div class="flex items-center">
-                    <button class="btn-delete flex items-center mr-4" id="delete-event-button">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                        Delete Event
-                    </button>
+                    <label class="w-1/3 lg:w-1/6">Event Name</label>
+                    <input id="edit-event-name" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6" />
                 </div>
-            </div>
-            <div id="modal-bg" class="hidden fixed w-full h-full left-0 top-0 bg-black opacity-25 transition-opacity"></div>
-            <div id="delete-event-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                <div class="flex flex-col items-center md:items-start md:flex-row">
-                    <div class="bg-red-200 flex items-center mb-4 md:mb-0 justify-center rounded-full flex-shrink-0 w-12 h-12">
-                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    </div>
-                    <div class="ml-4 flex-col">
-                        <p class="font-bold">Delete Event</p>
-                        <p class="w-auto md:w-96">Are you sure you want to delete this event? This action cannot be undone.</p><br/>
-                        <p class="w-auto md:w-96">Enter Event Name</p>
-                        <input id="delete-event-input" type="text" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
-                        <span class="text-red-600" id="error-message"></span>
-                        <div class="mt-8 flex flex-col md:flex-row">
-                            <button class="modal-cancel btn-secondary">Cancel</button>
-                            <button id="modal-delete" class="btn-warning mt-4 md:ml-4 md:mt-0">Delete Event</button>
-                        </div>
-                    </div>
+                <div class="flex">
+                    <label class="w-1/3 lg:w-1/6">Event Description</label>
+                    <textarea id="edit-event-description" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6"></textarea>
                 </div>
-            </div>
-        </div>
-        
+                <div class="flex">
+                    <label class="w-1/3 lg:w-1/6">Event Details</label>
+                    <textarea id="edit-event-details" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6"></textarea>
+                </div>
+                <div class="flex items-center">
+                    <label class="w-1/3 lg:w-1/6">Event Location</label>
+                    <input id="edit-event-location" type="text" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6" />
+                </div>
+                <div class="flex items-center">
+                    <label class="w-1/3 lg:w-1/6">Event Date</label>
+                    <input id="edit-event-date" type="date" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6" />
+                </div>
+                <div class="flex items-center">
+                    <label class="w-1/3 lg:w-1/6">Contact Email Address</label>
+                    <input id="edit-event-email" type="email" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6" />
+                </div>
+                <div class="flex items-center">
+                    <label class="w-1/3 lg:w-1/6">Contact Number</label>
+                    <input id="edit-event-contactno" type="tel" required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6" />
+                </div>
+                <div class="flex items-center">
+                    <label class="w-1/3 lg:w-1/6">Community</label>
+                    <select id="edit-event-communityid" name='communityid' required class="p-3 rounded-lg border border-gray-400 outline-none focus:outline-none focus:ring w-2/3 lg:w-3/6">
+                    </select>
+                </div>
 
-        <div class="mt-8 w-full bg-primary p-4">
-            <input onkeyup="searchFunction()" id="search-volunteer-name" class="bg-white w-full text-lg rounded-lg p-4 md:w-1/3" type="search" name="search" placeholder="Search Volunteer Name">
-        </div>
+                <p id="outcome-message" class="mt-4"></p>
 
-        <div class="mx-8">
-            <h1 class="mt-8">Volunteers(s)</h1>
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="overflow-hidden rounded-lg border-4 border-gray-200">
-                        <table id="member-table" class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-200">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-left font-bold text-gray-500">Volunteer Name</th>
-                                    <th scope="col" class="px-6 py-3 text-left font-bold text-gray-500">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200" id="event-users"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                <div class="flex" id="edit-buttons"></div>
+            </form>
         </div>
     </main>
-
+    
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
             <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
@@ -170,9 +137,9 @@
             <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
-    <script src="./js/view-volunteer.js"></script>
+    <script src="./js/event-edit.js"></script>
 </body>
-</html> 
+</html>

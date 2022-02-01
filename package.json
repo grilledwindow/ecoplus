@@ -5,6 +5,7 @@
   "dependencies": {
     "@netlify/functions": "^0.8.0",
     "@supabase/supabase-js": "^1.27.0",
+    "netlify-cli": "^8.9.8",
     "tailwindcss": "^2.2.17"
   }
 }
