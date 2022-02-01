@@ -23,8 +23,9 @@ $(document).ready(function() {
             $("#outcome-message").css("color", "#10B981")
             $("#outcome-message").html(`Logged in sucessfully`)
             sessionStorage.setItem("userID", data.user.id)
-            sessionStorage.setItem("username", data.data[0].username)
+            sessionStorage.setItem("username", data.user.username)
             localStorage.setItem("session", JSON.stringify(data.session))
+            localStorage.setItem("imgUrl", JSON.stringify(data.imgUrl))
             window.location.href = "../index.html";
         })
     })

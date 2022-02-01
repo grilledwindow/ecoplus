@@ -5,20 +5,36 @@ $(document).ready(function () {
         window.location.href = "../index.html";
     }
 
+    resizeImg();
+    function resizeImg() {
+        const imgw = $("#account-profile-photo").width();
+        $("#account-profile-photo").css({ "height": imgw + "px" });
+    }
+
+    window.addEventListener('resize', resizeImg);
+
     const modalBg = $("#modal-bg");
-    const modalForm = $("#modal-form");
+    const modalUploadForm = $("#modal-form-upload");
+    const modalDeleteForm = $("#modal-form-delete");
+    
     function hideModal() {
         modalBg.hide();
-        modalForm.hide();
+        modalUploadForm.hide();
+        modalDeleteForm.hide();
     }
 
     $("#account-change-photo").click(() => {
         modalBg.show();
-        modalForm.show();
+        modalUploadForm.show();
+    });
+
+    $("#account-delete-photo").click(() => {
+        modalBg.show();
+        modalDeleteForm.show();
     });
     
     modalBg.click(hideModal);
-    $("#modal-cancel").click(hideModal);
+    $(".modal-cancel").click(hideModal);
 
     $("#sign-out").on("click", function () {
         sessionStorage.clear();
