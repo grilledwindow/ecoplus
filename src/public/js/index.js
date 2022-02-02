@@ -1,14 +1,28 @@
 $(document).ready(function() {
+    fetchEvents()
+    fetchCommunities()
+})
+
+function fetchEvents() {
+    let eventRow = $("#event-mini-browse")
+    eventRow.html("")
+
     // fetch list of events
     fetch("/api/view-events")
     .then((res) => res.json())
     .then(({data}) => {
+        var htmlString = ""
+
         if (data.length != 0) {
-            $("#event-mini-browse").html("")
             data.map((event) => {
-                $("#event-mini-browse").append(`
-                <div class="event-card bg-white">
-                    <div class="h-48 bg-gray-200"></div>
+                htmlString += `<div class="event-card bg-white">
+                <div class="h-48 bg-gray-200">`
+
+                if (event.has_img) {
+                    htmlString += `<img class="object-cover rounded-lg h-full w-full" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/events/${event.id}.jpg"/>`
+                }
+
+                htmlString += `</div>
                     <div class="p-4 w-96 min-w-full rounded-b-md">
                         <div class="h-28">
                             <h2 class="text-xl font-bold">${event.name}</h2>
@@ -22,14 +36,13 @@ $(document).ready(function() {
                             </svg>
                         </a>
                     </div>
-                </div>
-                `)
+                </div>`
             })
         }
-    })
 
-    fetchCommunities()
-})
+        eventRow.html(htmlString)
+    })
+}
 
 function fetchCommunities() {
     let communityRow = $("#community-mini-browse")
