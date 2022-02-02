@@ -68,31 +68,67 @@
         </div>
         <!--Solutions with model viewers-->
         <div class="mx-8 mt-8 space-y-20">
-            <div class="flex flex-col md:flex-row">
-                <div class="w-full md:w-1/2">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2">
                     <h2 class="text-4xl font-bold pb-4">Reduce, Reuse, Recycle</h2>
                     <p class="text-lg">The three R's all help to cut down on the amount of waste we throw away. The best way to manage waste is to not produce it. E.g. We can reduce the usage of plastic by bringing our own bag during grocery trips. Reusing products means less fossil fuels will be burned to create new products. Lastly, recyling also reduces emissions of greenhouse gases, such as carbon dioxide, methane, nitrous oxide and chlorofluorocarbons, that contribute to global climate change.</p>    
                 </div>
-                <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-green-500" camera-controls alt="Recycle" loading="eager" auto-rotate src="./assets/models/Recycle.glb" camera-target="0m 0m 1m" camera-orbit="180deg" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                    <model-viewer class="h-full w-full rounded-2xl bg-green-500" camera-controls alt="Recycle" loading="eager" auto-rotate src="./assets/models/Recycle.glb" camera-target="0m 0m 1m" camera-orbit="180deg" ar ar-modes="webxr scene-viewer quick-look">
+                        <a class="annotation cursor-pointer" href="https://www.epa.gov/recycle/recycling-basics" target="_blank" slot="hotspot-1" data-position="0.7 0.5 0.4" data-normal="0.7 0.5 0.4" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="text-xs">Recycling is the process of collecting and processing materials that would otherwise be thrown away as trash and turning them into new products. Recycling can benefit your community and the environment.</p>
+                            </div>
+                        </a>
+                        <a class="annotation cursor-pointer" href="https://deq.nc.gov/conservation/recycling/recycling-climate-change" target="_blank" slot="hotspot-2" data-position="-0.4 0.5 0.4" data-normal="-0.4 0.5 0.4" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">Recycling and Climate Change</p>
+                                <p class="text-xs">Reducing waste, recycling and composting are effective ways to decrease the generation of greenhouse gases such as carbon dioxide and methane. </p>
+                            </div>
+                        </a>
+                    </model-viewer>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row">
-                <div class="w-full md:w-1/2">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2">
                     <h2 class="text-4xl font-bold pb-4">Sustainable Transportation</h2>
                     <p class="text-lg">Sustainable Transportation refers to traveling without emitting large amounts of greenhouse gases such as CO2 and Methane. For example, instead of using Fuel Vehicles we can use electric vehicles, walk or cycle. For example, the train system in Sweden is extemely energy-efficient as the trains are built using 98% recyclable materials.</p>    
                 </div>
-                <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-yellow-500" camera-controls alt="Train" loading="eager" auto-rotate src="./assets/models/Bullet_Train.glb" camera-target="0m 0m 0m" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                    <model-viewer class="h-full w-full rounded-2xl bg-yellow-500" camera-controls alt="Train" loading="eager" auto-rotate src="./assets/models/Bullet_Train.glb" camera-target="0m 0m 0m" ar ar-modes="webxr scene-viewer quick-look">
+                        <a class="annotation cursor-pointer" href="https://www.hsph.harvard.edu/c-change/subtopics/trechproject/" target="_blank" slot="hotspot-3" data-position="-0.4 0.2 0.4" data-normal="-0.4 0.5 0.4" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="text-xs">Improving transportation systems to help curb climate change could also provide health benefits and help alleviate inequities by improving air quality and access to public transportation, enhancing safe spaces for biking and walking, and encouraging alternatives to traveling in cars.</p>
+                            </div>
+                        </a>
+                        <a class="annotation cursor-pointer" href="https://www.nationalgeographic.org/media/transportation-and-climate-change/" target="_blank" slot="hotspot-4" data-position="1 0.2 -0.4" data-normal="1 0.2 -0.4" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">Transportation and Climate Change</p>
+                                <p class="text-xs">Exciting new transportation vehicles, like cars and steam-powered trains and boats, were also powered by fossil fuels, which release large quantities of carbon dioxide into the air when burned.</p>
+                            </div>
+                        </a>
+                    </model-viewer>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row">
-                <div class="w-full md:w-1/2">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2">
                     <h2 class="text-4xl font-bold pb-4">Renewable Energy</h2>
                     <p class="text-lg">Renewable energy helps combat climate change as it creates no direct greenhouse emissions. It can also decrease pollution as wind, solar, hydro-electric systems produce no air pollution which decreases the threat to our health. Lastly, it is a reliable source of power. The energy is converted to electrical energy and can power our appliances as well as cities for it to function.</p>    
                 </div>
-                <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-purple-300" camera-controls alt="Solar Panel" loading="eager" auto-rotate src="./assets/models/Solar_Panel.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                    <model-viewer class="h-full w-full rounded-2xl bg-purple-300" camera-controls alt="Solar Panel" loading="eager" auto-rotate src="./assets/models/Wind_Turbine.glb" camera-orbit="180deg" ar ar-modes="webxr scene-viewer quick-look">
+                        <a class="annotation cursor-pointer" href="https://www.nrdc.org/experts/noah-long/renewable-energy-key-fighting-climate-change" target="_blank" slot="hotspot-5" data-position="0 0.82 0.7" data-normal="0 0.82 0.7" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">Renewable Energy Is Key to Fighting Climate Change</p>
+                                <p class="text-xs">Wind and solar energy have experienced remarkable growth and huge cost improvements over the past decade with no signs of slowing down. Prices are declining rapidly, and renewable energy is becoming increasingly competitive with fossil fuels all around the country.</p>
+                            </div>
+                        </a>
+                    </model-viewer>
                 </div>
             </div>
         </div>
