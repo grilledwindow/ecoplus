@@ -72,7 +72,9 @@ function hideModal() {
     $("#change-cover-img-modal-form").hide()
 }
 
-function fetchComments() {
+function fetchComments(community_id) {
+    $("#community-comments").html("")
+
     // fetch the comments of the community
     fetch("/api/community-posts", {
         method: "POST",
@@ -332,8 +334,17 @@ $(document).ready(function () {
             </div>
         `)
 
-        // fetch the comments of the community
-        fetchComments()
+    // fetch the comments of the community
+    fetch("/api/community-posts", {
+        method: "POST",
+        body: JSON.stringify({
+            community_id
+        })
+    })
+        .then((res) => res.json())
+        .then(({ posts }) => fillComments("#community-comments", posts));
+
+        fetchComments(community_id)
 
         // if user posts a comment
         $("#community-comment-button").on("click", function (e) {
@@ -350,8 +361,10 @@ $(document).ready(function () {
                         post
                     })
                 })
-                    .then((res) => res.json())
-                    .then((data) => fetchComments())
+                .then((res) => res.json())
+                .then((data) => {
+                    fetchComments(community_id)
+                })
             }
 
             else $("#comment-outcome-message").html("Please write a comment before posting")
