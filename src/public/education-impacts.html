@@ -69,31 +69,76 @@
 
         <!--Impacts and Causes with model viewer-->
         <div class="mx-8 mt-8 space-y-20">
-            <div class="flex flex-col md:flex-row">
-                <div class="w-full md:w-1/2">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2">
                     <h2 class="text-4xl font-bold pb-4">Extreme Natural Disasters</h2>
                     <p class="text-lg">With increasing global temperatures at a steady rate of 1.5 degrees celcius, the earth has experienced higher intensity earthquakes, larger tsunamis and increased drought. In just February 2020 alone, 26 countries all experienced natural disasters which lead to many lives lost.</p>    
                 </div>
-                <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-yellow-500" camera-controls alt="Volcano" loading="eager" auto-rotate src="./assets/models/Volcano.glb" camera-target="0m 5m 0m" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                    <model-viewer class="h-full w-full rounded-2xl bg-yellow-500" camera-controls alt="Volcano" loading="eager" auto-rotate src="./assets/models/Volcano.glb" camera-target="0m 5m 0m" ar ar-modes="webxr scene-viewer quick-look">
+                        <a class="annotation cursor-pointer" href="https://news.yahoo.com/tonga-volcano-eruption-isnt-going-143035053.html" target="_blank" slot="hotspot-1" data-position="4 6 4" data-normal="4 6 4" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">Volcanic Eruptions</p>
+                                <p class="text-xs">Large volcanic eruptions are one of the main natural control knobs that can slow the pace of human-caused global warming. Studies have shown that tropical volcanoes, such as in Tonga, tend to be particularly effective at injecting sunlight-reflecting material.</p>
+                            </div>
+                        </a>
+                        <a class="annotation cursor-pointer" href="https://timesofindia.indiatimes.com/blogs/thedhirajkumar-com/is-tonga-calamity-a-climate-change-warning/" target="_blank" slot="hotspot-2" data-position="2 12 -1.2" data-normal="2 12 -1.2" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">Effects of frequent natural disasters</p>
+                                <p class="text-xs">Any natural disaster such as earthquakes, floods, forest fires, tsunamis, volcanic eruptions hints towards possible damage to the ecosystem of the world in more ways than anticipated.</p>
+                            </div>
+                        </a>
+                    </model-viewer>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row">
-                <div class="w-full md:w-1/2">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2">
                     <h2 class="text-4xl font-bold pb-4">Sea Levels Rising</h2>
                     <p class="text-lg">Global mean sea level has risen about 8–9 inches (21–24 centimeters) since 1880, with about a third of that coming in just the last two and a half decades. The rising water level is mostly due to a combination of melt water from glaciers and ice sheets and thermal expansion of seawater as it warms. In 2020, global mean sea level was 91.3 millimeters (3.6 inches) above the 1993 average, making it the highest annual average in the satellite record (1993-present).</p>    
                 </div>
-                <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-blue-500" camera-controls alt="Iceberg" loading="eager" auto-rotate src="./assets/models/Iceberg.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                    <model-viewer class="h-full w-full rounded-2xl bg-blue-500" camera-controls alt="Iceberg" loading="eager" auto-rotate src="./assets/models/Iceberg.glb" ar ar-modes="webxr scene-viewer quick-look">
+                        <a class="annotation cursor-pointer" href="https://oceanservice.noaa.gov/facts/sealevelclimate.html" target="_blank" slot="hotspot-3" data-position="0.4 0.15 -0.1" data-normal="0.4 0.15 -0.1" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">How is sea level rise related to climate change?</p>
+                                <p class="text-xs">A warming climate can cause seawater to expand and ice over land to melt, both of which can cause a rise in sea level.</p>
+                            </div>
+                        </a>
+                        <a class="annotation cursor-pointer" href="https://archive.epa.gov/climatechange/kids/impacts/signs/sea-level.html" target="_blank" slot="hotspot-4" data-position="-0.45 0.3 -0.1" data-normal="-0.45 0.3 -0.1" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">Why does it matter?</p>
+                                <p class="text-xs">Rising sea level is a threat to people who live near the ocean. Some low-lying areas will have more frequent flooding, and very low-lying land could be submerged completely.</p>
+                            </div>
+                        </a>
+                    </model-viewer>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row">
-                <div class="w-full md:w-1/2">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2">
                     <h2 class="text-4xl font-bold pb-4">Mass Deforestation</h2>
                     <p class="text-lg">When more trees are cut down, there will be less trees to absorb the carbon dioxide from the atmospheric air. Thus, more greenhouse gases in the air trapping heat and leading to global warming.</p>    
                 </div>
-                <div class="z-10 w-full h-72 mt-4 pl-0 md:w-1/2 md:mt-0 md:pl-8">
-                    <model-viewer class="h-full w-full rounded-2xl bg-green-500" camera-controls alt="Tree" loading="eager" auto-rotate src="./assets/models/Forest.glb" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+                <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                    <model-viewer class="h-full w-full rounded-2xl bg-green-500" camera-controls alt="Tree" loading="eager" auto-rotate src="./assets/models/Forest.glb" ar ar-modes="webxr scene-viewer quick-look">
+                        <a class="annotation cursor-pointer" href="https://thehumaneleague.org/article/effects-of-deforestation" target="_blank" slot="hotspot-5" data-position="-0.75 0.5 -0.3" data-normal="-0.75 0.5 -0.3" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">What is Desforestation?</p>
+                                <p class="text-xs">Deforestation is the mass removal of trees over a wide area. The term most often refers to the clearing of trees by humans, but natural processes such as flooding or fire can take down trees, too. Most frequently, deforestation occurs to clear land for other purposes, like farming, or to collect timber from the fallen trees.</p>
+                            </div>
+                        </a>
+                        <a class="annotation cursor-pointer" href="https://thehumaneleague.org/article/effects-of-deforestation" target="_blank" slot="hotspot-6" data-position="0.9 0.3 0.3" data-normal="0.9 0.3 0.3" data-visibility-attribute="visible">
+                            <span class="annotation-bg"></span>
+                            <div class="annotation-tooltip w-64 text-left">
+                                <p class="font-semibold text-sm">What are the causes of Deforestation?</p>
+                                <p class="text-xs">In general, human activity is the driving force behind deforestation. Several industries clear and develop forested land for their own purposes, including agriculture, paper, mining, and logging.</p>
+                            </div>
+                        </a>
+                    </model-viewer>
                 </div>
             </div>
         </div>
