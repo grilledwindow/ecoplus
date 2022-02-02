@@ -138,8 +138,12 @@ function fillComments(elementCss, posts) {
     const _commentContent = document.createElement("div");
     _commentContent.classList.add("ml-4", "flow-col");
 
-    const _username = document.createElement("p");
+    const _username = document.createElement("span");
     _username.classList.add("font-bold");
+
+    const _datetime = document.createElement("span");
+    _datetime.classList.add("font-light", "text-sm", "ml-2", "text-gray-300");
+    _datetime.style.color = "rgb(156 163 175)";
 
     const _comment = document.createElement("p");
 
@@ -148,8 +152,10 @@ function fillComments(elementCss, posts) {
         let pfp;
         let commentContent = _commentContent.cloneNode(true);
         let username = _username.cloneNode(true);
+        let datetime = _datetime.cloneNode(true);
         let comment = _comment.cloneNode(true);
 
+        commentContainer.setAttribute("data-datetime", post.created_at)
         if (post.has_img) {
             pfp = _pfpImg.cloneNode(true);
             pfp.setAttribute("src", post.imgUrl);
@@ -157,9 +163,11 @@ function fillComments(elementCss, posts) {
             pfp = _pfpDiv.cloneNode(true);
         }
         username.insertAdjacentText("afterbegin", post.username);
+        datetime.insertAdjacentText("afterbegin", datetimeFormat(post.created_at));
         comment.insertAdjacentText("afterbegin", post.post);
 
         commentContent.appendChild(username);
+        commentContent.appendChild(datetime);
         commentContent.appendChild(comment);
         commentContainer.appendChild(pfp);
         commentContainer.appendChild(commentContent);
@@ -167,4 +175,11 @@ function fillComments(elementCss, posts) {
     }
     $(elementCss).empty();
     $(elementCss).append(commentsFragment);
+}
+
+function datetimeFormat(datetime) {
+    const d = new Date(datetime);
+    const date = `${d.getDay()}/${d.getMonth() + 1}/${d.getFullYear() % 100}`;
+    const time = ` ${d.getHours()}:${d.getMinutes()}`;
+    return date + time;
 }
