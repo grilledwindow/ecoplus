@@ -43,6 +43,11 @@ $(document).ready(function () {
             $("#event-date").html(new Date(data.event[0].datetime).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
             $("#event-host").html(data.user[0].name)
 
+            if (data.event[0].has_img) {
+                let url = `https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/events/${data.event[0].id}.jpg`
+                $("#event-img").attr('src', url)
+            }
+
             if (data.community != undefined) $("#event-community").html(data.community[0].name)
         })
 
@@ -83,11 +88,9 @@ $(document).ready(function () {
                 post
             })
         })
-            .then((res) => res.json())
-            .then((data) => window.location.reload())
+        .then((res) => res.json())
+        .then((data) => window.location.reload())
     })
-
-
 
     fetch("/api/event-posts", {
         method: "POST",
@@ -95,6 +98,6 @@ $(document).ready(function () {
             event_id
         })
     })
-        .then((res) => res.json())
-        .then(({ posts }) => fillComments("#event-comments", posts));
+    .then((res) => res.json())
+    .then(({ posts }) => fillComments("#event-comments", posts));
 })
