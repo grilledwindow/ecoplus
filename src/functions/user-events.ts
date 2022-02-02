@@ -7,7 +7,7 @@ const handler: Handler = async (event, context) => {
   try {
     const { data } = await supabase
       .from("events_users")
-      .select("events(id, name)")
+      .select("events(id, name, description, datetime)")
       .eq("user_id", id)
       
     return {

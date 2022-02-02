@@ -48,12 +48,12 @@ $(document).ready(function () {
             id
         })
     })
-        .then((res) => res.json())
-        .then(({ data }) => {
-            $("#account-name").html(data[0].name)
-            $("#account-username").html(data[0].username)
-            $("#account-date").html(new Date(data[0].created_at).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
-        })
+    .then((res) => res.json())
+    .then(({ data }) => {
+        $("#account-name").html(data[0].name)
+        $("#account-username").html(data[0].username)
+        $("#account-date").html(new Date(data[0].created_at).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
+    })
 
     fetch("/api/user-communities", {
         method: "POST",
