@@ -43,6 +43,14 @@ $(document).ready(function () {
             $("#event-date").html(new Date(data.event[0].datetime).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
             $("#event-host").html(data.user[0].name)
 
+            $("#event-location-map").html(
+                `<iframe class="w-full h-full"
+                    loading="lazy"
+                    allowfullscreen
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDH1YyYQKsEreP9ZL_uPAqK-Y8PjT3i-u0&q=${data.event[0].location.replace(/[^\w\s]/gi, '')}">
+                </iframe>`
+            )
+
             if (data.event[0].has_img) {
                 let url = `https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/events/${data.event[0].id}.jpg`
                 $("#event-img").attr('src', url)
