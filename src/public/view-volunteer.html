@@ -58,15 +58,8 @@
     </nav>
     
     <main>
-        <div>
-            <img class="object-cover h-64 w-full" src="https://mycommunity.org.sg/wp-content/uploads/2020/09/Banner-About-My-Community.jpg">
-        </div>
-        
-        <div class="flex justify-between mx-8 mt-8 flex-col md:flex-row">
-            <div class="w-auto md:w-2/3">
-                <h1 class="mt-8" id="event-name">Event Name</h1>
-                <p class="text-lg" id="event-description">Event Description</p>
-            </div>
+        <div class="flex mx-8 mt-8 flex-col md:flex-row justify-between">
+            <img class="event-img object-cover border-4 border-gray-400 bg-gray-400 rounded-lg h-80 w-auto md:w-2/3 lg:w-1/2 mr-2">
 
             <div class="bg-primary p-8 rounded-lg w-full self-center mt-8 md:mt-0 md:max-w-min">
                 <p class="text-6xl font-bold" id="days-remaining">-</p>
@@ -77,9 +70,20 @@
         </div>
 
         <div class="mx-8">
-            <h1 class="mt-8">Event Settings(s)</h1>
-            <div id="edit-event-button">
-            </div>
+            <h1 class="mt-8 pb-4" id="event-name">Event Name</h1>
+            <p class="text-lg" id="event-description">Event Description</p>
+
+            <h1 class="mt-12 p-0">Event Settings(s)</h1>
+
+            <div id="edit-event-button"></div>
+
+            <button id="change-event-img-button" class="btn-primary flex mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Change Event Image
+            </button>
+
             <div id="delete-event" class="hidden mt-8">
                 <div class="flex items-center">
                     <button class="btn-delete flex items-center mr-4" id="delete-event-button">
@@ -88,7 +92,9 @@
                     </button>
                 </div>
             </div>
+
             <div id="modal-bg" class="hidden fixed w-full h-full left-0 top-0 bg-black opacity-25 transition-opacity"></div>
+            
             <div id="delete-event-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
                 <div class="flex flex-col items-center md:items-start md:flex-row">
                     <div class="bg-red-200 flex items-center mb-4 md:mb-0 justify-center rounded-full flex-shrink-0 w-12 h-12">
@@ -107,23 +113,35 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
 
-        <div class="mt-8 w-full bg-primary p-4">
-            <input onkeyup="searchFunction()" id="search-volunteer-name" class="bg-white w-full text-lg rounded-lg p-4 md:w-1/3" type="search" name="search" placeholder="Search Volunteer Name">
+            <div id="change-event-img-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                <div class="flex flex-col items-center">
+                    <img class="event-img object-cover border-2 border-gray-200 bg-gray-200 h-48 w-full rounded-lg flex-shrink-0" />
+                    <div class="mt-4 flex-col">
+                        <p class="font-bold text-center">Change Event Image</p>
+                        <p class="text-center"><span class="text-red-600" id="event-img-error-message"></span></p>
+                        <input id="change-img-input" type="file" accept=".png, .jpg" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
+                        <div class="mt-4 flex flex-col md:flex-row justify-center">
+                            <button class="modal-cancel btn-secondary">Cancel</button>
+                            <button id="modal-change-img" class="btn-outline mt-4 md:ml-4 md:mt-0">Change Image</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="mx-8">
+        <div class="mx-8 flex flex-col items-center">
             <h1 class="mt-8">Volunteers(s)</h1>
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            
+            <input onkeyup="searchFunction()" id="search-volunteer-name" class="border-2 border-gray-400 w-full md:w-96 rounded-lg p-2 mb-4" type="search" name="search" placeholder="Search Volunteer Name">
+
+            <div class="w-full md:w-5/6">
+                <div class="py-2 align-middle inline-block min-w-full">
                     <div class="overflow-hidden rounded-lg border-4 border-gray-200">
                         <table id="member-table" class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left font-bold text-gray-500">Volunteer Name</th>
-                                    <th scope="col" class="px-6 py-3 text-left font-bold text-gray-500">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200" id="event-users"></tbody>
