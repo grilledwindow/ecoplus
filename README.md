@@ -15,7 +15,7 @@ ecoplus is a volunteering and education website that aims to connect volunteers 
 
 ## Developers ##
 For developers, please view our technical documents and its functions located in the docs folder.
-Please click [here](https://github.com/grilledwindow/ecoplus/tree/main/docs) to view the documents.
+Please click [here](https://github.com/grilledwindow/ecoplus/tree/main/docs) to view the setup of project documents.
 
 ## Design Process ##
 * **Regular People**
@@ -37,7 +37,14 @@ Please click [here](https://github.com/grilledwindow/ecoplus/tree/main/docs) to 
 * View Community Details
 * Create a Community
 * Join a Community
+* Editing of Community
+* Leaving of Community
+* Deletion of Community
+* Community Cover and Profile Images
+* Community Search
 * Augmented Reality Models
+* Annotations on Augmented Reality Models
+* Upcoming Events
 * Restyling and Debugging
 
 **Lai Wai Keat**
@@ -52,47 +59,66 @@ Please click [here](https://github.com/grilledwindow/ecoplus/tree/main/docs) to 
 * View Event Details
 * Create a Event
 * Join a Event
+* Edit a Event
+* Delete a Event
+* Event Location Map
 
 **Swan Htat Aung**
 * Sign In
 * Sign Up
 * Account Details Page
 * View Volunteers Page
+* Edit Account Details
+* Forgot Password
 
 **Xavier Ang Yan Jun**
 * Setup of supabase (database)
 * Setup of Netlify Web Hosting
 * Setup of Netlify Serverless Functions
+* Setup of Image Storage in supabase
 
 ## Features ##
 * **Home**
-  * Attractive Header with AR Earth model
+  * Attractive Header with AR Earth model with annotations
   * A mini browse of various events
   * A mini browse of various communities
 
 * **Volunteering**
   * Browse Events
   * View Event Details
-  * Create a Event
+  * View the Event Image
   * View Volunteers Page
+  * Create a Event
+  * Edit a Event
+  * Delete a Event
+  * View a Event's Location on Google Map
 
 * **Education**
   * Education Page
   * View News Articles
   * View Education Solutions Page
   * View Education Impacts Page
+  * Model Viewers with Annotations
   * Quiz
 
 * **Account**
   * Accounts Details Page
   * Sign In
   * Sign Up
+  * Forgot Password
+  * Edit Account Details
+  * Show upcoming Events
 
 * **Community**
   * Browse Communities
   * View Community Details
   * Create Community
   * Join a Community
+  * Editing of Community
+  * Leaving of Community
+  * Deletion of Community
+  * Community Cover and Profile Images
+  * Community Search
 
 ## Technologies Used ##
 **Tools**
