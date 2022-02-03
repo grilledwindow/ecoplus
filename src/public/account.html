@@ -69,6 +69,7 @@
         <div class="mx-8 mt-4 md:mt-1">
             <button id="account-change-photo" class="btn-primary mr-4">Change photo</button>
             <button id="account-delete-photo" class="btn-warning mt-4">Delete photo</button>
+            <button id="account-edit-detail" class="btn-primary mt-4">Edit Details</button>
         </div>
         <div class="mx-8 mt-8">
             <h1 class="text-2xl md:text-4xl">Joined Communities</h1>
@@ -154,7 +155,22 @@
                 <button id="modal-delete" class="btn-warning ml-4">Delete</button>
             </div>
         </div>
+        <div id="modal-edit-detail" class="hidden fixed w-5/6 p-4 rounded-2xl bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 400px">
+            <form class="modal-body" id="edit-detail-form">
+                <div class="mb-3">
+                    <input type="text" class="py-3 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" id="edit-account-name" required/>
+                </div>
+                <div class="mb-3">
+                        <input type="text" class="py-3 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" id="edit-account-username" required/>
+                </div>
+                <div class="modal-footer">
+                        <button class="modal-cancel btn-secondary">Cancel</button>
+                        <button type="submit" for="edit-detail-form" class="btn btn-primary" id="edit-detail-submit">Submit</button>
+                </div>
+            </form>
+        </div>
     </main>
+
 
     <footer class="p-8 mt-8 bg-black text-white flex flex-col">
         <div class="flex flex-col md:flex-row pb-12">
