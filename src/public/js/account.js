@@ -16,11 +16,13 @@ $(document).ready(function () {
     const modalBg = $("#modal-bg");
     const modalUploadForm = $("#modal-form-upload");
     const modalDeleteForm = $("#modal-form-delete");
+    const modalEditDetail = $("#modal-edit-detail");
     
     function hideModal() {
         modalBg.hide();
         modalUploadForm.hide();
         modalDeleteForm.hide();
+        modalEditDetail.hide();
     }
 
     $("#account-change-photo").click(() => {
@@ -31,6 +33,11 @@ $(document).ready(function () {
     $("#account-delete-photo").click(() => {
         modalBg.show();
         modalDeleteForm.show();
+    });
+
+    $("#account-edit-detail").click(() => {
+        modalBg.show();
+        modalEditDetail.show();
     });
     
     modalBg.click(hideModal);
@@ -53,6 +60,8 @@ $(document).ready(function () {
         $("#account-name").html(data[0].name)
         $("#account-username").html(data[0].username)
         $("#account-date").html(new Date(data[0].created_at).toLocaleDateString('en-SG', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit' }))
+        $("#edit-account-name").val(data[0].name)
+        $("#edit-account-username").val(data[0].username)
     })
 
     fetch("/api/user-communities", {
@@ -109,7 +118,7 @@ $(document).ready(function () {
             `)
             })
         })
-    
+
     fetch("/api/owner-events", {
         method: "POST",
         body: JSON.stringify({
@@ -166,14 +175,23 @@ $(document).ready(function () {
         }
     })
 
-    fetch("/api/user-events", {
-        method: "POST",
-        body: JSON.stringify({
-            id
+    $("#edit-detail-submit").click(e => {
+        // e.preventDefault();
+        const user_id = sessionStorage.getItem("userID");
+        const name = document.getElementById("edit-account-name").value;
+        const username = document.getElementById("edit-account-username").value;
+        console.log(name, username)
+        fetch("/api/account-edit",  {
+            method: "POST",
+            body: JSON.stringify({
+                user_id, name, username
+            })
         })
-    })
         .then((res) => res.json())
-        .then(({ data }) => {
-            $("#account-events-count").text(data.length)
-        })
+        .then(({data}) => {
+                let user = data.user[0]
+                console.log(user);
+                window.location.reload();
+        });
+    })
 })
