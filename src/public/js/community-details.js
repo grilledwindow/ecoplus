@@ -186,7 +186,7 @@ $(document).ready(function () {
                     })
 
                     $(".modal-bg").click(hideModal)
-                    $("#modal-cancel").click(hideModal)
+                    $(".modal-cancel").click(hideModal)
 
                     $("#modal-change-profile-img").on("click", () => {
                         $("#profile-img-error-message").html("")
