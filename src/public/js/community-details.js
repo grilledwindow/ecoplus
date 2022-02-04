@@ -92,6 +92,21 @@ function fetchComments(community_id) {
 }
 
 $(document).ready(function () {
+    // Show images when user uploads them
+    const communityProfileImgInput = document.getElementById("change-profile-community-input");
+    const communityProfileImg = document.getElementById("change-profile-community-img");
+    communityProfileImgInput.addEventListener("change", () => {
+        const img = communityProfileImgInput.files[0];
+        communityProfileImg.src = window.URL.createObjectURL(img);
+    });
+
+    const communityCoverImgInput = document.getElementById("change-cover-community-input");
+    const communityCoverImg = document.getElementById("change-cover-community-img");
+    communityCoverImgInput.addEventListener("change", () => {
+        const img = communityCoverImgInput.files[0];
+        communityCoverImg.src = window.URL.createObjectURL(img);
+    });
+
     $("#community-settings-button").on("click", (e) => {
         hideAllDetailViews()
         setAllDetailViewButtonAsBlank()
