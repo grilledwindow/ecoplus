@@ -64,11 +64,16 @@
             <div class="w-2/3 md:w-3/4 mt-4 md:mt-0 md:ml-16">
                 <h1 class="pb-4 text-2xl md:text-5xl" id="account-name">Name</h1>
                 <p id="account-username">Username</p>
+                <button id="account-edit-detail" class="btn-primary mt-4">Edit Details</button>
             </div>
         </div>
-
         <div class="mx-8 mt-8 space-x-4">
             <button id="account-change-photo" class="btn-primary">Change photo</button>
+            <button id="account-delete-photo" class="btn-warning">Delete photo</button>
+        </div>
+        <div class="mx-8 mt-8 space-x-4">
+            <button class="btn-secondary"><a href="javascript:history.back()">Back</a></button>
+            <button class="btn-primary ml-4" id="sign-out">Sign Out</button>
         </div>
 
         <div class="mx-8 mt-8">
@@ -122,20 +127,6 @@
                         <h1 class="p-0 text-4xl" id="account-date">0</h1>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="mx-8 mt-8 flex flex-col mb-8 space-y-4">
-            <h1 class="text-2xl md:text-4xl pb-2">Account Actions</h1>
-
-            <div class="space-x-4 pb-8">
-                <button id="account-edit-detail" class="btn-primary">Edit Details</button>
-                <button id="account-delete-photo" class="btn-warning">Delete photo</button>
-            </div>
-
-            <div>
-                <a class="btn-secondary" href="javascript:history.back()">Back</a>
-                <button class="btn-primary ml-4" id="sign-out">Sign Out</button>
             </div>
         </div>
 
