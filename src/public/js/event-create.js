@@ -20,6 +20,7 @@ $(document).ready(function() {
     
     $("#create-event").on("submit", function(e) {
         e.preventDefault()
+        
         let name = $("#create-event-name").val()
         let description = $("#create-event-description").val()
         let details = $("#create-event-details").val()
@@ -29,7 +30,7 @@ $(document).ready(function() {
         let contact_no = $("#create-event-contactno").val()
         let community_id = $('#create-event-communityid').val()
         let owner_id = sessionStorage.getItem("userID")
-        
+
         fetch("/api/event-create", {
             method: "POST",
             body: JSON.stringify({

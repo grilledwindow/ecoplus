@@ -16,14 +16,14 @@ const handler: Handler = async (event, context) => {
     let { data: event, error: eventError } = await supabase
       .from("events")
       .insert([
-          {name: name, datetime:date, location: location, details: details, description: description, contact_email:contact_email, contact_no:contact_no, community_id:community_id, owner_id: owner_id}
+          {name: name, datetime:date, location: location, details: details, description: description, contact_email:contact_email, contact_no:contact_no, community_id:community_id, owner_id: owner_id, has_img: false}
       ])
     
     // Add owner to event users table
     let { data: userEvent, error: userEventError } = await supabase
       .from("events_users")
       .insert([
-          {id: event[0].id, owner_id: owner_id}
+          {user_id: owner_id, event_id: event[0].id}
       ])
     if (eventError) throw { error: eventError };
 

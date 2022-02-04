@@ -76,7 +76,6 @@ $(document).ready(() => {
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data)
                     if (data.error != undefined) {
                         $("#outcome-message").css("color", "#EF4444")
                         $("#outcome-message").html(`${data.error}.`)
@@ -85,6 +84,7 @@ $(document).ready(() => {
                     }
                     $("#outcome-message").css("color", "#10B981")
                     $("#outcome-message").html(`${community.name} has successfully been updated.`)
+                    window.location.href = `../community-details.html?id=${community_id}`;
                 })
             }
         })
