@@ -30,11 +30,11 @@ function loadEvents(data) {
     var htmlString = ""
 
     data.map((event) => {
-        htmlString += `<div class="text-lg bg-white border-4 border-gray-200 rounded-lg">
+        htmlString += `<div class="text-lg bg-white border-4 border-gray-200 rounded-xl">
             <div class="h-48 bg-gray-200">`
         
         if (event.has_img) {
-            htmlString += `<img class="object-cover rounded-lg h-full w-full" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/events/${event.id}.jpg"/>`
+            htmlString += `<img class="object-cover rounded-t-lg h-full w-full" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/events/${event.id}.jpg"/>`
         }
 
         htmlString += `</div>

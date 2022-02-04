@@ -15,11 +15,11 @@ function fetchEvents() {
 
         if (data.length != 0) {
             data.map((event) => {
-                htmlString += `<div class="event-card bg-white">
-                <div class="h-48 bg-gray-200">`
+                htmlString += `<div class="event-card bg-white rounded-xl">
+                    <div class="h-48 bg-gray-200">`
 
                 if (event.has_img) {
-                    htmlString += `<img class="object-cover rounded-lg h-full w-full" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/events/${event.id}.jpg"/>`
+                    htmlString += `<img class="object-cover rounded-t-lg h-full w-full" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/events/${event.id}.jpg"/>`
                 }
 
                 htmlString += `</div>
@@ -57,15 +57,18 @@ function fetchCommunities() {
         if (data.length != 0) {
             data.map((community) => {
                 htmlString += `
-                    <div class="event-card bg-white">
+                    <div class="event-card bg-white rounded-xl">
                         <div class="h-48 bg-gray-200">`
                     
                 if (community.has_cover_img) {
-                    htmlString += `<img class="object-cover rounded-lg h-full w-full" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/communities/cover_img/${community.id}.jpg"/>`
+                    htmlString += `<img class="object-cover h-full w-full rounded-t-lg" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/communities/cover_img/${community.id}.jpg"/>`
                 }
 
+                htmlString += `</div>
+                    <div class="rounded-full h-32 w-32 bg-gray-400 mx-auto -mt-40 mb-8">`
+
                 if (community.has_profile_img) {
-                    htmlString += `<img class="object-cover mx-auto -mt-40 rounded-full h-32 w-32 bg-gray-400" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/communities/profile_img/${community.id}.jpg"/>`
+                    htmlString += `<img class="object-cover h-full w-full rounded-full" src="https://stolploftqaslfirbfsf.supabase.in/storage/v1/object/public/public/communities/profile_img/${community.id}.jpg"/>`
                 }
 
                 htmlString += `
