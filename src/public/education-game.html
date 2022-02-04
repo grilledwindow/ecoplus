@@ -1,0 +1,570 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - ecoplus</title>
+    <link rel="icon" href="../assets/icons/ecoplus.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    :root {
+   --pixel-size: 2px;
+   --grid-cell: calc( var(--pixel-size) * 16);
+   --bg: #A2D729;
+}
+@media( min-width: 700px ) {
+   :root {
+      --pixel-size: 3px;
+   }
+}
+@media( min-width: 1000px ) {
+   :root {
+      --pixel-size: 4px;
+   }
+}
+/* @media( min-width: 1000px ) {
+   :root {
+      --pixel-size: 5px;
+   }
+} */
+
+html, main {
+   height: 100%;
+}
+
+main {
+   background: var(--bg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.pixel-art {
+   image-rendering: pixelated;
+}
+
+.frame {
+   /* This is just for Pen decoration */
+   width: calc(var(--pixel-size) * 160);
+   height: calc(var(--pixel-size) * 144);
+   outline: var(--pixel-size) solid #fff;
+   z-index:1; 
+   position:relative;
+}
+
+.camera {
+   width: calc(var(--pixel-size) * 160);
+   height: calc(var(--pixel-size) * 144);
+   overflow: hidden;
+   background: #61ddf7;
+   position:relative;
+}
+
+.map {
+   image-rendering: pixelated;
+   background-image: url("./assets/images/education-map.png");
+   background-size: 100%;
+   width: calc(13 * var(--grid-cell));
+   height: calc(10 * var(--grid-cell));
+   position: relative;
+}
+
+.character {
+   width: calc( var(--grid-cell)* 2 );
+   height: calc( var(--grid-cell)* 2 );
+   position: absolute;
+   overflow:hidden;
+}
+
+.shadow {
+   width: calc( var(--grid-cell)* 2 );
+   height: calc( var(--grid-cell)* 2 );
+   position: absolute;
+   left:0;
+   top:0;
+   background: url("https://assets.codepen.io/21542/DemoRpgCharacterShadow.png") no-repeat no-repeat;
+   background-size: 100%;
+}
+
+.character_spritesheet {
+   position: absolute;
+   background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat;
+   background-size: 100%;
+   width: calc( var(--grid-cell)* 8 );
+   height: calc( var(--grid-cell)* 8 );
+}
+
+.character[facing="right"] .character_spritesheet {
+   background-position-y: calc( var(--pixel-size) * -32 );
+}
+.character[facing="up"] .character_spritesheet {
+   background-position-y: calc( var(--pixel-size) * -64 );
+}
+.character[facing="left"] .character_spritesheet {
+   background-position-y: calc( var(--pixel-size) * -96 );
+}
+.character[walking="true"] .character_spritesheet {
+   animation: walkAnimation 0.6s steps(4) infinite; 
+}
+
+@keyframes walkAnimation {
+  from {
+    transform: translate3d(0%,0%,0);
+  }
+  to {
+    transform: translate3d(-100%,0%,0);
+  }
+}
+
+.dpad {
+   position:absolute;
+   right: calc(var(--pixel-size) * 2);
+   bottom: calc(var(--pixel-size) * 2);
+   width: calc(var(--pixel-size) * 37);
+   height: calc(var(--pixel-size) * 38);
+}
+.dpad-button {
+   appearance:none;
+   outline:0;
+   border:0;
+   background:transparent;
+   padding:0;
+   cursor:pointer;
+}
+.dpad-button svg {
+   display:block;
+   height: calc(var(--pixel-size) * 13);
+}
+
+.dpad-button.pressed .Arrow_arrow-inset { stroke:#07c2cc; }
+.dpad-button.pressed .Arrow_arrow-body { stroke:#17dfea; }
+
+.dpad-up {
+   position: absolute;
+   left: calc(var(--pixel-size) * 12);
+   top:0;
+}
+.dpad-down {
+   position: absolute;
+   bottom:var(--pixel-size);
+   left: calc(var(--pixel-size) * 12);
+}
+.dpad-left {
+   position: absolute;
+   top: calc(var(--pixel-size) * 12);
+   left:0;
+}
+.dpad-right {
+   position: absolute;
+   top: calc(var(--pixel-size) * 12);
+   right:0;
+}
+
+.dpad {
+   user-select:none;
+}
+
+
+.corner_topleft,
+.corner_topright,
+.corner_bottomleft,
+.corner_bottomright {
+   position: absolute;
+   width: var(--pixel-size);
+   height: var(--pixel-size);
+   background: var(--bg);
+   z-index:2;
+}
+
+.corner_topleft {
+   top: calc(var(--pixel-size) * -1);
+   left: calc(var(--pixel-size) * -1);
+}
+.corner_topright {
+   top: calc(var(--pixel-size) * -1);
+   right: calc(var(--pixel-size) * -1);
+}
+.corner_bottomleft {
+   bottom: calc(var(--pixel-size) * -1);
+   left: calc(var(--pixel-size) * -1);
+}
+.corner_bottomright {
+   bottom: calc(var(--pixel-size) * -1);
+   right: calc(var(--pixel-size) * -1);
+}
+
+.timer_count {
+   position:absolute;
+   top:calc(var(--pixel-size) * 10);
+   left:calc(var(--pixel-size) * 2);
+   width: calc(var(--pixel-size) * 75)
+}
+.score_count {
+   position:absolute;
+   top:calc(var(--pixel-size) * 2);
+   left:calc(var(--pixel-size) * 2);
+   width: calc(var(--pixel-size) * 75)
+}
+
+.options {
+   display: flex;
+   flex-direction: column;
+}
+
+.screen {
+    z-index: -1;
+}
+.solutions-area{
+	width: 100%;
+	height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("./assets/images/education-recycling-bg.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.solution-text-box{
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+.solution-text, .cardarea{
+	flex-basis: 50%;
+	padding-left: 5%;
+}
+/* Card with 'bouncing effect' feature */
+.card h5{
+    color: black;
+	font-size: 15px;
+}
+.card{
+    width: 200px;
+    height: 230px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s;
+}
+.card1{
+    background-image: url(./assets/images/education-recycling-plastic.jpg);
+}
+.card2{
+    background-image: url(./assets/images/education-recycling-paper.jpg);
+}
+.card3{
+    background-image: url(./assets/images/education-recycling-glass.jpg);
+}
+.card4{
+    background-image: url(./assets/images/education-recycling-metal.jpg);
+}
+.card:hover{
+    transform: translateY(-10px);
+}
+</style>
+<body>
+    <nav>
+        <div class="px-8">
+            <div class="flex justify-between">
+                <div class="flex space-x-4 py-5 items-center">
+                    <div>
+                        <a href="./index.html" class="flex items-center px-2 text-black font-bold text-4xl">ecoplus</a>
+                    </div>
+
+                    <div class="hidden font-semibold pt-2 text-lg text-gray-400 lg:flex items-center space-x-1">
+                        <a href="./index.html" class="px-3 hover:text-black">Home</a>
+                        <a href="./volunteer.html" class="px-3 hover:text-black">Volunteer</a>
+                        <a href="./education.html" class="px-3 hover:text-black text-black">Education</a>
+                        <a href="./community.html" class="px-3 hover:text-black">Community</a>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex items-center account">
+                    <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                    <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
+                </div>
+
+                <!-- mobile button -->
+                <div class="lg:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-gray-400 hover:text-black" fill="#FFF" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div class="mobile-menu hidden md:hidden ml-6 mb-4 font-semibold text-lg text-gray-400">
+            <a href="./index.html" class="block py-3 px-3 hover:text-black">Home</a>
+            <a href="./volunteer.html" class="block py-3 px-3 hover:text-black">Volunteer</a>
+            <a href="./education.html" class="block py-3 px-3 hover:text-black text-black">Education</a>
+            <a href="./community.html" class="block py-3 px-3 hover:text-black">Community</a>
+            <div class="block py-3 px-3 flex-wrap account">
+                <a class="btn-secondary" href="./sign-up.html">Sign Up</a>
+                <a class="btn-primary ml-4" href="./sign-in.html">Sign In</a>
+            </div>
+        </div>
+    </nav>
+    <div class="bg-primary mt-4 p-8 text-center">
+        <h1 class="p-0">Recycling</h1>
+        <p>Education</p>
+        <!--Buttons to navigate through education pages-->
+        <div class="mt-4">
+            <a href="javascript:history.back()" class="btn-secondary">Back</a>
+            <a href="./education.html" class="btn-primary ml-4">Next</a>
+        </div>
+    </div>
+       <!--Solutions Portion, includes 4 useful ways to tackle global warming-->
+       <div class="solutions-area" id="solutions">
+        <div class="solution-text-box">
+            <div class="solution-text">
+                <h1 class="text-white">Recyclables</h1>
+                <p class="text-lg text-white">40% of what we place inside the blue recycling bins are not suitable for recycling. That’s because these items are either contaminated with food and liquids, or made of materials that can’t be recycled at all.</p>
+                    <br><br>
+                <p class="text-lg text-white">The world has changed a lot in the past century. From individually packaged food servings to disposable diapers, more garbage is generated now than ever before. The average American discards seven and a half pounds of garbage every day.</p> 
+                    <br><br>
+                <p class="text-lg text-white"> This garbage, the solid waste stream, goes mostly to landfills, where it's compacted and buried. As the waste stream continues to grow, so will the pressures on our landfills, our resources, and our environment.</p>
+            </div>
+            <!--Card Feature-->
+            <div class="cardarea">
+                <div class="card card1">
+                </div>
+                <div class="card card2">  
+                </div>
+                <div class="card card3">    
+                </div>
+                <div class="card card4">  
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--How to Recycle-->
+    <div class="bg-primary mt-8 mx-8 rounded-2xl flex-col">
+        <div class="w-full p-8  lg:p-12">
+            <h1 style="text-align: center;">How to Recycle</h1>
+            <div class="flex">
+                <div class="h-1/2 w-full rounded-2xl ml-8">
+                    <img src="./assets/images/education-how-to-recycle.png">
+                </div>
+                <div class="flex flex-col ml-8">
+                    <p class="text-2xl">The four main steps of recycling is to find a space for your recycling bin, ensure the recylable content is clean before placing them into the bin then once your bin is full, bring it your nearest blue recycling bin.</p>
+                    <br>
+                    <p class="text-2xl">Set up a space at home for your recycling bin or bag to collect paper, plastics, metal and glass for recycling.</p>
+                    <br>
+                    <p class="text-2xl">Empty recylable containers of any content. Rinse them if necessary. Remember not to put any food and liquid waste,tissue,ceramics,light bulbs,batteries or bulky items into the recycling bin as these are all non-recyclable content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--The Recylcling Process in SG--->
+    <div class="bg-primary mt-8 mx-8 rounded-2xl flex-col">
+        <div class="w-full p-8  lg:p-12">
+            <h1 style="text-align: center;">The Process</h1>
+            <div class="flex justify-between">
+                <div class="w-1/2 rounded-2xl ml-8">
+                    <img src="./assets/images/education-recycling-process.png">
+                </div>
+                <div class="flex flex-col ml-4">
+                    <p class="text-2xl">The first step of the recycling process is recyclables are collected by a dedicated recycling truck and sent to a Materials Recovery Facility (MRF).</p>
+                    <br>
+                    <p class="text-2xl">Then at the MRF, the recyclables will be sorted out into paper, glass, metal and plastic.</p>
+                    <br>
+                    <p class="text-2xl">After sorting each type of waste is packed into bundles. The bundles are then sent to recycling plants for recycling.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Non-Recylables-->
+    <div class="mx-8 mt-8 flex flex-col">
+        <h1 style="text-align: center;">Non-Recylables</h1>
+    </div>
+    <div class="mx-8 mt-8 space-y-20 mb-8">
+        <div class="flex flex-col lg:flex-row">
+            <div class="w-full lg:w-1/2">
+                <h3 class="text-4xl font-bold pb-4">Styrofoam</h3>
+                <p class="text-lg">Styrofoam is not recyclable. Being strong, lightweight and an effective insulator, it is often used in coffeecups, food take outs, and in protecting our items from impacts. It is usually not recyclable, as it is expensive to transport, ship and store. If accepted for recycling, it is dependant on the recycling facility processing it.</p> 
+                <div class="mt-8">
+                    <button class="flex btn-primary"> <a href="https://recyclingpartnership.org/communitiesforrecycling/is-styrofoam-recyclable/">
+                        Find Out More
+                    </a>
+                    </button>  
+                </div>    
+            </div>
+            <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                <iframe class="h-full w-full rounded-2xl bg-blue-500" src="https://www.youtube.com/embed/fQR-LNDjjp8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row">
+            <div class="w-full lg:w-1/2">
+                <h2 class="text-4xl font-bold pb-4">Plastic Bags</h2>
+                <p class="text-lg">Not all plastic is recylable. There are 2 types of plastics: thermoset vs. thermoplastics. Thermoplastics are plastics that can be re-melted and re-molded into new products, and therefore, recycled. However, thermoset plastics “contain polymers that cross-link to form an irreversible chemical bond,” meaning that no matter how much heat you apply, they cannot be remelted into new material and hence, non-recyclable.</p> 
+                <div class="mt-8">
+                    <button class="flex btn-primary"> 
+                        <a href="https://blog.nationalgeographic.org/2018/04/04/7-things-you-didnt-know-about-plastic-and-recycling/">
+                            Find Out More
+                        </a>
+                    </button>  
+                </div> 
+            </div>
+            <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                <iframe class="h-full w-full rounded-2xl bg-blue-500" src="https://www.youtube.com/embed/Vhwc9V0fML4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row">
+            <div class="w-full lg:w-1/2">
+                <h2 class="text-4xl font-bold pb-4">Summary</h2>
+                <p class="text-lg">The more we recycle, the less garbage winds up in our landfills and incineration plants. By reusing aluminum, paper, glass, plastics, and other materials, we can save production and energy costs, and reduce the negative impacts that the extraction and processing of virgin materials has on the environment.</p>    
+            </div>
+            <div class="z-10 w-full h-96 mt-4 pl-0 lg:w-1/2 lg:mt-0 lg:pl-8">
+                <iframe class="h-full w-full rounded-2xl bg-blue-500" src="https://www.youtube.com/embed/6jQ7y_qQYUA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!--Reycycling Game-->
+    <main>
+        <div class="options flex flex-col">
+            <h1 class="mb-2 mr-8">Recycling Game</h1>
+            <button id = "Quit" class="btn-primary mr-8 mb-2"> 
+                <a href="./education.html"><h1>Quit</h1><a>
+            </button>
+            <button id="restart" class="btn-primary mr-8 mb-2">
+                <h1>Restart</h1>
+            </button>
+            <button id="recycle" class="btn-primary mr-8">
+                <h1>Recycle</h1>
+            </button>
+        </div>
+        <body>
+            <div class="frame">
+            <div class="corner_topleft"></div>
+            <div class="corner_topright"></div>
+            <div class="corner_bottomleft"></div>
+            <div class="corner_bottomright"></div>
+            
+            <div class="camera">
+                <div class="map pixel-art">
+                    <div class="character" facing="down" walking="true">
+                        <div class="shadow pixel-art"></div>
+                        <div class="character_spritesheet pixel-art"></div>
+                    </div>  
+                </div>
+
+
+                <div class="dpad">
+                    <div class="DemoDirectionUI flex-center">
+                        <button class="dpad-button dpad-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 13 13" shape-rendering="crispEdges">
+                                <path class="Arrow_outline-top"  stroke="#5f5f5f" d="M1 0h11M0 1h1M12 1h1M0 2h1M12 2h1M0 3h1M12 3h1M0 4h1M12 4h1M0 5h1M12 5h1M0 6h1M12 6h1M0 7h1M12 7h1M0 8h1M12 8h1" />
+                                <path class="Arrow_surface" stroke="#f5f5f5" d="M1 1h11M1 2h11M1 3h5M7 3h5M1 4h4M7 4h5M1 5h3M7 5h5M1 6h4M7 6h5M1 7h5M7 7h5M1 8h11" />
+                                <path class="Arrow_arrow-inset"  stroke="#434343" d="M6 3h1M5 4h1M4 5h1" />
+                                <path class="Arrow_arrow-body" stroke="#5f5f5f" d="M6 4h1M5 5h2M5 6h2M6 7h1" />
+                                <path class="Arrow_outline-bottom" stroke="#434343" d="M0 9h1M12 9h1M0 10h1M12 10h1M0 11h1M12 11h1M1 12h11" />
+                                <path class="Arrow_edge" stroke="#ffffff" d="M1 9h11" />
+                                <path class="Arrow_front" stroke="#cccccc" d="M1 10h11M1 11h11" />
+                            </svg>
+                        </button>
+                        <button class="dpad-button dpad-up">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 13 13" shape-rendering="crispEdges">
+                                <path class="Arrow_outline-top"  stroke="#5f5f5f" d="M1 0h11M0 1h1M12 1h1M0 2h1M12 2h1M0 3h1M12 3h1M0 4h1M12 4h1M0 5h1M12 5h1M0 6h1M12 6h1M0 7h1M12 7h1M0 8h1M12 8h1" />
+                                <path class="Arrow_surface" stroke="#f5f5f5" d="M1 1h11M1 2h11M1 3h11M1 4h5M7 4h5M1 5h4M8 5h4M1 6h3M9 6h3M1 7h11M1 8h11" />
+                                <path class="Arrow_arrow-inset"  stroke="#434343" d="M6 4h1M5 5h1M7 5h1" />
+                                <path class="Arrow_arrow-body" stroke="#5f5f5f" d="M6 5h1M4 6h5" />
+                                <path class="Arrow_outline-bottom" stroke="#434343" d="M0 9h1M12 9h1M0 10h1M12 10h1M0 11h1M12 11h1M1 12h11" />
+                                <path class="Arrow_edge" stroke="#ffffff" d="M1 9h11" />
+                                <path class="Arrow_front" stroke="#cccccc" d="M1 10h11M1 11h11" />
+                            </svg>
+                        </button>
+                        <button class="dpad-button dpad-down">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 13 13" shape-rendering="crispEdges">
+                                <path class="Arrow_outline-top" stroke="#5f5f5f" d="M1 0h11M0 1h1M12 1h1M0 2h1M12 2h1M0 3h1M12 3h1M0 4h1M12 4h1M0 5h1M12 5h1M0 6h1M12 6h1M0 7h1M12 7h1M0 8h1M12 8h1" />
+                                <path class="Arrow_surface" stroke="#f5f5f5" d="M1 1h11M1 2h11M1 3h11M1 4h3M9 4h3M1 5h4M8 5h4M1 6h5M7 6h5M1 7h11M1 8h11" />
+                                <path class="Arrow_arrow-inset" stroke="#434343" d="M4 4h5" />
+                                <path class="Arrow_arrow-body" stroke="#5f5f5f" d="M5 5h3M6 6h1" />
+                                <path class="Arrow_outline-bottom" stroke="#434343" d="M0 9h1M12 9h1M0 10h1M12 10h1M0 11h1M12 11h1M1 12h11" />
+                                <path class="Arrow_edge" stroke="#ffffff" d="M1 9h11" />
+                                <path class="Arrow_front" stroke="#cccccc" d="M1 10h11M1 11h11" />
+                            </svg>
+                        </button>
+                        <button class="dpad-button dpad-right">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 13 13" shape-rendering="crispEdges">
+                                <path class="Arrow_outline-top"  stroke="#5f5f5f" d="M1 0h11M0 1h1M12 1h1M0 2h1M12 2h1M0 3h1M12 3h1M0 4h1M12 4h1M0 5h1M12 5h1M0 6h1M12 6h1M0 7h1M12 7h1M0 8h1M12 8h1" />
+                                <path class="Arrow_surface" stroke="#f5f5f5" d="M1 1h11M1 2h11M1 3h5M7 3h5M1 4h5M8 4h4M1 5h5M9 5h3M1 6h5M8 6h4M1 7h5M7 7h5M1 8h11" />
+                                <path class="Arrow_arrow-inset"  stroke="#434343" d="M6 3h1M7 4h1M8 5h1" />
+                                <path class="Arrow_arrow-body" stroke="#5f5f5f" d="M6 4h1M6 5h2M6 6h2M6 7h1" />
+                                <path class="Arrow_outline-bottom" stroke="#434343" d="M0 9h1M12 9h1M0 10h1M12 10h1M0 11h1M12 11h1M1 12h11" />
+                                <path class="Arrow_edge" stroke="#ffffff" d="M1 9h11" />
+                                <path class="Arrow_front" stroke="#cccccc" d="M1 10h11M1 11h11" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <h1 class="score_count" id="score">Score: 0</h1>
+                <h1 class="timer_count" id="countdown">0:00</h1>
+            <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
+            <path stroke="rgba(128,191,255,0.01568627450980392)" d="M0 0h1M74 0h1M0 13h1M74 13h1" />
+            <path stroke="#5f5f5f" d="M1 0h73M0 1h1M74 1h1M0 2h1M74 2h1M0 3h1M74 3h1M0 4h1M74 4h1M0 5h1M74 5h1M0 6h1M74 6h1M0 7h1M74 7h1M0 8h1M74 8h1M0 9h1M74 9h1M0 10h1M74 10h1M0 11h1M74 11h1" />
+            <path stroke="#f5f5f5" d="M1 1h73M1 2h73M1 3h3M7 3h12M21 3h22M45 3h29M1 4h4M6 4h13M20 4h1M22 4h20M43 4h2M46 4h28M1 5h4M6 5h2M10 5h2M15 5h4M20 5h2M23 5h2M27 5h2M30 5h1M32 5h1M34 5h1M38 5h4M43 5h5M50 5h2M56 5h3M61 5h3M66 5h1M69 5h5M1 6h4M6 6h1M8 6h2M11 6h1M13 6h2M16 6h3M20 6h2M23 6h1M25 6h2M28 6h1M30 6h1M32 6h1M34 6h1M36 6h2M39 6h3M43 6h7M51 6h1M53 6h1M55 6h1M57 6h1M59 6h2M62 6h1M64 6h5M70 6h4M1 7h4M6 7h1M8 7h2M11 7h1M13 7h2M16 7h3M20 7h2M23 7h1M25 7h2M28 7h1M30 7h1M32 7h1M34 7h1M36 7h2M39 7h3M43 7h5M51 7h1M53 7h1M55 7h1M57 7h1M62 7h1M64 7h3M70 7h4M1 8h4M6 8h1M8 8h2M11 8h1M13 8h2M16 8h3M20 8h1M22 8h2M25 8h2M28 8h1M30 8h1M32 8h1M34 8h1M36 8h2M39 8h3M43 8h2M46 8h1M48 8h2M51 8h1M53 8h1M55 8h1M57 8h1M59 8h4M64 8h2M67 8h2M70 8h4M1 9h4M6 9h2M10 9h2M15 9h4M21 9h4M27 9h3M34 9h1M36 9h2M39 9h4M45 9h3M51 9h1M53 9h1M55 9h1M57 9h2M62 9h1M64 9h3M70 9h4M1 10h11M13 10h61M1 11h11M13 11h61" />
+            <path stroke="#323234" d="M4 3h3M19 3h2M43 3h2M5 4h1M19 4h1M21 4h1M42 4h1M45 4h1M5 5h1M8 5h2M12 5h3M19 5h1M22 5h1M25 5h2M29 5h1M31 5h1M33 5h1M35 5h3M42 5h1M48 5h2M52 5h4M59 5h2M64 5h2M67 5h2M5 6h1M7 6h1M10 6h1M12 6h1M15 6h1M19 6h1M22 6h1M24 6h1M27 6h1M29 6h1M31 6h1M33 6h1M35 6h1M38 6h1M42 6h1M50 6h1M52 6h1M54 6h1M56 6h1M58 6h1M61 6h1M63 6h1M69 6h1M5 7h1M7 7h1M10 7h1M12 7h1M15 7h1M19 7h1M22 7h1M24 7h1M27 7h1M29 7h1M31 7h1M33 7h1M35 7h1M38 7h1M42 7h1M48 7h3M52 7h1M54 7h1M56 7h1M58 7h4M63 7h1M67 7h3M5 8h1M7 8h1M10 8h1M12 8h1M15 8h1M19 8h1M21 8h1M24 8h1M27 8h1M29 8h1M31 8h1M33 8h1M35 8h1M38 8h1M42 8h1M45 8h1M47 8h1M50 8h1M52 8h1M54 8h1M56 8h1M58 8h1M63 8h1M66 8h1M69 8h1M5 9h1M8 9h2M12 9h3M19 9h2M25 9h2M30 9h4M35 9h1M38 9h1M43 9h2M48 9h3M52 9h1M54 9h1M56 9h1M59 9h3M63 9h1M67 9h3M12 10h1M12 11h1" />
+            <path stroke="#434343" d="M0 12h1M74 12h1M1 13h73" />
+            <path stroke="#cccccc" d="M1 12h73" />
+            </svg>
+                
+                
+                
+            </div>
+            </div>
+        </body>
+    </main>
+    <footer class="p-8 mt-8 bg-black text-white flex flex-col">
+        <div class="flex flex-col md:flex-row pb-12">
+            <h1 class="w-auto md:w-1/4 p-0 pb-8">ecoplus</h1>
+            <ul class="w-auto md:w-3/4 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <li class="space-y-4">
+                    <h2 class="text-primary">sources</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.un.org/press/en/2019/ga12131.doc.htm">United Nations</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.climate.gov/news-features/featured-images/month-month-recap-2020s-global-temperature-patterns">Climate.gov</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.nationalgeographic.com/environment/article/renewable-energy">National Geographic</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.greenpeace.org.uk/challenges/climate-change/solutions-climate-change/">Greenpeace</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.nasa.gov/press-release/2020-tied-for-warmest-year-on-record-nasa-analysis-shows/">NASA</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.theguardian.com/environment/2021/apr/28/speed-at-which-worlds-glaciers-are-melting-has-doubled-in-20-years">The Guardian</a></li>
+                    </ul>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">api used</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://modelviewer.dev/">model-viewer</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1">Bing News</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://supabase.io/">Supabase</a></li>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://www.netlify.com/">Netlify</a></li>
+                    </ul>
+                </li>
+                <li class="space-y-4">
+                    <h2 class="text-primary">developer</h2>
+                    <ul>
+                        <li><a class="hover:text-gray-400 transition-colors duration-200" target="blank" href="https://github.com/grilledwindow/ecoplus">github</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p class="pt-8 text-center">Copyright © 2021. Ngee Ann Polytechnic, Portfolio Development - Protect The Earth Team 2. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/matter.js"></script>
+    <script defer src="./js/education-game.js"></script>
+</body>
+</html>
