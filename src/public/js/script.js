@@ -188,6 +188,8 @@ function fillComments(elementCss, posts) {
 function datetimeFormat(datetime) {
     const d = new Date(datetime);
     const date = `${d.getDay()}/${d.getMonth() + 1}/${d.getFullYear() % 100}`;
-    const time = ` ${d.getHours()}:${d.getMinutes()}`;
+    const h = d.getHours();
+    const M = d.getMinutes();
+    const time = ` ${h < 10 ? 0 : ""}${h}:${M < 10 ? 0 : ""}${M}`;
     return date + time;
 }
