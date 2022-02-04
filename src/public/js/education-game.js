@@ -9,8 +9,8 @@ var held_directions = []; //State of which arrow keys we are holding down
 var speed = 1; //How fast the character moves in pixels per frame
 
 //Sound Effects
-var correct = new Audio("./assets/sound/education-game-correct.wav");
-var wrong = new Audio("./assets/sound/education-game-wrong.wav");
+var correct = new Audio("../assets/sound/education-game-correct.mp3");
+var wrong = new Audio("../assets/sound/education-game-wrong.mp3");
 
 //Timer
 var score = 0;
@@ -170,11 +170,9 @@ const removePressedAll = () => {
     })
 }
 document.body.addEventListener("mousedown", () => {
-    console.log('mouse is down')
     isPressed = true;
 })
 document.body.addEventListener("mouseup", () => {
-    console.log('mouse is up')
     isPressed = false;
     held_directions = [];
     removePressedAll();
