@@ -52,6 +52,8 @@ Please click [here](https://github.com/grilledwindow/ecoplus/tree/main/docs) to 
 * Education Solutions Page
 * Education Impacts Page
 * Education Quiz Page
+* Education Recycling Page
+* Recycling Game
 * News Articles API
 
 **Goh Wei Chong**
