@@ -39,7 +39,7 @@ function fetchEvents() {
                 </div>`
             })
         }
-
+        
         eventRow.html(htmlString)
     })
 }

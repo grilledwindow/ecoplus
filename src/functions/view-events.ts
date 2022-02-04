@@ -6,6 +6,7 @@ const handler: Handler = async (event, context) => {
     const { data } = await supabase
       .from("events")
       .select("*")
+      .order('id', { ascending: true })
 
     return {
       statusCode: 200,
