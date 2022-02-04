@@ -35,7 +35,6 @@ $(document).ready(function() {
     .then((res) => res.json())
     .then(({data}) => {
             let event = data.event[0]
-            console.log(event)
             $("#edit-event-name").val(`${event.name}`)
             $("#edit-event-description").html(event.description)
             $("#edit-event-details").html(event.details);
@@ -73,7 +72,6 @@ $(document).ready(function() {
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data)
                     if (data.error != undefined) {
                         $("#outcome-message").css("color", "#EF4444")
                         $("#outcome-message").html(`${data.error}.`)

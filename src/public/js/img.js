@@ -14,7 +14,6 @@ $(document).ready(function () {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
 
                 // Update session
                 localStorage.setItem("session", JSON.stringify(data.session));
