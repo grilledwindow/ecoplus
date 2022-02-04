@@ -57,19 +57,34 @@
     </nav>
     
     <main>
-        <div class="w-2/3 min-h-24 ms:w-1/4 flex flex flex-col md:flex-row md:items-center mt-2 md:mt-8 ml-8">
+        <div class="w-2/3 min-h-24 ms:w-1/4 flex flex-col md:flex-row md:items-center mt-2 md:mt-8 ml-8">
             <div class="w-48 h-48">
                 <img id="account-profile-photo" class="profile-photo w-full rounded-full object-cover bg-gray-400"/>
             </div>
             <div class="w-2/3 md:w-3/4 mt-4 md:mt-0 md:ml-16">
                 <h1 class="pb-4 text-2xl md:text-5xl" id="account-name">Name</h1>
                 <p id="account-username">Username</p>
-                <button id="account-edit-detail" class="btn-primary mt-4">Edit Details</button>
+                <button id="account-edit-detail" class="btn-primary flex items-center mt-4">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                    Edit Details
+                </button>
             </div>
         </div>
-        <div class="mx-8 mt-8 space-x-4">
-            <button id="account-change-photo" class="btn-primary">Change photo</button>
-            <button id="account-delete-photo" class="btn-warning">Delete photo</button>
+        <div class="mt-4 ml-8 md:flex md:flex-row">
+            <button id="account-change-photo" class="btn-primary flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Change photo
+            </button>
+            <button id="account-delete-photo" class="btn-warning flex items-center mt-4 md:mt-0 md:ml-4">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+                Delete photo
+            </button>
         </div>
         <div class="mx-8 mt-8 space-x-4">
             <button class="btn-secondary"><a href="javascript:history.back()">Back</a></button>
