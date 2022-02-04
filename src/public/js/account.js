@@ -6,24 +6,13 @@ $(document).ready(function () {
     }
 
     resizeImg();
-    function resizeImg() {
-        const imgw = $("#account-profile-photo").width();
-        $("#account-profile-photo").css({ "height": imgw + "px" });
-    }
 
     window.addEventListener('resize', resizeImg);
 
     const modalBg = $("#modal-bg");
     const modalUploadForm = $("#modal-form-upload");
     const modalDeleteForm = $("#modal-form-delete");
-    const modalEditDetail = $("#modal-edit-detail");
-    
-    function hideModal() {
-        modalBg.hide();
-        modalUploadForm.hide();
-        modalDeleteForm.hide();
-        modalEditDetail.hide();
-    }
+    const modalEditDetail = $("#modal-form-edit");
 
     $("#account-change-photo").click(() => {
         modalBg.show();
@@ -175,9 +164,7 @@ $(document).ready(function () {
         }
     })
 
-    $("#edit-detail-submit").click(e => {
-        e.preventDefault()
-
+    $("#modal-edit").click(e => {
         const user_id = sessionStorage.getItem("userID");
         const name = document.getElementById("edit-account-name").value;
         const username = document.getElementById("edit-account-username").value;
@@ -195,3 +182,15 @@ $(document).ready(function () {
         });
     })
 })
+
+function resizeImg() {
+    const imgw = $("#account-profile-photo").width();
+    $("#account-profile-photo").css({ "height": imgw + "px" });
+}
+
+function hideModal() {
+    $("#modal-bg").hide();
+    $("#modal-form-upload").hide();
+    $("#modal-form-delete").hide();
+    $("#modal-form-edit").hide();
+}
