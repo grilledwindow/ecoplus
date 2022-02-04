@@ -8,6 +8,14 @@ $(document).ready(function() {
         window.location.href = "../index.html";
     }
 
+    // Show images when user uploads them
+    const eventImgInput = document.getElementById("event-img-input");
+    const eventImg = document.getElementById("event-img");
+    eventImgInput.addEventListener("change", () => {
+        const img = eventImgInput.files[0];
+        eventImg.src = window.URL.createObjectURL(img);
+    });
+
     fetch("/api/event-details", {
         method: "POST",
         body: JSON.stringify({
@@ -80,8 +88,7 @@ $(document).ready(function() {
 
             $("#modal-change-img").on("click", () => {
                 $("#event-img-error-message").html("")
-                const imgInput = document.getElementById("change-img-input");
-                const img = imgInput.files[0];
+                const img = eventImgInput.files[0];
                 const session = JSON.parse(localStorage.getItem("session"));
 
                 if (img) {

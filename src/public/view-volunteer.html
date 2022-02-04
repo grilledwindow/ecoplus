@@ -59,7 +59,7 @@
     
     <main>
         <div class="flex mx-8 mt-8 flex-col md:flex-row justify-between">
-            <img class="event-img object-cover border-4 border-gray-400 bg-gray-400 rounded-lg h-80 w-auto md:w-2/3 lg:w-1/2 mr-2">
+            <img class="event-img object-cover bg-gray-400 rounded-lg h-80 w-auto md:w-2/3 lg:w-1/2 mr-2">
 
             <div class="bg-primary p-8 rounded-lg w-full self-center mt-8 md:mt-0 md:max-w-min">
                 <p class="text-6xl font-bold" id="days-remaining">-</p>
@@ -116,11 +116,15 @@
 
             <div id="change-event-img-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
                 <div class="flex flex-col items-center">
-                    <img class="event-img object-cover border-2 border-gray-200 bg-gray-200 h-48 w-full rounded-lg flex-shrink-0" />
-                    <div class="mt-4 flex-col">
+                    <img id="event-img" class="event-img object-cover bg-gray-400 h-48 w-full rounded-lg flex-shrink-0" />
+                    <div class="mt-4 flex flex-col items-center">
                         <p class="font-bold text-center">Change Event Image</p>
                         <p class="text-center"><span class="text-red-600" id="event-img-error-message"></span></p>
-                        <input id="change-img-input" type="file" accept=".png, .jpg" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
+                        <!-- <input id="change-img-input" type="file" accept=".png, .jpg" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" /> -->
+                        <label class="btn-primary mt-4 hover:cursor-pointer" style="width: fit-content">
+                            <span>Choose photo</span>
+                            <input type="file" id="event-img-input" name="img" accept="image/*" class="hidden img-input" />
+                        </label>
                         <div class="mt-4 flex flex-col md:flex-row justify-center">
                             <button class="modal-cancel btn-secondary">Cancel</button>
                             <button id="modal-change-img" class="btn-outline mt-4 md:ml-4 md:mt-0">Change Image</button>
