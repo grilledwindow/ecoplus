@@ -58,11 +58,12 @@
 
     <main>
         <!-- Community Profile Images -->
-        <div>
+        <div class="-mb-32">
             <div class="bg-gray-400 h-64">
                 <img class="object-cover cover-community-img h-full w-full" />
             </div>
-            <img class="object-cover profile-community-img bg-gray-400 h-48 w-48 mx-auto md:mx-0 md:ml-20 -mt-24 rounded-full" />
+            <img class="object-cover profile-community-img bg-gray-400 h-48 w-48 mx-auto md:ml-20 rounded-full"
+                style="border: 0.25em solid white; transform: translateY(-50%);"></img>
         </div>
 
         <div class="mx-8">
@@ -153,25 +154,32 @@
                 </div>
                 <div id="change-profile-img-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <div class="flex flex-col items-center">
-                        <img class="profile-community-img object-cover border-2 border-gray-200 bg-gray-200 h-48 w-48 rounded-full flex-shrink-0" />
-                        <div class="mt-4 flex-col">
+                        <img id="change-profile-community-img" class="profile-community-img object-cover bg-gray-400 h-48 w-48 rounded-full flex-shrink-0" />
+                        <div class="mt-4 flex flex-col items-center">
                             <p class="font-bold text-center">Change Profile Picture</p>
                             <p class="text-center"><span class="text-red-600" id="profile-img-error-message"></span></p>
-                            <input id="change-profile-community-input" type="file" accept=".png, .jpg" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
+                            <label class="btn-primary mt-4 hover:cursor-pointer" style="width: fit-content">
+                                <span>Choose photo</span>
+                                <input type="file" id="change-profile-community-input" name="img" accept="image/*" class="hidden img-input" />
+                            </label>
                             <div class="mt-4 flex flex-col md:flex-row justify-center">
                                 <button class="modal-cancel btn-secondary">Cancel</button>
-                                <button id="modal-change-profile-img" class="btn-outline mt-4 md:ml-4 md:mt-0">Change Image</button>
+                                <button id="modal-change-profile-img" class="btn-outline mt-4 md:ml-4 md:mt-0">Change</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="change-cover-img-modal-form" class="hidden fixed p-6 rounded-lg bg-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <div class="flex flex-col items-center">
-                        <img class="cover-community-img object-cover border-2 border-gray-200 bg-gray-200 h-48 w-full rounded-lg flex-shrink-0" />
-                        <div class="mt-4 flex-col">
+                        <img id="change-cover-community-img" class="cover-community-img object-cover gray-400 h-48 w-full rounded-lg flex-shrink-0" />
+                        <div class="mt-4 flex flex-col items-center">
                             <p class="font-bold text-center">Change Cover Picture</p>
                             <p class="text-center"><span class="text-red-600" id="cover-img-error-message"></span></p>
-                            <input id="change-cover-community-input" type="file" accept=".png, .jpg" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" />
+                            <!-- <input id="change-cover-community-input" type="file" accept=".png, .jpg" required class="my-2 p-3 rounded-lg border-2 border-gray-200 outline-none focus:outline-none focus:ring w-full" /> -->
+                            <label class="btn-primary mt-4 hover:cursor-pointer" style="width: fit-content">
+                                <span>Choose photo</span>
+                                <input type="file" id="change-cover-community-input" name="img" accept="image/*" class="hidden img-input" />
+                            </label>
                             <div class="mt-4 flex flex-col md:flex-row justify-center">
                                 <button class="modal-cancel btn-secondary">Cancel</button>
                                 <button id="modal-change-cover-img" class="btn-outline mt-4 md:ml-4 md:mt-0">Change Image</button>

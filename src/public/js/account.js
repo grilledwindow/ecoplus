@@ -177,7 +177,8 @@ $(document).ready(function () {
         })
         .then((res) => res.json())
         .then(({data}) => {
-            sessionStorage.setItem("username", data[0].username)
+            if (!!data)
+                sessionStorage.setItem("username", data[0].username)
             window.location.reload()
         });
     })
