@@ -176,11 +176,12 @@ $(document).ready(function () {
     })
 
     $("#edit-detail-submit").click(e => {
-        // e.preventDefault();
+        e.preventDefault()
+
         const user_id = sessionStorage.getItem("userID");
         const name = document.getElementById("edit-account-name").value;
         const username = document.getElementById("edit-account-username").value;
-        console.log(name, username)
+
         fetch("/api/account-edit",  {
             method: "POST",
             body: JSON.stringify({
@@ -189,9 +190,8 @@ $(document).ready(function () {
         })
         .then((res) => res.json())
         .then(({data}) => {
-                let user = data.user[0]
-                console.log(user);
-                window.location.reload();
+            sessionStorage.setItem("username", data[0].username)
+            window.location.reload()
         });
     })
 })

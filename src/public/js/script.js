@@ -76,7 +76,10 @@ function _checkUserLogin() {
             !</p>
         </div>
     `);
-    setPfpImgSrc(JSON.parse(localStorage.getItem("imgUrl")));
+
+    if (localStorage.getItem("imgUrl") != "undefined") {
+        setPfpImgSrc(JSON.parse(localStorage.getItem("imgUrl")));
+    }
 }
 
 function checkForPasswordRecovery() {

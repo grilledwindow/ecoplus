@@ -3,7 +3,7 @@ import { supabase } from "./utils/supabase";
 
 const handler: Handler = async (event, context) => {
     const { user_id, name, username } = JSON.parse(event.body);
-    console.log(user_id, name, username);
+
     try {
         const { data, error } = await supabase
         .from('users')
@@ -20,14 +20,14 @@ const handler: Handler = async (event, context) => {
         };
     } 
 
-    catch (error) {
-    console.error(error);
-
-    return {
-    statusCode: 400,
-    body: JSON.stringify(error),
-    };
-}
+    catch (error) { 
+        console.error(error)
+        
+        return {
+            statusCode: 400,
+            body: JSON.stringify(error),
+        };
+    }
 };
 
 export { handler };
