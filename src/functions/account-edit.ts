@@ -5,13 +5,25 @@ const handler: Handler = async (event, context) => {
     const { user_id, name, username } = JSON.parse(event.body);
 
     try {
+        let fields = {};
+        if (!name && !username) {
+            return {
+                statusCode: 200,
+                body: JSON.stringify({ data: null }),
+            }
+        }
+
+        if (name) {
+            fields["name"] = name;
+        }
+        if (username) {
+            fields["username"] = username;
+        }
         const { data, error } = await supabase
         .from('users')
-        .update({
-            name: name, 
-            username: username
-        })
+        .update(fields)
         .eq('id', user_id);
+
         if (error) throw { error: error };
         console.log(data)
         return {
